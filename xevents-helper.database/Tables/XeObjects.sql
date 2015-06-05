@@ -10,5 +10,6 @@
     capabilities_desc nvarchar(512) null,
     type_name nvarchar(128) null,
     type_package_guid uniqueidentifier null,
-    type_size int null
+    type_size int null,
+    constraint PK_XeObjects_NameTypePackageGuid primary key (name, ReleaseId, object_type, package_guid)
 );
