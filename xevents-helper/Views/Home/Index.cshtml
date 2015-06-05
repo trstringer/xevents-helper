@@ -6,16 +6,21 @@
 }
 
 <div class="container">
-    <div class="row">
+    <div class="row text-center">
         <div class="col-md-8">
             <h2>Extended Events Helper</h2>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-4">
-            Do something
+        <div class="col-md-12">
+            <label for="SessionName" class="col-md-2 control-label">Session Name</label>
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.SessionName, new { @class = "form-control", id = "SessionName" })
+            </div>
         </div>
-        <div class="col-md-4">
+    </div>
+    <div class="row">
+        <div class="col-md-12">
             @Html.DropDownListFor(m => m.SelectedRelease, Model.Releases, new { @class = "form-control" })
         </div>
     </div>

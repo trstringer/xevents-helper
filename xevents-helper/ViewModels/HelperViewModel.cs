@@ -11,5 +11,6 @@ namespace xevents_helper.ViewModels
     {
         public IEnumerable<SelectListItem> Releases { get; set; }
         public string SelectedRelease { get; set; }
+        public string SessionName { get; set; }
     }
 }
