@@ -23,7 +23,10 @@ textarea {
     max-width: 280px;
 }
 
-.col-centered{
+.col-centered {
     float: none;
-    margin: 0 auto;
+}
+
+.main-row {
+    margin-top: 20px;
 }
