@@ -20,12 +20,14 @@
     </div>
     <div class="row main-row">
         <div class="col-md-4 center-block col-centered">
-            @Html.DropDownListFor(m => m.SelectedRelease, Model.Releases, new { @class = "form-control" })
+            @Html.DropDownListFor(m => m.SelectedRelease, Model.Releases, new { @class = "form-control", id = "ReleaseNameList" })
         </div>
     </div>
     <div class="row main-row">
         <div class="col-md-4 center-block col-centered">
-            @Html.ListBoxFor(m => m.SelectedEvent, Model.Events, new { @class = "form-control" })
+            @Html.ListBoxFor(m => m.SelectedEvent, Model.Events, new { @class = "form-control", id = "EventNameList" })
+            <br />
+            <label class="control-label" id="EventSessionDescription" />
         </div>
     </div>
 </div>

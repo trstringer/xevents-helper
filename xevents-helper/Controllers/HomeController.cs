@@ -37,5 +37,14 @@ namespace xevents_helper.Controllers
 
             return View();
         }
+
+        public JsonResult GetEventDescription(string releaseName, string eventName)
+        {
+            DataGatherer dataGatherer = new DataGatherer();
+
+            string eventDescription = dataGatherer.GetEventDescription(releaseName, eventName);
+
+            return Json(new { eventName = eventName, eventDescription = eventDescription }, JsonRequestBehavior.AllowGet);
+        }
     }
 }

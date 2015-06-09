@@ -149,5 +149,35 @@ namespace xevents_helper.Models
 
             return events;
         }
+
+        public string GetEventDescription(string releaseName, string eventName)
+        {
+            DataTable output = new DataTable();
+
+            using (SqlConnection databaseConnection = new SqlConnection(_connectionString))
+            using (SqlCommand sqlCmd = new SqlCommand())
+            using (SqlDataAdapter sda = new SqlDataAdapter(sqlCmd))
+            {
+                sqlCmd.Connection = databaseConnection;
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.CommandText = "dbo.EventGetDescription";
+
+                sqlCmd.Parameters.Add(new SqlParameter("@ReleaseName", SqlDbType.VarChar, 32)
+                    {
+                        Value = releaseName
+                    });
+                sqlCmd.Parameters.Add(new SqlParameter("@EventName", SqlDbType.NVarChar, 128)
+                    {
+                        Value = eventName
+                    });
+
+                sda.Fill(output);
+            }
+
+            if (output.Rows.Count >= 1)
+                return output.Rows[0]["description"].ToString();
+            else
+                return string.Empty;
+        }
     }
 }
