@@ -15,6 +15,19768 @@ insert into dbo.Release (Major, Minor, FriendlyName)
 values (12, 0, 'SQL 2014');
 
 /******************************************************************************
+        SQL 2008 data seeding
+******************************************************************************/
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'NullEvent'
+    and o.object_type = 'event'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'NullEvent',
+        'event',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Null event in package 0.',
+        1,
+        'private',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'callstack'
+    and o.object_type = 'action'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'callstack',
+        'action',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        '16-frame call stack',
+        NULL,
+        NULL,
+        'callstack',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'attach_activity_id'
+    and o.object_type = 'action'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'attach_activity_id',
+        'action',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Attach an activity ID to an event',
+        1,
+        'private',
+        'activity_id',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        20
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'attach_activity_id_xfer'
+    and o.object_type = 'action'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'attach_activity_id_xfer',
+        'action',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Attach an activity ID transfer to an event',
+        1,
+        'private',
+        'activity_id_xfer',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        20
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'debug_break'
+    and o.object_type = 'action'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'debug_break',
+        'action',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Break the process in the default debugger',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'collect_system_time'
+    and o.object_type = 'action'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'collect_system_time',
+        'action',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Collect the current system time with 100 microsecond precision and interrupt tick resolution',
+        NULL,
+        NULL,
+        'filetime',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'collect_cpu_cycle_time'
+    and o.object_type = 'action'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'collect_cpu_cycle_time',
+        'action',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Collect the current CPU''s cycle count',
+        NULL,
+        NULL,
+        'cpu_cycle',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'etw_classic_sync_target'
+    and o.object_type = 'target'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'etw_classic_sync_target',
+        'target',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Event Tracing for Windows (ETW) Synchronous Target',
+        1536,
+        'singleton synchronous',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'synchronous_bucketizer'
+    and o.object_type = 'target'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'synchronous_bucketizer',
+        'target',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Synchronous bucketizing target',
+        1024,
+        'synchronous',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'asynchronous_bucketizer'
+    and o.object_type = 'target'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'asynchronous_bucketizer',
+        'target',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Asynchronous bucketizing target',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'asynchronous_file_target'
+    and o.object_type = 'target'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'asynchronous_file_target',
+        'target',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Asynchronous file target',
+        256,
+        'process_whole_buffers',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'pair_matching'
+    and o.object_type = 'target'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'pair_matching',
+        'target',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Pairing target',
+        256,
+        'process_whole_buffers',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'synchronous_event_counter'
+    and o.object_type = 'target'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'synchronous_event_counter',
+        'target',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Synchronous Counter target',
+        1024,
+        'synchronous',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'ring_buffer'
+    and o.object_type = 'target'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'ring_buffer',
+        'target',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Asynchronous ring buffer target.',
+        256,
+        'process_whole_buffers',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'etw_level'
+    and o.object_type = 'map'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'etw_level',
+        'map',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'ETW levels',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'etw_channel'
+    and o.object_type = 'map'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'etw_channel',
+        'map',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'ETW channels',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'etw_opcodes'
+    and o.object_type = 'map'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'etw_opcodes',
+        'map',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Standard ETW opcodes',
+        1,
+        'private',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'log_messages'
+    and o.object_type = 'map'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'log_messages',
+        'map',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Log messages that can originate from package 0',
+        1,
+        'private',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'current_thread_id'
+    and o.object_type = 'pred_source'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'current_thread_id',
+        'pred_source',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Get The current Windows thread ID',
+        NULL,
+        NULL,
+        'uint32',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        4
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'counter'
+    and o.object_type = 'pred_source'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'counter',
+        'pred_source',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Count the number of times evaluated',
+        NULL,
+        NULL,
+        'uint64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'partitioned_counter'
+    and o.object_type = 'pred_source'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'partitioned_counter',
+        'pred_source',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Per-CPU partitioned counter. Value is aggregated and approximate',
+        NULL,
+        NULL,
+        'uint64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'equal_uint64'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'equal_uint64',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Equality operator between two 64-bit unsigned int values',
+        NULL,
+        NULL,
+        'uint64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'not_equal_uint64'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'not_equal_uint64',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Inequality operator between two 64-bit unsigned int values',
+        NULL,
+        NULL,
+        'uint64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_uint64'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_uint64',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Less than operator between two 64-bit unsigned int values',
+        NULL,
+        NULL,
+        'uint64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_equal_uint64'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_equal_uint64',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Less than or Equal operator between two 64-bit unsigned int values',
+        NULL,
+        NULL,
+        'uint64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_uint64'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_uint64',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Greater than operator between two 64-bit unsigned int values',
+        NULL,
+        NULL,
+        'uint64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_equal_uint64'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_equal_uint64',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Greater than or Equal operator between two 64-bit unsigned int values',
+        NULL,
+        NULL,
+        'uint64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_max_uint64'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_max_uint64',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        ' 64-bit unsigned int values',
+        NULL,
+        NULL,
+        'uint64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_min_uint64'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_min_uint64',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        ' 64-bit unsigned int values',
+        NULL,
+        NULL,
+        'uint64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'equal_int64'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'equal_int64',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Equality operator between two 64-bit signed int values',
+        NULL,
+        NULL,
+        'int64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'not_equal_int64'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'not_equal_int64',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Inequality operator between two 64-bit signed int values',
+        NULL,
+        NULL,
+        'int64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_int64'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_int64',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Less than operator between two 64-bit signed int values',
+        NULL,
+        NULL,
+        'int64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_equal_int64'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_equal_int64',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Less than or Equal operator between two 64-bit signed int values',
+        NULL,
+        NULL,
+        'int64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_int64'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_int64',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Greater than operator between two 64-bit signed int values',
+        NULL,
+        NULL,
+        'int64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_equal_int64'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_equal_int64',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Greater than or Equal operator between two 64-bit signed int values',
+        NULL,
+        NULL,
+        'int64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_max_int64'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_max_int64',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        ' 64-bit signed int values',
+        NULL,
+        NULL,
+        'int64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_min_int64'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_min_int64',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        ' 64-bit signed int values',
+        NULL,
+        NULL,
+        'int64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'equal_float64'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'equal_float64',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Equality operator between two 64-bit double  values',
+        NULL,
+        NULL,
+        'float64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'not_equal_float64'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'not_equal_float64',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Inequality operator between two 64-bit double  values',
+        NULL,
+        NULL,
+        'float64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_float64'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_float64',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Less than operator between two 64-bit double  values',
+        NULL,
+        NULL,
+        'float64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_equal_float64'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_equal_float64',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Less than or Equal operator between two 64-bit double  values',
+        NULL,
+        NULL,
+        'float64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_float64'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_float64',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Greater than operator between two 64-bit double  values',
+        NULL,
+        NULL,
+        'float64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_equal_float64'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_equal_float64',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Greater than or Equal operator between two 64-bit double  values',
+        NULL,
+        NULL,
+        'float64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_max_float64'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_max_float64',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        ' 64-bit double  values',
+        NULL,
+        NULL,
+        'float64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_min_float64'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_min_float64',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        ' 64-bit double  values',
+        NULL,
+        NULL,
+        'float64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'equal_i_ansi_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'equal_i_ansi_string_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Equality operator between two ANSI string pointer values',
+        NULL,
+        NULL,
+        'ansi_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'not_equal_i_ansi_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'not_equal_i_ansi_string_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Inequality operator between two ANSI string pointer values',
+        NULL,
+        NULL,
+        'ansi_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_i_ansi_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_i_ansi_string_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Less than operator between two ANSI string pointer values',
+        NULL,
+        NULL,
+        'ansi_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_equal_i_ansi_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_equal_i_ansi_string_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Less than or Equal operator between two ANSI string pointer values',
+        NULL,
+        NULL,
+        'ansi_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_i_ansi_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_i_ansi_string_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Greater than operator between two ANSI string pointer values',
+        NULL,
+        NULL,
+        'ansi_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_equal_i_ansi_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_equal_i_ansi_string_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Greater than or Equal operator between two ANSI string pointer values',
+        NULL,
+        NULL,
+        'ansi_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'equal_i_unicode_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'equal_i_unicode_string_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Equality operator between two UNICODE string pointer values',
+        NULL,
+        NULL,
+        'unicode_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'not_equal_i_unicode_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'not_equal_i_unicode_string_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Inequality operator between two UNICODE string pointer values',
+        NULL,
+        NULL,
+        'unicode_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_i_unicode_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_i_unicode_string_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Less than operator between two UNICODE string pointer values',
+        NULL,
+        NULL,
+        'unicode_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_equal_i_unicode_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_equal_i_unicode_string_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Less than or Equal operator between two UNICODE string pointer values',
+        NULL,
+        NULL,
+        'unicode_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_i_unicode_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_i_unicode_string_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Greater than operator between two UNICODE string pointer values',
+        NULL,
+        NULL,
+        'unicode_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_equal_i_unicode_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_equal_i_unicode_string_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Greater than or Equal operator between two UNICODE string pointer values',
+        NULL,
+        NULL,
+        'unicode_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'equal_ansi_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'equal_ansi_string_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Equality operator between two ANSI string pointer values',
+        NULL,
+        NULL,
+        'ansi_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'not_equal_ansi_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'not_equal_ansi_string_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Inequality operator between two ANSI string pointer values',
+        NULL,
+        NULL,
+        'ansi_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_ansi_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_ansi_string_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Less than operator between two ANSI string pointer values',
+        NULL,
+        NULL,
+        'ansi_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_equal_ansi_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_equal_ansi_string_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Less than or Equal operator between two ANSI string pointer values',
+        NULL,
+        NULL,
+        'ansi_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_ansi_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_ansi_string_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Greater than operator between two ANSI string pointer values',
+        NULL,
+        NULL,
+        'ansi_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_equal_ansi_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_equal_ansi_string_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Greater than or Equal operator between two ANSI string pointer values',
+        NULL,
+        NULL,
+        'ansi_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'equal_unicode_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'equal_unicode_string_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Equality operator between two UNICODE string pointer values',
+        NULL,
+        NULL,
+        'unicode_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'not_equal_unicode_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'not_equal_unicode_string_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Inequality operator between two UNICODE string pointer values',
+        NULL,
+        NULL,
+        'unicode_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_unicode_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_unicode_string_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Less than operator between two UNICODE string pointer values',
+        NULL,
+        NULL,
+        'unicode_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_equal_unicode_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_equal_unicode_string_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Less than or Equal operator between two UNICODE string pointer values',
+        NULL,
+        NULL,
+        'unicode_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_unicode_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_unicode_string_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Greater than operator between two UNICODE string pointer values',
+        NULL,
+        NULL,
+        'unicode_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_equal_unicode_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_equal_unicode_string_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Greater than or Equal operator between two UNICODE string pointer values',
+        NULL,
+        NULL,
+        'unicode_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'equal_i_ansi_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'equal_i_ansi_string',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Equality operator between two ANSI string values',
+        NULL,
+        NULL,
+        'ansi_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'not_equal_i_ansi_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'not_equal_i_ansi_string',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Inequality operator between two ANSI string values',
+        NULL,
+        NULL,
+        'ansi_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_i_ansi_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_i_ansi_string',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Less than operator between two ANSI string values',
+        NULL,
+        NULL,
+        'ansi_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_equal_i_ansi_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_equal_i_ansi_string',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Less than or Equal operator between two ANSI string values',
+        NULL,
+        NULL,
+        'ansi_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_i_ansi_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_i_ansi_string',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Greater than operator between two ANSI string values',
+        NULL,
+        NULL,
+        'ansi_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_equal_i_ansi_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_equal_i_ansi_string',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Greater than or Equal operator between two ANSI string values',
+        NULL,
+        NULL,
+        'ansi_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'equal_i_unicode_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'equal_i_unicode_string',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Equality operator between two UNICODE string values',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'not_equal_i_unicode_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'not_equal_i_unicode_string',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Inequality operator between two UNICODE string values',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_i_unicode_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_i_unicode_string',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Less than operator between two UNICODE string values',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_equal_i_unicode_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_equal_i_unicode_string',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Less than or Equal operator between two UNICODE string values',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_i_unicode_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_i_unicode_string',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Greater than operator between two UNICODE string values',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_equal_i_unicode_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_equal_i_unicode_string',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Greater than or Equal operator between two UNICODE string values',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'equal_ansi_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'equal_ansi_string',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Equality operator between two ANSI string values',
+        NULL,
+        NULL,
+        'ansi_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'not_equal_ansi_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'not_equal_ansi_string',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Inequality operator between two ANSI string values',
+        NULL,
+        NULL,
+        'ansi_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_ansi_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_ansi_string',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Less than operator between two ANSI string values',
+        NULL,
+        NULL,
+        'ansi_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_equal_ansi_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_equal_ansi_string',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Less than or Equal operator between two ANSI string values',
+        NULL,
+        NULL,
+        'ansi_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_ansi_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_ansi_string',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Greater than operator between two ANSI string values',
+        NULL,
+        NULL,
+        'ansi_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_equal_ansi_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_equal_ansi_string',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Greater than or Equal operator between two ANSI string values',
+        NULL,
+        NULL,
+        'ansi_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'equal_unicode_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'equal_unicode_string',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Equality operator between two UNICODE string values',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'not_equal_unicode_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'not_equal_unicode_string',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Inequality operator between two UNICODE string values',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_unicode_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_unicode_string',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Less than operator between two UNICODE string values',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_equal_unicode_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_equal_unicode_string',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Less than or Equal operator between two UNICODE string values',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_unicode_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_unicode_string',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Greater than operator between two UNICODE string values',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_equal_unicode_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_equal_unicode_string',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Greater than or Equal operator between two UNICODE string values',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'equal_boolean'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'equal_boolean',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Equality operator between two Boolean values',
+        NULL,
+        NULL,
+        'boolean',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        1
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'not_equal_boolean'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'not_equal_boolean',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Inequality operator between two Boolean values',
+        NULL,
+        NULL,
+        'boolean',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        1
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'equal_guid_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'equal_guid_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Equality operator between two GUID pointer values',
+        NULL,
+        NULL,
+        'guid_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'not_equal_guid_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'not_equal_guid_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Inequality operator between two GUID pointer values',
+        NULL,
+        NULL,
+        'guid_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'equal_guid'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'equal_guid',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Equality operator between two GUID values',
+        NULL,
+        NULL,
+        'guid',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'not_equal_guid'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'not_equal_guid',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Inequality operator between two GUID values',
+        NULL,
+        NULL,
+        'guid',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'equal_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'equal_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Equality operator between two Generic pointer values',
+        NULL,
+        NULL,
+        'ulong_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'not_equal_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'not_equal_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Inequality operator between two Generic pointer values',
+        NULL,
+        NULL,
+        'ulong_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Less than operator between two Generic pointer values',
+        NULL,
+        NULL,
+        'ulong_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_equal_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_equal_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Less than or Equal operator between two Generic pointer values',
+        NULL,
+        NULL,
+        'ulong_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Greater than operator between two Generic pointer values',
+        NULL,
+        NULL,
+        'ulong_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_equal_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_equal_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Greater than or Equal operator between two Generic pointer values',
+        NULL,
+        NULL,
+        'ulong_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_max_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_max_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        ' Generic pointer values',
+        NULL,
+        NULL,
+        'ulong_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_min_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_min_ptr',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        ' Generic pointer values',
+        NULL,
+        NULL,
+        'ulong_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'divides_by_uint64'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'divides_by_uint64',
+        'pred_compare',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Whether a uint64 divides another with no remainder',
+        NULL,
+        NULL,
+        'uint64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'null'
+    and o.object_type = 'type'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'null',
+        'type',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'The NULL type',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'int8'
+    and o.object_type = 'type'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'int8',
+        'type',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Signed 8-bit integer',
+        256,
+        'sign_extended',
+        'int8',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        1
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'int16'
+    and o.object_type = 'type'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'int16',
+        'type',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Signed 16-bit integer',
+        256,
+        'sign_extended',
+        'int16',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        2
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'int32'
+    and o.object_type = 'type'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'int32',
+        'type',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Signed 32-bit integer',
+        256,
+        'sign_extended',
+        'int32',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        4
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'int64'
+    and o.object_type = 'type'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'int64',
+        'type',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Signed 64-bit integer',
+        256,
+        'sign_extended',
+        'int64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'uint8'
+    and o.object_type = 'type'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'uint8',
+        'type',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Unsigned 8-bit integer',
+        NULL,
+        NULL,
+        'uint8',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        1
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'uint16'
+    and o.object_type = 'type'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'uint16',
+        'type',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Unsigned 16-bit integer',
+        NULL,
+        NULL,
+        'uint16',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        2
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'uint32'
+    and o.object_type = 'type'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'uint32',
+        'type',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Unsigned 32-bit integer',
+        NULL,
+        NULL,
+        'uint32',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        4
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'uint64'
+    and o.object_type = 'type'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'uint64',
+        'type',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Unsigned 64-bit integer',
+        NULL,
+        NULL,
+        'uint64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'float32'
+    and o.object_type = 'type'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'float32',
+        'type',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        '32-bit floating point',
+        512,
+        'ieee754',
+        'float32',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        4
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'float64'
+    and o.object_type = 'type'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'float64',
+        'type',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        '64-bit floating point',
+        512,
+        'ieee754',
+        'float64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'cpu_cycle'
+    and o.object_type = 'type'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'cpu_cycle',
+        'type',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        '64-bit CPU cycle count (RDTSC)',
+        NULL,
+        NULL,
+        'cpu_cycle',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'filetime'
+    and o.object_type = 'type'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'filetime',
+        'type',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        '64-bit time units (100ns)',
+        NULL,
+        NULL,
+        'filetime',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'ulong_ptr'
+    and o.object_type = 'type'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'ulong_ptr',
+        'type',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Pointer value',
+        256,
+        'sign_extended',
+        'ulong_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'ansi_string_ptr'
+    and o.object_type = 'type'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'ansi_string_ptr',
+        'type',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'ANSI string pointer value',
+        256,
+        'sign_extended',
+        'ansi_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'unicode_string_ptr'
+    and o.object_type = 'type'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'unicode_string_ptr',
+        'type',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Unicode string pointer value',
+        256,
+        'sign_extended',
+        'unicode_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'guid_ptr'
+    and o.object_type = 'type'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'guid_ptr',
+        'type',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'GUID pointer value',
+        256,
+        'sign_extended',
+        'guid_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'char'
+    and o.object_type = 'type'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'char',
+        'type',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        '8-bit ANSI character',
+        NULL,
+        NULL,
+        'char',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        1
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'wchar'
+    and o.object_type = 'type'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'wchar',
+        'type',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        '16-bit unicode character',
+        NULL,
+        NULL,
+        'wchar',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        2
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'ansi_string'
+    and o.object_type = 'type'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'ansi_string',
+        'type',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'ANSI string (counted)',
+        NULL,
+        NULL,
+        'ansi_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'unicode_string'
+    and o.object_type = 'type'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'unicode_string',
+        'type',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Unicode string (counted)',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'guid'
+    and o.object_type = 'type'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'guid',
+        'type',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'GUID',
+        NULL,
+        NULL,
+        'guid',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'binary_data'
+    and o.object_type = 'type'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'binary_data',
+        'type',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Binary data',
+        NULL,
+        NULL,
+        'binary_data',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'callstack'
+    and o.object_type = 'type'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'callstack',
+        'type',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        '16-frame callstack',
+        NULL,
+        NULL,
+        'callstack',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'activity_id'
+    and o.object_type = 'type'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'activity_id',
+        'type',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Activity ID of an event',
+        NULL,
+        NULL,
+        'activity_id',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        20
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'activity_id_xfer'
+    and o.object_type = 'type'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'activity_id_xfer',
+        'type',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Transfer of an activity ID',
+        NULL,
+        NULL,
+        'activity_id_xfer',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        20
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'boolean'
+    and o.object_type = 'type'
+    and o.package_guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'boolean',
+        'type',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Boolean value',
+        NULL,
+        NULL,
+        'boolean',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        1
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'ex_terminator_called'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'ex_terminator_called',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'ex_terminator called',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'crt_signal_abort_called'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'crt_signal_abort_called',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'CRT signal abort handler called',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'process_killed'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'process_killed',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Process killed',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'task_enqueued'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'task_enqueued',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Task enqueued',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'thread_attached'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'thread_attached',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Thread attached',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'thread_detached'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'thread_detached',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Thread detached',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'scheduler_created'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'scheduler_created',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Scheduler created',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'scheduler_destroyed'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'scheduler_destroyed',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Scheduler destroyed',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'async_io_requested'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'async_io_requested',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Asynchronous I/O requested',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'async_io_completed'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'async_io_completed',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Asynchronous I/O completed',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'malloc_spy_memory_allocated'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'malloc_spy_memory_allocated',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'MallocSpy allocated memory',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'malloc_spy_memory_freed'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'malloc_spy_memory_freed',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'MallocSpy freed memory',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'malloc_spy_corrupted_memory_detected'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'malloc_spy_corrupted_memory_detected',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'MallocSpy detected corrupted memory',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'page_heap_memory_allocated'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'page_heap_memory_allocated',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'PageHeap allocated memory',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'page_heap_memory_freed'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'page_heap_memory_freed',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'PageHeap freed memory',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'resource_monitor_ring_buffer_recorded'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'resource_monitor_ring_buffer_recorded',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Resource monitor ring buffer recorded',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'memory_broker_ring_buffer_recorded'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'memory_broker_ring_buffer_recorded',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Memory broker ring buffer recorded',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'scheduler_ring_buffer_recorded'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'scheduler_ring_buffer_recorded',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Scheduler ring buffer recorded',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'exception_ring_buffer_recorded'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'exception_ring_buffer_recorded',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Exception ring buffer recorded',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'scheduler_monitor_non_yielding_ring_buffer_recorded'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'scheduler_monitor_non_yielding_ring_buffer_recorded',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Nonyielding ring buffer recorded for scheduler monitor',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'scheduler_monitor_deadlock_ring_buffer_recorded'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'scheduler_monitor_deadlock_ring_buffer_recorded',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Deadlock ring buffer recorded for scheduler monitor',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'scheduler_monitor_system_health_ring_buffer_recorded'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'scheduler_monitor_system_health_ring_buffer_recorded',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'System health ring buffer recorded for scheduler monitor',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'scheduler_monitor_non_yielding_iocp_ring_buffer_recorded'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'scheduler_monitor_non_yielding_iocp_ring_buffer_recorded',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Nonyielding IOCP ring buffer recorded for scheduler monitor',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'scheduler_monitor_non_yielding_rm_ring_buffer_recorded'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'scheduler_monitor_non_yielding_rm_ring_buffer_recorded',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Non-yielding resource manager ring buffer recorded for scheduler monitor',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'spinlock_backoff'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'spinlock_backoff',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Spinlock backoff',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'set_abort_callback_executed'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'set_abort_callback_executed',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'SetAbort callback executed',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'non_yielding_scheduler_callback_executed'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'non_yielding_scheduler_callback_executed',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Non-yielding scheduler callback executed',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'deadlock_scheduler_callback_executed'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'deadlock_scheduler_callback_executed',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Deadlock scheduler callback executed',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'non_yielding_iocp_listener_callback_executed'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'non_yielding_iocp_listener_callback_executed',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Non-yielding IOCP listener callback executed',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'idle_server_callback_executed'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'idle_server_callback_executed',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Idle server callback executed',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'memory_utilization_effect_callback_executed'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'memory_utilization_effect_callback_executed',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Memory utilization effect callback executed',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'non_yielding_rm_callback_executed'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'non_yielding_rm_callback_executed',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Non-yielding RM callback executed',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'exit_routine_executed'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'exit_routine_executed',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Exit routine executed',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'dump_exception_routine_executed'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'dump_exception_routine_executed',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Dump exception routine executed',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'crt_out_of_memory_routine_executed'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'crt_out_of_memory_routine_executed',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'CRT out-of-memory routine executed',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'security_handler_routine_executed'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'security_handler_routine_executed',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Security handler routine executed',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'context_switch_callback_executed'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'context_switch_callback_executed',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Context switch callback executed',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'worker_state_callback_executed'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'worker_state_callback_executed',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Worker state callback executed',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'function_hook_changed'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'function_hook_changed',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Function hook changed',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'scheduler_monitor_stalled_dispatcher_ring_buffer_recorded'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'scheduler_monitor_stalled_dispatcher_ring_buffer_recorded',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Stalled dispatcher event recorded for scheduler monitor',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'node_created'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'node_created',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Node created',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'cpu_config_changed'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'cpu_config_changed',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'CPU configuration has changed',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'multiple_tasks_enqueued'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'multiple_tasks_enqueued',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Multiple tasks enqueued',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'node_affinity_changed'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'node_affinity_changed',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Node affinity mask changed',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'scheduler_online_state_changed'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'scheduler_online_state_changed',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Scheduler has been set online/offline',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'wait_info'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'wait_info',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Information regarding waits in SQLOS',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'wait_info_external'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'wait_info_external',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Information regarding waits external to SQLOS',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'memory_node_oom_ring_buffer_recorded'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'memory_node_oom_ring_buffer_recorded',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Memory node OOM ring buffer recorded',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'assert_fired'
+    and o.object_type = 'event'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'assert_fired',
+        'event',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Assert fired',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'sos_context'
+    and o.object_type = 'action'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'sos_context',
+        'action',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Collect useful information related to SOS',
+        NULL,
+        NULL,
+        'sos_context',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'task_address'
+    and o.object_type = 'action'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'task_address',
+        'action',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Collect current task address',
+        NULL,
+        NULL,
+        'ulong_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'worker_address'
+    and o.object_type = 'action'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'worker_address',
+        'action',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Collect current worker address',
+        NULL,
+        NULL,
+        'ulong_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'task_time'
+    and o.object_type = 'action'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'task_time',
+        'action',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Collect current task execution time',
+        NULL,
+        NULL,
+        'uint64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'task_elapsed_quantum'
+    and o.object_type = 'action'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'task_elapsed_quantum',
+        'action',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Collect current task quantum time',
+        NULL,
+        NULL,
+        'uint64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'system_thread_id'
+    and o.object_type = 'action'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'system_thread_id',
+        'action',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Collect current system thread ID',
+        NULL,
+        NULL,
+        'uint32',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        4
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'scheduler_address'
+    and o.object_type = 'action'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'scheduler_address',
+        'action',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Collect current scheduler address',
+        NULL,
+        NULL,
+        'ulong_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'scheduler_id'
+    and o.object_type = 'action'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'scheduler_id',
+        'action',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Collect current scheduler ID',
+        NULL,
+        NULL,
+        'uint32',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        4
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'cpu_id'
+    and o.object_type = 'action'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'cpu_id',
+        'action',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Collect current CPU ID',
+        NULL,
+        NULL,
+        'uint32',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        4
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'node_affinity'
+    and o.object_type = 'action'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'node_affinity',
+        'action',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Collect current NUMA node affinity',
+        NULL,
+        NULL,
+        'uint64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'task_resource_pool_id'
+    and o.object_type = 'action'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'task_resource_pool_id',
+        'action',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Collect current task resource pool ID',
+        NULL,
+        NULL,
+        'uint32',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        4
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'task_resource_group_id'
+    and o.object_type = 'action'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'task_resource_group_id',
+        'action',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Collect current task resource group ID',
+        NULL,
+        NULL,
+        'uint32',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        4
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'keyword_map'
+    and o.object_type = 'map'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'keyword_map',
+        'map',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Event grouping keywords',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'event_opcode'
+    and o.object_type = 'map'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'event_opcode',
+        'map',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Event pair',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'memory_allocation_type'
+    and o.object_type = 'map'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'memory_allocation_type',
+        'map',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Memory allocation type',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'resource_monitor_notification'
+    and o.object_type = 'map'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'resource_monitor_notification',
+        'map',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Resource monitor notification',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'mem_utilization_effect_state'
+    and o.object_type = 'map'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'mem_utilization_effect_state',
+        'map',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Memory utilization effect state',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'assert_type'
+    and o.object_type = 'map'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'assert_type',
+        'map',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Assert type',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'worker_type'
+    and o.object_type = 'map'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'worker_type',
+        'map',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Worker type',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'wake_up_reason'
+    and o.object_type = 'map'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'wake_up_reason',
+        'map',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Wake-up reason',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'effect_type'
+    and o.object_type = 'map'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'effect_type',
+        'map',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Effect type',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'task_transition'
+    and o.object_type = 'map'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'task_transition',
+        'map',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Task transition',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'worker_callback_type'
+    and o.object_type = 'map'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'worker_callback_type',
+        'map',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Worker callback type',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'function_hook_action'
+    and o.object_type = 'map'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'function_hook_action',
+        'map',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Function hook action',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'wait_types'
+    and o.object_type = 'map'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'wait_types',
+        'map',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Wait types',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'memory_object_type'
+    and o.object_type = 'map'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'memory_object_type',
+        'map',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Memory object type',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'spinlock_types'
+    and o.object_type = 'map'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'spinlock_types',
+        'map',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Spinlock type',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'task_address'
+    and o.object_type = 'pred_source'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'task_address',
+        'pred_source',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Get current task address',
+        NULL,
+        NULL,
+        'ulong_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'worker_address'
+    and o.object_type = 'pred_source'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'worker_address',
+        'pred_source',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Get current worker address',
+        NULL,
+        NULL,
+        'ulong_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'task_execution_time'
+    and o.object_type = 'pred_source'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'task_execution_time',
+        'pred_source',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Get current task execution time',
+        NULL,
+        NULL,
+        'uint64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'task_elapsed_quantum'
+    and o.object_type = 'pred_source'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'task_elapsed_quantum',
+        'pred_source',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Get time elapsed since quantum started',
+        NULL,
+        NULL,
+        'uint64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'system_thread_id'
+    and o.object_type = 'pred_source'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'system_thread_id',
+        'pred_source',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Get current system thread ID',
+        NULL,
+        NULL,
+        'uint32',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        4
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'scheduler_address'
+    and o.object_type = 'pred_source'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'scheduler_address',
+        'pred_source',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Get current scheduler address',
+        NULL,
+        NULL,
+        'ulong_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'scheduler_id'
+    and o.object_type = 'pred_source'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'scheduler_id',
+        'pred_source',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Get current scheduler ID',
+        NULL,
+        NULL,
+        'uint32',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        4
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'cpu_id'
+    and o.object_type = 'pred_source'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'cpu_id',
+        'pred_source',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Get current CPU ID',
+        NULL,
+        NULL,
+        'uint32',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        4
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'node_affinity'
+    and o.object_type = 'pred_source'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'node_affinity',
+        'pred_source',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Get current NUMA node affinity',
+        NULL,
+        NULL,
+        'uint64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'task_resource_pool_id'
+    and o.object_type = 'pred_source'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'task_resource_pool_id',
+        'pred_source',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Get current task resource pool ID',
+        NULL,
+        NULL,
+        'uint32',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        4
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'task_resource_group_id'
+    and o.object_type = 'pred_source'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'task_resource_group_id',
+        'pred_source',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Get current task resource group ID',
+        NULL,
+        NULL,
+        'uint32',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        4
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'sos_context'
+    and o.object_type = 'type'
+    and o.package_guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'sos_context',
+        'type',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Useful infomation related to SOS',
+        NULL,
+        NULL,
+        'sos_context',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_activation_stored_procedure_invoked'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_activation_stored_procedure_invoked',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker activation stored procedure invoked',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_activation_task_limit_reached'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_activation_task_limit_reached',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker activation task limit reached',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_activation_task_aborted'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_activation_task_aborted',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker activation task aborted',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_activation_task_started'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_activation_task_started',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker activation task started',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'buffer_manager_database_pages'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'buffer_manager_database_pages',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Buffer manager database pages',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'buffer_manager_free_pages'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'buffer_manager_free_pages',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Buffer manager free pages',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'buffer_manager_page_life_expectancy'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'buffer_manager_page_life_expectancy',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Buffer manager page life expectancy in milliseconds',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'buffer_manager_stolen_pages'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'buffer_manager_stolen_pages',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Buffer manager stolen pages',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'buffer_manager_target_pages'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'buffer_manager_target_pages',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Buffer manager target pages',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'buffer_manager_total_pages'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'buffer_manager_total_pages',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Buffer manager total pages',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'buffer_node_database_pages'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'buffer_node_database_pages',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Buffer node database pages',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'buffer_node_free_pages'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'buffer_node_free_pages',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Buffer node free pages',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'buffer_node_page_life_expectancy'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'buffer_node_page_life_expectancy',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Buffer node page life expectancy in milliseconds',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'buffer_node_stolen_pages'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'buffer_node_stolen_pages',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Buffer node stolen pages',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'buffer_node_target_pages'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'buffer_node_target_pages',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Buffer node target pages',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'buffer_node_total_pages'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'buffer_node_total_pages',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Buffer node total pages',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'buffer_partition_free_list_empty'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'buffer_partition_free_list_empty',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Buffer partition free list empty',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'buffer_partition_free_list_requests'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'buffer_partition_free_list_requests',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Buffer partition free list requests',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'buffer_partition_free_pages'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'buffer_partition_free_pages',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Buffer partition free pages',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'catalog_metadata_cache_entry_added'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'catalog_metadata_cache_entry_added',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Catalog metadata cache entry added',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'catalog_metadata_cache_entry_removed'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'catalog_metadata_cache_entry_removed',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Catalog metadata cache entry removed',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'catalog_metadata_cache_entry_pinned'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'catalog_metadata_cache_entry_pinned',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Catalog metadata cache entry pinned',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'catalog_metadata_cache_entry_unpinned'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'catalog_metadata_cache_entry_unpinned',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Catalog metadata cache entry unpinned',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'catalog_metadata_cache_hit'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'catalog_metadata_cache_hit',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Catalog metadata cache hit',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'cursor_manager_cursor_begin'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'cursor_manager_cursor_begin',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Cursor manager cursor begin',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'cursor_manager_cursor_end'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'cursor_manager_cursor_end',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Cursor manager cursor end',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'cursor_manager_cursor_cache_hit'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'cursor_manager_cursor_cache_hit',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Cursor manager cursor cache hit',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'cursor_manager_cached_cursor_added'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'cursor_manager_cached_cursor_added',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Cursor manager cached cursor added',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'cursor_manager_cached_cursor_removed'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'cursor_manager_cached_cursor_removed',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Cursor manager cached cursor removed',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'cursor_manager_cursor_memory_usage'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'cursor_manager_cursor_memory_usage',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Cursor manager cursor memory usage',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'cursor_manager_cursor_worktable_use_begin'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'cursor_manager_cursor_worktable_use_begin',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Cursor manager cursor worktable use begin',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'cursor_manager_cursor_worktable_use_end'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'cursor_manager_cursor_worktable_use_end',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Cursor manager cursor worktable use end',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'cursor_manager_cursor_plan_begin'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'cursor_manager_cursor_plan_begin',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Cursor manager cursor plan begin',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'cursor_manager_cursor_plan_end'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'cursor_manager_cursor_plan_end',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Cursor manager cursor plan end',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'database_transaction_begin'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'database_transaction_begin',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Database transaction begin',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'database_transaction_end'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'database_transaction_end',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Database transaction end',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'databases_backup_restore_throughput'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'databases_backup_restore_throughput',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Databases backup/restore throughput',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'databases_bulk_copy_rows'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'databases_bulk_copy_rows',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Databases bulk copy rows',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'databases_bulk_copy_throughput'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'databases_bulk_copy_throughput',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Databases bulk copy throughput in KB',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'databases_data_file_size_changed'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'databases_data_file_size_changed',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Databases data file size change',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'databases_dbcc_logical_scan'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'databases_dbcc_logical_scan',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Databases DBCC logical scan',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'databases_log_cache_hit'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'databases_log_cache_hit',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Databases log cache hit',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'databases_log_cache_read'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'databases_log_cache_read',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Databases log cache read',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'databases_log_file_size_changed'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'databases_log_file_size_changed',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Databases log file size changed',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'databases_log_file_used_size_changed'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'databases_log_file_used_size_changed',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Databases log file used size changed',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'databases_log_flush_wait'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'databases_log_flush_wait',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Databases log flush wait in milliseconds',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'databases_log_flush'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'databases_log_flush',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Databases log flush',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'databases_log_growth'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'databases_log_growth',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Databases log growth',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'databases_log_shrink'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'databases_log_shrink',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Databases log shrink',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'databases_log_truncation'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'databases_log_truncation',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Databases log truncation',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'databases_shrink_data_movement'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'databases_shrink_data_movement',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Databases shrink data movement',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'locks_lock_timeouts_greater_than_0'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'locks_lock_timeouts_greater_than_0',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Locks lock timeouts greater than 0',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'locks_lock_timeouts'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'locks_lock_timeouts',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Locks lock timeouts',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'locks_lock_waits'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'locks_lock_waits',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Locks lock waits',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'plan_cache_cache_hit'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'plan_cache_cache_hit',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Plan cache cache hit',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'user_settable'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'user_settable',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'User settable',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'sql_statement_starting'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'sql_statement_starting',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'SQL statement starting',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'sql_statement_completed'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'sql_statement_completed',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'SQL statement completed',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'sp_statement_starting'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'sp_statement_starting',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Stored procedure statement starting',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'sp_statement_completed'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'sp_statement_completed',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Stored procedure statement completed',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'rpc_starting'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'rpc_starting',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'RPC starting',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'rpc_completed'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'rpc_completed',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'RPC completed',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'ghost_cleanup'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'ghost_cleanup',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Ghost cleanup',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'lock_acquired'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'lock_acquired',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Lock acquired',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'lock_released'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'lock_released',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Lock released',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'lock_deadlock'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'lock_deadlock',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Deadlock',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'page_split'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'page_split',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Page split',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'physical_page_read'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'physical_page_read',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Physical page read',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'physical_page_write'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'physical_page_write',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Physical page write',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'latch_suspend_begin'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'latch_suspend_begin',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Latch suspend begin',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'latch_suspend_end'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'latch_suspend_end',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Latch suspend end',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'latch_promoted'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'latch_promoted',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Latch promotion',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'latch_demoted'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'latch_demoted',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Latch demotion',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'plan_cache_cache_attempt'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'plan_cache_cache_attempt',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Plan cache cache attempt',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'cursor_manager_cursor_cache_attempt'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'cursor_manager_cursor_cache_attempt',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Cursor manager cursor cache attempt',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'flush_file_buffers'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'flush_file_buffers',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'FlushFileBuffers called',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'file_read'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'file_read',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'File read',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'file_written'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'file_written',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'File written',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'file_read_completed'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'file_read_completed',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'File read completed',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'file_write_completed'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'file_write_completed',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'File write completed',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'checkpoint_begin'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'checkpoint_begin',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Checkpoint has begun',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'checkpoint_end'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'checkpoint_end',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Checkpoint has ended',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'app_domain_ring_buffer_recorded'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'app_domain_ring_buffer_recorded',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'AppDomain ring buffer recorded',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'host_task_ring_buffer_recorded'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'host_task_ring_buffer_recorded',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'AppDomain ring buffer recorded',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'error_ring_buffer_recorded'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'error_ring_buffer_recorded',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Error ring buffer recorded',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'allocation_ring_buffer_recorded'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'allocation_ring_buffer_recorded',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Allocation ring buffer recorded',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'errorlog_written'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'errorlog_written',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Errorlog written',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'constant_page_corruption_detected'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'constant_page_corruption_detected',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'A page that should have been constant has changed',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'database_attached'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'database_attached',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Database attached',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'database_detached'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'database_detached',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Database detached',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'database_started'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'database_started',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Database started',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'database_stopped'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'database_stopped',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Database stopped',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'trace_flag_changed'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'trace_flag_changed',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Trace flag changed',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'change_tracking_cleanup'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'change_tracking_cleanup',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Change Tracking Cleanup',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'error_reported'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'error_reported',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Error has been reported',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'trace_print'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'trace_print',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Trace message published',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'deadlock_monitor_perf_stats'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'deadlock_monitor_perf_stats',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Deadlock monitor performance statistics',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'deadlock_monitor_mem_stats'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'deadlock_monitor_mem_stats',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Deadlock monitor memory utilization statistics',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'deadlock_monitor_state_transition'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'deadlock_monitor_state_transition',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Deadlock Monitor state transition',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'deadlock_monitor_pmo_status'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'deadlock_monitor_pmo_status',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Deadlock monitor PMO status at various checkpoints in the LDM cycle',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'deadlock_monitor_serialized_local_wait_for_graph'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'deadlock_monitor_serialized_local_wait_for_graph',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Deadlock monitor local wait-for graph dump in binary form',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'buffer_pool_ring_buffer_recorded'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'buffer_pool_ring_buffer_recorded',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Buffer pool ring buffer recorded',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'page_compression_attempt_failed'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'page_compression_attempt_failed',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'An attempt to compress a database page failed',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'page_compression_tracing'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'page_compression_tracing',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Entry and exit tracking for page compression operations',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'long_io_detected'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'long_io_detected',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Long IO detected',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'sort_statistics_tracing'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'sort_statistics_tracing',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Various statistics about the sort',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'sort_add_run_tracing'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'sort_add_run_tracing',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Sort adding merge runs to the merge run directory',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'sort_state_change_tracing'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'sort_state_change_tracing',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Sort internal events and state changes',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'sort_memory_grant_adjustment'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'sort_memory_grant_adjustment',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Sort adjusting the memory grant of an in-progress sort',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'sec_ekm_provider_called'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'sec_ekm_provider_called',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'External Key Management external API called',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'module_start'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'module_start',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Start of module execution',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'module_end'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'module_end',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'End of module execution',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'filestream_file_io_request'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'filestream_file_io_request',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'FILESTREAM file I/O streaming access request',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'filestream_file_io_response'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'filestream_file_io_response',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Response to a FILESTREAM file I/O streaming access request',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'filestream_file_io_failure'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'filestream_file_io_failure',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'FILESTREAM file I/O streaming access failure',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'filestream_file_io_trace'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'filestream_file_io_trace',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'FILESTREAM file I/O streaming access tracing information',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'filestream_file_io_dump'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'filestream_file_io_dump',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'FILESTREAM file I/O streaming access dump',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'xml_deadlock_report'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'xml_deadlock_report',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Produces a deadlock report in XML format.',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'leaf_page_disfavored'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'leaf_page_disfavored',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Index leaf page disfavored during scan',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'prefetch_extent'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'prefetch_extent',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Prefetch issued for a whole extent instead of a single page',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmission_deliverysm_event_end'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmission_deliverysm_event_end',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmission delivery state machine event end',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmission_timer_set'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmission_timer_set',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmission timer set',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmission_timer_reset'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmission_timer_reset',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmission timer reset',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmission_timer_fire'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmission_timer_fire',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmission timer fire',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmission_lazyflusher_submit'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmission_lazyflusher_submit',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmission lazyflusher submit',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmission_lazyflusher_processing_begin'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmission_lazyflusher_processing_begin',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmission lazyflusher processing begin',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmission_lazyflusher_processing_end'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmission_lazyflusher_processing_end',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmission lazyflusher processing end',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmission_timer_armed'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmission_timer_armed',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmission timer armed',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmission_lazyflusher_remove'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmission_lazyflusher_remove',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmission lazyflusher remove',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmission_object_get'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmission_object_get',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmission object load',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmission_object_worktable_load_begin'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmission_object_worktable_load_begin',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmission object worktable load begin',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmission_object_worktable_load_end'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmission_object_worktable_load_end',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmission object worktable load end',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmission_object_worktable_save_begin'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmission_object_worktable_save_begin',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmission object worktable save begin',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmission_object_worktable_save_end'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmission_object_worktable_save_end',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmission object worktable save end',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmission_object_delete_begin'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmission_object_delete_begin',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmission object worktable save end',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmission_object_delete_end'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmission_object_delete_end',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmission object worktable save end',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmitter_reclassification_phase_begin'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmitter_reclassification_phase_begin',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmitter reclassification phase begin',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmitter_reclassification_phase_end'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmitter_reclassification_phase_end',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmitter reclassification phase end',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_connection_event_begin'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_connection_event_begin',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport connection event begin',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_connection_action_fire'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_connection_action_fire',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport connection event action',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_connection_event_end'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_connection_event_end',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport connection event begin',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_connection_outgoing_connect_attempt'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_connection_outgoing_connect_attempt',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport connection outgoing connect attempt',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_connection_dns_lookup'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_connection_dns_lookup',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport connection DNS lookup',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_connection_winsock_connect_attempt'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_connection_winsock_connect_attempt',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport connection winsock connect attempt',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_connection_winsock_connect_fail'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_connection_winsock_connect_fail',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport connection winsock connect fail',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_connection_winsock_connect_success'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_connection_winsock_connect_success',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport connection winsock connect success',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmission_acksm_event_begin'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmission_acksm_event_begin',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmission outgoing ack state machine event begin',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmission_acksm_action_fire'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmission_acksm_action_fire',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmission outgoing ack state machine action fire',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmission_acksm_event_end'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmission_acksm_event_end',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmission outgoing ack state machine event end',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_connection_close'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_connection_close',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport connection close',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_connection_read_complete'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_connection_read_complete',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport connection read complete',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_global_message_add'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_global_message_add',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport global message add',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_global_message_delete'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_global_message_delete',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport global message delete',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_connection_message_add'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_connection_message_add',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport connection message add',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_connection_message_delete'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_connection_message_delete',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport connection message delete',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_connection_winsock_read'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_connection_winsock_read',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport connection winsock read',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_connection_receive_io_complete'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_connection_receive_io_complete',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport connection receive I/O complete',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_connection_process_receive_control_block'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_connection_process_receive_control_block',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport connection process receive control block',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_connection_delimit_message'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_connection_delimit_message',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport connection delimit message',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_connection_write_complete'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_connection_write_complete',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport connection write complete',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_connection_send_io_complete'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_connection_send_io_complete',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport connection send I/O complete',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmitter_transport_stream_update'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmitter_transport_stream_update',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmitter transport stream update',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmitter_destination_process_begin'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmitter_destination_process_begin',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmitter destination process begin',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmitter_destination_process_end'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmitter_destination_process_end',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmitter destination process end',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmitter_destination_process_sender_process'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmitter_destination_process_sender_process',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmitter destination process sender process',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmitter_destination_connect'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmitter_destination_connect',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmitter destination connect',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmitter_destination_event_fire'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmitter_destination_event_fire',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmitter destination event fire',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmitter_destination_reference'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmitter_destination_reference',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmitter destination reference',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmission_deliverysm_event_begin'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmission_deliverysm_event_begin',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmission delivery state machine event begin',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmission_deliverysm_action_fire'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmission_deliverysm_action_fire',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmission delivery state machine action fire',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_process_boxcar'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_process_boxcar',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport process boxcar',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_send'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_send',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport send',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmitter_destination_subscribe'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmitter_destination_subscribe',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmitter destination subscribe',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmitter_destination_unsubscribe'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmitter_destination_unsubscribe',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmitter destination unsubscribe',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmitter_service_create'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmitter_service_create',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmitter service created',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmitter_service_match'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmitter_service_match',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmitter service match',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_task_idempotent_submit'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_task_idempotent_submit',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker task idempotent submit',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_task_idempotent_invoke_begin'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_task_idempotent_invoke_begin',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker task idempotent invoke begin',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_task_idempotent_invoke_end'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_task_idempotent_invoke_end',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker task idempotent invoke end',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_connection_incoming_connect_attempt'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_connection_incoming_connect_attempt',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport connection incoming connect attempt',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmitter_service_send'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmitter_service_send',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmitter service send',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmitter_dialog_register'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmitter_dialog_register',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmitter dialog register',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmitter_dialog_unregister'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmitter_dialog_unregister',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmitter dialog unregister',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmitter_service_reclassify'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmitter_service_reclassify',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmitter service reclassify',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmitter_dialog_reclassify'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmitter_dialog_reclassify',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmitter dialog reclassify',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_flow_control'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_flow_control',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmitter dialog reclassify',
+        1024,
+        'no_block',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_dialog_state_change'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_dialog_state_change',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'The state of a Service Broker dialog has changed',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_dialog_transmission_queue_enqueue'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_dialog_transmission_queue_enqueue',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'A message was enqueued into a Service Broker transmission queue',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_dialog_transmission_queue_dequeue'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_dialog_transmission_queue_dequeue',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'A message was dequeued from a Service Broker transmission queue',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'deprecation_announcement'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'deprecation_announcement',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Occurs when you use a feature that will be removed from a future version of SQL Server, but will not be removed from the next major release of SQL Server.',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'deprecation_final_support'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'deprecation_final_support',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Occurs when you use a feature that will be removed from the next major release of SQL Server.',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'fastloadcontext_enabled'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'fastloadcontext_enabled',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Occurs when fastloadcontext is activated / deactivated',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'logreader_process_text_info'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'logreader_process_text_info',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Occurs when a text info record is read by the replication logreader.',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'logreader_process_text_ptr'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'logreader_process_text_ptr',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Occurs when a text pointer is being read by the replication logreader.',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'logreader_process_filestream_info'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'logreader_process_filestream_info',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Occurs when a filestream info record is read by the replication logreader.',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'logreader_add_compensation_range'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'logreader_add_compensation_range',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Occurs when the replication logreader encounters a partial rollback for a particular transaction.',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'logreader_add_eor'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'logreader_add_eor',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Occurs when the replication logreader agent reads and EOR record.',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'logreader_add_tran_info'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'logreader_add_tran_info',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Outputs transactions which are added to the repl hash table as well as some hash table statistics. ',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'logreader_apply_filter_proc'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'logreader_apply_filter_proc',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Occurs when the replication logreader agent executes a horizontal filtering proc.',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'cdc_session'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'cdc_session',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'CDC Logscan session Information',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'cdc_error'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'cdc_error',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'CDC Error Information',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'failed_hresult'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'failed_hresult',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Failed HRESULT',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'failed_hresult_msg'
+    and o.object_type = 'event'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'failed_hresult_msg',
+        'event',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Failed HRESULT',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'database_id'
+    and o.object_type = 'action'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'database_id',
+        'action',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Collect database ID',
+        NULL,
+        NULL,
+        'uint16',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        2
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'transaction_id'
+    and o.object_type = 'action'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'transaction_id',
+        'action',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Collect transaction ID',
+        NULL,
+        NULL,
+        'int64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'session_id'
+    and o.object_type = 'action'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'session_id',
+        'action',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Collect session ID',
+        NULL,
+        NULL,
+        'uint16',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        2
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'database_context'
+    and o.object_type = 'action'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'database_context',
+        'action',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Collect useful infomation related to the current database',
+        NULL,
+        NULL,
+        'database_context',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'tsql_stack'
+    and o.object_type = 'action'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'tsql_stack',
+        'action',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Collect Transact-SQL stack',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'sql_text'
+    and o.object_type = 'action'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'sql_text',
+        'action',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Collect SQL text',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'plan_handle'
+    and o.object_type = 'action'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'plan_handle',
+        'action',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Collect plan handle',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'create_dump_single_thread'
+    and o.object_type = 'action'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'create_dump_single_thread',
+        'action',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Create mini dump for the current thread',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'create_dump_all_threads'
+    and o.object_type = 'action'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'create_dump_all_threads',
+        'action',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Create mini dump including all threads',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'client_app_name'
+    and o.object_type = 'action'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'client_app_name',
+        'action',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Collect client application name',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'client_pid'
+    and o.object_type = 'action'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'client_pid',
+        'action',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Collect client process ID',
+        NULL,
+        NULL,
+        'uint32',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        4
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'client_hostname'
+    and o.object_type = 'action'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'client_hostname',
+        'action',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Collect client hostname',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'nt_username'
+    and o.object_type = 'action'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'nt_username',
+        'action',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Collect NT username',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'session_nt_username'
+    and o.object_type = 'action'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'session_nt_username',
+        'action',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Collect session''s NT username',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'username'
+    and o.object_type = 'action'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'username',
+        'action',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Collect username',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'session_resource_pool_id'
+    and o.object_type = 'action'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'session_resource_pool_id',
+        'action',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Collect current session resource pool ID',
+        NULL,
+        NULL,
+        'uint32',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        4
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'session_resource_group_id'
+    and o.object_type = 'action'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'session_resource_group_id',
+        'action',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Collect current session resource group ID',
+        NULL,
+        NULL,
+        'uint32',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        4
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'request_id'
+    and o.object_type = 'action'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'request_id',
+        'action',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Collect current request ID',
+        NULL,
+        NULL,
+        'uint32',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        4
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'is_system'
+    and o.object_type = 'action'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'is_system',
+        'action',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Collect whether current session is system',
+        NULL,
+        NULL,
+        'boolean',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        1
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'keyword_map'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'keyword_map',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Event grouping keywords',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'statement_state'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'statement_state',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Stored procedure or SQL statement state',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'file_io_mode'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'file_io_mode',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'File I/O mode',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'trace_flag_type'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'trace_flag_type',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Trace flag type',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'event_opcode'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'event_opcode',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Event pair',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'page_compression_failure_reason'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'page_compression_failure_reason',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Reason page compression attempt has failed',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'change_tracking_status_id'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'change_tracking_status_id',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Change Tracking Cleanup Status Ids',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'buffer_pool_failure_type'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'buffer_pool_failure_type',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Buffer pool failure type',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'sort_subevents'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'sort_subevents',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Sort subsystem tracing sub-events',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_connection_dns_lookup_result'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_connection_dns_lookup_result',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport connection DNS lookup result',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmission_acksm_event'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmission_acksm_event',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmission outgoing acknowledgement state machine event',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmission_acksm_state'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmission_acksm_state',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmission outgoing acknowledgement state machine state',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmission_acksm_action'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmission_acksm_action',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmission outgoing acknowledgement state machine action',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmitter_destination_event'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmitter_destination_event',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmitter destination event',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmitter_destination_state'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmitter_destination_state',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmitter destination event',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_dialog_state'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_dialog_state',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker dialog state',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'lock_resource_type'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'lock_resource_type',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Lock resource',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'lock_owner_type'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'lock_owner_type',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Lock owner type',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'lock_mode'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'lock_mode',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Lock mode',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'latch_mode'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'latch_mode',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Latch mode',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'latch_class'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'latch_class',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Latch class',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_task_handler_specialization'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_task_handler_specialization',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker task handler specialization',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmission_deliverysm_event'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmission_deliverysm_event',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmission delivery state machine event',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmission_deliverysm_state'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmission_deliverysm_state',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmission delivery state machine state',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmission_deliverysm_action'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmission_deliverysm_action',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmission delivery state machine action',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmission_timer'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmission_timer',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmission timer',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmission_object_worktable_load_result'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmission_object_worktable_load_result',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmission object worktable load result',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmission_object_state'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmission_object_state',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmission object state',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_connection_state'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_connection_state',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport connection state',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_connection_event'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_connection_event',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport connection event',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_connection_action'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_connection_action',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport connection action',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_connection_endpoint_type'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_connection_endpoint_type',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport connection endpoint type',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_connection_stream_update'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_connection_stream_update',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport connection stream status',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_connection_stream_status'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_connection_stream_status',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport connection stream status',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transmitter_reclassification_phase'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transmitter_reclassification_phase',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transmitter reclassification phase',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_transport_connection_delimit_result'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_transport_connection_delimit_result',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker transport connection delimit result',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_task_idempotent_type'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_task_idempotent_type',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker task idempotent type',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'broker_task_idempotent_state'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'broker_task_idempotent_state',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Broker task idempotent state',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'fastloadctx_state'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'fastloadctx_state',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'FastLoadContext State',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'log_op'
+    and o.object_type = 'map'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'log_op',
+        'map',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Log operation type',
+        NULL,
+        NULL,
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'database_id'
+    and o.object_type = 'pred_source'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'database_id',
+        'pred_source',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Get the current database ID',
+        NULL,
+        NULL,
+        'uint16',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        2
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'transaction_id'
+    and o.object_type = 'pred_source'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'transaction_id',
+        'pred_source',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Get the current transaction ID',
+        NULL,
+        NULL,
+        'int64',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'session_id'
+    and o.object_type = 'pred_source'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'session_id',
+        'pred_source',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Get the current session ID',
+        NULL,
+        NULL,
+        'uint16',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        2
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'client_app_name'
+    and o.object_type = 'pred_source'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'client_app_name',
+        'pred_source',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Get the current client application name',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'client_pid'
+    and o.object_type = 'pred_source'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'client_pid',
+        'pred_source',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Get the current client process ID',
+        NULL,
+        NULL,
+        'uint32',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        4
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'client_hostname'
+    and o.object_type = 'pred_source'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'client_hostname',
+        'pred_source',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Get the current client hostname',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'nt_domain'
+    and o.object_type = 'pred_source'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'nt_domain',
+        'pred_source',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Get the current NT domain',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'nt_user'
+    and o.object_type = 'pred_source'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'nt_user',
+        'pred_source',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Get the current NT user',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'session_nt_domain'
+    and o.object_type = 'pred_source'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'session_nt_domain',
+        'pred_source',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Get the current session NT domain',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'session_nt_user'
+    and o.object_type = 'pred_source'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'session_nt_user',
+        'pred_source',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Get the current session NT user',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'username'
+    and o.object_type = 'pred_source'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'username',
+        'pred_source',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Get the current username',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'session_resource_pool_id'
+    and o.object_type = 'pred_source'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'session_resource_pool_id',
+        'pred_source',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Get current session resource pool ID',
+        NULL,
+        NULL,
+        'uint32',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        4
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'session_resource_group_id'
+    and o.object_type = 'pred_source'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'session_resource_group_id',
+        'pred_source',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Get current session resource group ID',
+        NULL,
+        NULL,
+        'uint32',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        4
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'request_id'
+    and o.object_type = 'pred_source'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'request_id',
+        'pred_source',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Get current request ID',
+        NULL,
+        NULL,
+        'uint32',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        4
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'is_system'
+    and o.object_type = 'pred_source'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'is_system',
+        'pred_source',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Get whether current session is system',
+        NULL,
+        NULL,
+        'boolean',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        1
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'equal_i_sql_unicode_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'equal_i_sql_unicode_string',
+        'pred_compare',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Equality operator between two SQL UNICODE string values',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'not_equal_i_sql_unicode_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'not_equal_i_sql_unicode_string',
+        'pred_compare',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Inequality operator between two SQL UNICODE string values',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_i_sql_unicode_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_i_sql_unicode_string',
+        'pred_compare',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Less than operator between two SQL UNICODE string values',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_equal_i_sql_unicode_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_equal_i_sql_unicode_string',
+        'pred_compare',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Less than or Equal operator between two SQL UNICODE string values',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_i_sql_unicode_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_i_sql_unicode_string',
+        'pred_compare',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Greater than operator between two SQL UNICODE string values',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_equal_i_sql_unicode_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_equal_i_sql_unicode_string',
+        'pred_compare',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Greater than or Equal operator between two SQL UNICODE string values',
+        NULL,
+        NULL,
+        'unicode_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'equal_i_sql_ansi_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'equal_i_sql_ansi_string',
+        'pred_compare',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Equality operator between two SQL ANSI string values',
+        NULL,
+        NULL,
+        'ansi_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'not_equal_i_sql_ansi_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'not_equal_i_sql_ansi_string',
+        'pred_compare',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Inequality operator between two SQL ANSI string values',
+        NULL,
+        NULL,
+        'ansi_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_i_sql_ansi_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_i_sql_ansi_string',
+        'pred_compare',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Less than operator between two SQL ANSI string values',
+        NULL,
+        NULL,
+        'ansi_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_equal_i_sql_ansi_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_equal_i_sql_ansi_string',
+        'pred_compare',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Less than or Equal operator between two SQL ANSI string values',
+        NULL,
+        NULL,
+        'ansi_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_i_sql_ansi_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_i_sql_ansi_string',
+        'pred_compare',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Greater than operator between two SQL ANSI string values',
+        NULL,
+        NULL,
+        'ansi_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_equal_i_sql_ansi_string'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_equal_i_sql_ansi_string',
+        'pred_compare',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Greater than or Equal operator between two SQL ANSI string values',
+        NULL,
+        NULL,
+        'ansi_string',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'equal_i_sql_unicode_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'equal_i_sql_unicode_string_ptr',
+        'pred_compare',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Equality operator between two SQL UNICODE string ptr values',
+        NULL,
+        NULL,
+        'unicode_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'not_equal_i_sql_unicode_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'not_equal_i_sql_unicode_string_ptr',
+        'pred_compare',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Inequality operator between two SQL UNICODE string ptr values',
+        NULL,
+        NULL,
+        'unicode_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_i_sql_unicode_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_i_sql_unicode_string_ptr',
+        'pred_compare',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Less than operator between two SQL UNICODE string ptr values',
+        NULL,
+        NULL,
+        'unicode_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_equal_i_sql_unicode_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_equal_i_sql_unicode_string_ptr',
+        'pred_compare',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Less than or Equal operator between two SQL UNICODE string ptr values',
+        NULL,
+        NULL,
+        'unicode_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_i_sql_unicode_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_i_sql_unicode_string_ptr',
+        'pred_compare',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Greater than operator between two SQL UNICODE string ptr values',
+        NULL,
+        NULL,
+        'unicode_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_equal_i_sql_unicode_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_equal_i_sql_unicode_string_ptr',
+        'pred_compare',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Greater than or Equal operator between two SQL UNICODE string ptr values',
+        NULL,
+        NULL,
+        'unicode_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'equal_i_sql_ansi_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'equal_i_sql_ansi_string_ptr',
+        'pred_compare',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Equality operator between two SQL ANSI string ptr values',
+        NULL,
+        NULL,
+        'ansi_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'not_equal_i_sql_ansi_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'not_equal_i_sql_ansi_string_ptr',
+        'pred_compare',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Inequality operator between two SQL ANSI string ptr values',
+        NULL,
+        NULL,
+        'ansi_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_i_sql_ansi_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_i_sql_ansi_string_ptr',
+        'pred_compare',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Less than operator between two SQL ANSI string ptr values',
+        NULL,
+        NULL,
+        'ansi_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'less_than_equal_i_sql_ansi_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'less_than_equal_i_sql_ansi_string_ptr',
+        'pred_compare',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Less than or Equal operator between two SQL ANSI string ptr values',
+        NULL,
+        NULL,
+        'ansi_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_i_sql_ansi_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_i_sql_ansi_string_ptr',
+        'pred_compare',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Greater than operator between two SQL ANSI string ptr values',
+        NULL,
+        NULL,
+        'ansi_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'greater_than_equal_i_sql_ansi_string_ptr'
+    and o.object_type = 'pred_compare'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'greater_than_equal_i_sql_ansi_string_ptr',
+        'pred_compare',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Greater than or Equal operator between two SQL ANSI string ptr values',
+        NULL,
+        NULL,
+        'ansi_string_ptr',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        8
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'database_context'
+    and o.object_type = 'type'
+    and o.package_guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'database_context',
+        'type',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Useful information related to the current database',
+        NULL,
+        NULL,
+        'database_context',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'audit_event'
+    and o.object_type = 'event'
+    and o.package_guid = 'f235752a-d5c0-4c9a-a735-9c3b6f6e43b1'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'audit_event',
+        'event',
+        'f235752a-d5c0-4c9a-a735-9c3b6f6e43b1',
+        'Security audit event',
+        1,
+        'private',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'synchronous_security_audit_file_target'
+    and o.object_type = 'target'
+    and o.package_guid = 'f235752a-d5c0-4c9a-a735-9c3b6f6e43b1'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'synchronous_security_audit_file_target',
+        'target',
+        'f235752a-d5c0-4c9a-a735-9c3b6f6e43b1',
+        'Synchronous security audit file target',
+        1025,
+        'private synchronous',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'asynchronous_security_audit_file_target'
+    and o.object_type = 'target'
+    and o.package_guid = 'f235752a-d5c0-4c9a-a735-9c3b6f6e43b1'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'asynchronous_security_audit_file_target',
+        'target',
+        'f235752a-d5c0-4c9a-a735-9c3b6f6e43b1',
+        'Asynchronous security audit file target',
+        257,
+        'private process_whole_buffers',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'synchronous_security_audit_event_log_target'
+    and o.object_type = 'target'
+    and o.package_guid = 'f235752a-d5c0-4c9a-a735-9c3b6f6e43b1'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'synchronous_security_audit_event_log_target',
+        'target',
+        'f235752a-d5c0-4c9a-a735-9c3b6f6e43b1',
+        'Synchronous security audit NT event log target',
+        1025,
+        'private synchronous',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'asynchronous_security_audit_event_log_target'
+    and o.object_type = 'target'
+    and o.package_guid = 'f235752a-d5c0-4c9a-a735-9c3b6f6e43b1'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'asynchronous_security_audit_event_log_target',
+        'target',
+        'f235752a-d5c0-4c9a-a735-9c3b6f6e43b1',
+        'Asynchronous security audit NT event log target',
+        1,
+        'private',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'synchronous_security_audit_security_log_target'
+    and o.object_type = 'target'
+    and o.package_guid = 'f235752a-d5c0-4c9a-a735-9c3b6f6e43b1'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'synchronous_security_audit_security_log_target',
+        'target',
+        'f235752a-d5c0-4c9a-a735-9c3b6f6e43b1',
+        'Synchronous security audit NT security log target',
+        1025,
+        'private synchronous',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'asynchronous_security_audit_security_log_target'
+    and o.object_type = 'target'
+    and o.package_guid = 'f235752a-d5c0-4c9a-a735-9c3b6f6e43b1'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'asynchronous_security_audit_security_log_target',
+        'target',
+        'f235752a-d5c0-4c9a-a735-9c3b6f6e43b1',
+        'Asynchronous security audit NT security log target',
+        1,
+        'private',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'failure_semantics'
+    and o.object_type = 'map'
+    and o.package_guid = 'f235752a-d5c0-4c9a-a735-9c3b6f6e43b1'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'failure_semantics',
+        'map',
+        'f235752a-d5c0-4c9a-a735-9c3b6f6e43b1',
+        'Security Audit failure semantics',
+        1,
+        'private',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XeObjects o
+    inner join dbo.Release r
+    on o.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and o.name = 'messages'
+    and o.object_type = 'map'
+    and o.package_guid = 'f235752a-d5c0-4c9a-a735-9c3b6f6e43b1'
+)
+    insert into dbo.XeObjects
+    (
+        ReleaseId,
+        name,
+        object_type,
+        package_guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        type_name,
+        type_package_guid,
+        type_size
+    )
+    select 
+        Id, 
+        'messages',
+        'map',
+        'f235752a-d5c0-4c9a-a735-9c3b6f6e43b1',
+        'Security Audit log messages',
+        1,
+        'private',
+        'null',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        0
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+
+/******************************************************************************
         SQL 2008 R2 data seeding
 ******************************************************************************/
 if not exists 
