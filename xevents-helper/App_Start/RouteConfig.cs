@@ -20,6 +20,12 @@ namespace xevents_helper
             );
 
             routes.MapRoute(
+                name: "GetReleaseEvents",
+                url: "relevents/{releaseName}",
+                defaults: new { controller = "Home", action = "GetAllEventsForRelease" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

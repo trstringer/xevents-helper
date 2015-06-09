@@ -46,5 +46,14 @@ namespace xevents_helper.Controllers
 
             return Json(new { eventName = eventName, eventDescription = eventDescription }, JsonRequestBehavior.AllowGet);
         }
+
+        public JsonResult GetAllEventsForRelease(string releaseName)
+        {
+            DataGatherer dataGatherer = new DataGatherer();
+
+            IEnumerable<XeEvent> events = dataGatherer.GetAllEventsForRelease(dataGatherer.GetRelease(releaseName));
+
+            return Json(events, JsonRequestBehavior.AllowGet);
+        }
     }
 }
