@@ -14,7 +14,12 @@ namespace xevents_helper.Controllers
         {
             DataGatherer dataGatherer = new DataGatherer();
             HelperViewModel viewModel = new HelperViewModel();
-            viewModel.Releases = new SelectList(dataGatherer.GetAllReleases(), "Name", "Name");
+
+            IEnumerable<Release> allReleases = dataGatherer.GetAllReleases();
+            viewModel.Releases = new SelectList(allReleases, "Name", "Name");
+
+            IEnumerable<XeEvent> allEventsForRelease = dataGatherer.GetAllEventsForRelease(allReleases.First());
+            viewModel.Events = new SelectList(allEventsForRelease, "Name", "Name");
 
             return View(viewModel);
         }

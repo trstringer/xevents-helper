@@ -23,4 +23,9 @@
             @Html.DropDownListFor(m => m.SelectedRelease, Model.Releases, new { @class = "form-control" })
         </div>
     </div>
+    <div class="row main-row">
+        <div class="col-md-4 center-block col-centered">
+            @Html.ListBoxFor(m => m.SelectedEvent, Model.Events, new { @class = "form-control" })
+        </div>
+    </div>
 </div>
