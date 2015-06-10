@@ -55,5 +55,17 @@ namespace xevents_helper.Controllers
 
             return Json(events, JsonRequestBehavior.AllowGet);
         }
+
+        public JsonResult SearchEvents(string releaseName, string searchTerm, bool searchDescriptions)
+        {
+            DataGatherer dataGatherer = new DataGatherer();
+            
+            IEnumerable<XeEvent> events = dataGatherer.SearchEvents(
+                dataGatherer.GetRelease(releaseName), 
+                searchTerm, 
+                searchDescriptions ? SearchOption.ByNameAndDescription : SearchOption.ByName);
+
+            return Json(events, JsonRequestBehavior.AllowGet);
+        }
     }
 }

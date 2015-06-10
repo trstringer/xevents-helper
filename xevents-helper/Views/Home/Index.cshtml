@@ -13,9 +13,7 @@
     </div>
     <div class="row main-row">
         <div class="col-md-4 center-block col-centered">
-            <label for="SessionName" class="control-label">Session Name</label>
-            <br />
-            @Html.TextBoxFor(m => m.SessionName, new { @class = "form-control", id = "SessionName" })
+            @Html.TextBoxFor(m => m.SessionName, new { @class = "form-control", id = "SessionName", placeholder = "Session name" })
         </div>
     </div>
     <div class="row main-row">

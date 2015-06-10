@@ -26,6 +26,12 @@ namespace xevents_helper
             );
 
             routes.MapRoute(
+                name: "SearchEvents",
+                url: "searchevents/{releaseName}/{searchTerm}/{searchDescriptions}",
+                defaults: new { controller = "Home", action = "SearchEvents" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
