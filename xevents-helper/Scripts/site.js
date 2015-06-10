@@ -15,14 +15,27 @@ function resetEventSearch() {
     $("#ReleaseNameList").val("");
 }
 
+function getAllEventsForRelease(releaseName) {
+    var releaseEnc = encodeURIComponent(releaseName);
+
+    var events = [];
+
+    $.ajax({
+        url: "../relevents/" + releaseEnc,
+        async: false,
+        datatype: "json",
+        success: function (data) {
+            events = data;
+        }
+    });
+
+    return events;
+}
+
 $(document).ready(function () {
 
     $("#ReleaseNameList").change(function () {
-        var releaseEnc = encodeURIComponent($(this).val());
-
-        $.getJSON("../relevents/" + releaseEnc, function (data) {
-            fillEventsListBox(data);
-        });
+        fillEventsListBox(getAllEventsForRelease($(this).val()));
     });
 
     $("#EventNameList").change(function () {
@@ -36,11 +49,17 @@ $(document).ready(function () {
 
     $("#SearchInput").keyup(function () {
         var searchStringEnc = encodeURIComponent($(this).val().trim());
-        var releaseEnc = encodeURIComponent($("#ReleaseNameList").val());
+        var release = $("#ReleaseNameList").val();
+        var releaseEnc = encodeURIComponent(release);
 
-        $.getJSON("../searchevents/" + releaseEnc + "/" + searchStringEnc + "/false", function (data) {
-            fillEventsListBox(data);
-        });
+        if ($(this).val().trim().length == 0) {
+            fillEventsListBox(getAllEventsForRelease(release));
+        }
+        else {
+            $.getJSON("../searchevents/" + releaseEnc + "/" + searchStringEnc + "/false", function (data) {
+                fillEventsListBox(data);
+            });
+        }
     });
 
 });
