@@ -26,7 +26,9 @@
             <input type="text" id="SearchInput" class="form-control" placeholder="Search events" />
             @Html.ListBoxFor(m => m.SelectedEvent, Model.Events, new { @class = "form-control", id = "EventNameList" })
             <br />
-            <label class="control-label" id="EventSessionDescription" />
+            <label class="control-label" id="EventSessionDescription"></label>
+            <br />
+            <button class="btn btn-default">Testing</button>
         </div>
     </div>
 </div>
