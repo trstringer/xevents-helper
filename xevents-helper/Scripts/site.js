@@ -11,6 +11,10 @@
     }
 }
 
+function resetEventSearch() {
+    $("#ReleaseNameList").val("");
+}
+
 $(document).ready(function () {
 
     $("#ReleaseNameList").change(function () {
