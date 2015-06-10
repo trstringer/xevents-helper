@@ -12,7 +12,8 @@
 }
 
 function resetEventSearch() {
-    $("#ReleaseNameList").val("");
+    $("#SearchInput").val("");
+    $("#EventNameList").scrollTop(0);
 }
 
 function getAllEventsForRelease(releaseName) {
@@ -36,6 +37,7 @@ $(document).ready(function () {
 
     $("#ReleaseNameList").change(function () {
         fillEventsListBox(getAllEventsForRelease($(this).val()));
+        resetEventSearch();
     });
 
     $("#EventNameList").change(function () {
