@@ -67,5 +67,13 @@ namespace xevents_helper.Controllers
 
             return Json(events, JsonRequestBehavior.AllowGet);
         }
+
+        public JsonResult GetCreateSessionDdl(XeSession session)
+        {
+            XeUtility xeUtil = new XeUtility();
+            string createSessionDdl = xeUtil.GetCreateDdl(session);
+
+            return Json(createSessionDdl, JsonRequestBehavior.AllowGet);
+        }
     }
 }

@@ -121,6 +121,7 @@
     <Compile Include="Models\XeEvent.cs" />
     <Compile Include="Models\XeSession.cs" />
     <Compile Include="Models\XeTarget.cs" />
+    <Compile Include="Models\XeUtility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\HelperViewModel.cs" />
   </ItemGroup>
