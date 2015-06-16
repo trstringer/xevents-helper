@@ -33,6 +33,10 @@ function getAllEventsForRelease(releaseName) {
     return events;
 }
 
+function getSessionDefinition(sessionName) {
+    return "CREATE EVENT SESSION [" + sessionName + "]\r\nGO;";
+}
+
 $(document).ready(function () {
 
     $("#ReleaseNameList").change(function () {
@@ -62,6 +66,10 @@ $(document).ready(function () {
                 fillEventsListBox(data);
             });
         }
+    });
+
+    $("#SessionName").keyup(function () {
+        $("#CreateSessionDdl").val(getSessionDefinition($(this).val()));
     });
 
 });
