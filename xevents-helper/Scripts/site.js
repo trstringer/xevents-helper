@@ -34,7 +34,25 @@ function getAllEventsForRelease(releaseName) {
 }
 
 function getSessionDefinition(sessionName) {
-    return "CREATE EVENT SESSION [" + sessionName + "]\r\nGO;";
+    var createSessionDefinition = "";
+
+    var session = {
+        Name: sessionName
+    };
+
+    $.ajax({
+        url: "../getcreatesession",
+        async: false,
+        datatype: "json",
+        contentType: "application/json",
+        type: "POST",
+        data: JSON.stringify({session: session}),
+        success: function (data) {
+            createSessionDefinition = data;
+        }
+    });
+
+    return createSessionDefinition;
 }
 
 $(document).ready(function () {

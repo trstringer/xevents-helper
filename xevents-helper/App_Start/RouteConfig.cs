@@ -32,6 +32,12 @@ namespace xevents_helper
             );
 
             routes.MapRoute(
+                name: "GetSessionDefinition",
+                url: "getcreatesession",
+                defaults: new { controller = "Home", action = "GetCreateSessionDdl" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

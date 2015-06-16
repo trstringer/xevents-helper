@@ -68,6 +68,7 @@ namespace xevents_helper.Controllers
             return Json(events, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpPost]
         public JsonResult GetCreateSessionDdl(XeSession session)
         {
             XeUtility xeUtil = new XeUtility();
