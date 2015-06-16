@@ -55,6 +55,10 @@ function getSessionDefinition(sessionName) {
     return createSessionDefinition;
 }
 
+function setAddEventButtonText(eventName) {
+    $("#AddEvent").val("Add" + eventName);
+}
+
 $(document).ready(function () {
 
     $("#ReleaseNameList").change(function () {
