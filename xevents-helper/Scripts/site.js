@@ -14,6 +14,7 @@
 function resetEventSearch() {
     $("#SearchInput").val("");
     $("#EventNameList").scrollTop(0);
+    clearAddEventButton();
 }
 
 function getAllEventsForRelease(releaseName) {
@@ -56,7 +57,12 @@ function getSessionDefinition(sessionName) {
 }
 
 function setAddEventButtonText(eventName) {
-    $("#AddEvent").val("Add" + eventName);
+    $("#AddEvent").text("Add " + eventName);
+    $("#AddEvent").show();
+}
+function clearAddEventButton() {
+    $("#AddEvent").text("");
+    $("#AddEvent").hide();
 }
 
 $(document).ready(function () {
@@ -68,10 +74,12 @@ $(document).ready(function () {
 
     $("#EventNameList").change(function () {
         var releaseEnc = encodeURIComponent($("#ReleaseNameList").val());
-        var eventNameEnc = encodeURIComponent($("#EventNameList").val());
+        var eventName = $("#EventNameList").val();
+        var eventNameEnc = encodeURIComponent(eventName);
 
         $.getJSON("../descsearch/" + releaseEnc + "/" + eventNameEnc, function (data) {
             $("#EventSessionDescription").text(data.eventDescription);
+            setAddEventButtonText(eventName);
         });
     });
 
