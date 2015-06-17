@@ -65,6 +65,14 @@ function clearAddEventButton() {
     $("#AddEvent").hide();
 }
 
+function getSelectedEvent() {
+    return $("#EventNameList").val();
+}
+
+function addEvent(eventName) {
+    $("#SelectedEvents").append("<p>" + eventName + "</p>");
+}
+
 $(document).ready(function () {
 
     $("#ReleaseNameList").change(function () {
@@ -100,6 +108,10 @@ $(document).ready(function () {
 
     $("#SessionName").keyup(function () {
         $("#CreateSessionDdl").val(getSessionDefinition($(this).val()));
+    });
+
+    $("#AddEvent").click(function () {
+        addEvent(getSelectedEvent());
     });
 
 });
