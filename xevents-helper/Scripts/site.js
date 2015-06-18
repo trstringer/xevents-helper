@@ -74,8 +74,10 @@ function addEvent(eventName) {
 }
 function generateEventTile(eventName) {
     var tileMarkup =
-        "<div class='col-md-4 center-block col-centered'>" +
-            "<p>" + eventName + "</p>" +
+        "<div class='col-md-4 center-block col-centered event-tile-container'>" +
+            "<div class='event-tile'>" +
+                "<p>" + eventName + "</p>" +
+            "</div>" +
         "</div>";
 
     return tileMarkup;

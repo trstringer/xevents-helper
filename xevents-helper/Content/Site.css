@@ -30,3 +30,16 @@ textarea {
 .main-row {
     margin-top: 20px;
 }
+
+.event-tile-container {
+    padding-right: 100px;
+    padding-bottom: 10px;
+}
+
+.event-tile {
+    border-style: solid;
+    border-width: thin;
+    border-color: lightgrey;
+    border-radius: 10px;
+    padding: 10px;
+}
