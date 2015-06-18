@@ -70,7 +70,15 @@ function getSelectedEvent() {
 }
 
 function addEvent(eventName) {
-    $("#SelectedEvents").append("<p>" + eventName + "</p>");
+    $("#SelectedEvents").append(generateEventTile(eventName));
+}
+function generateEventTile(eventName) {
+    var tileMarkup =
+        "<div class='col-md-4 center-block col-centered'>" +
+            "<p>" + eventName + "</p>" +
+        "</div>";
+
+    return tileMarkup;
 }
 
 $(document).ready(function () {
