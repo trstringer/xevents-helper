@@ -15,6 +15,7 @@ function resetEventSearch() {
     $("#SearchInput").val("");
     $("#EventNameList").scrollTop(0);
     clearAddEventButton();
+    $(".event-tile-container").remove();
 }
 
 function getAllEventsForRelease(releaseName) {
