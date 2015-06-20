@@ -179,5 +179,32 @@ namespace xevents_helper.Models
             else
                 return string.Empty;
         }
+
+        public IEnumerable<Action> GetAllActions(string releaseName)
+        {
+            DataTable output = new DataTable();
+
+            using (SqlConnection databaseConnection = new SqlConnection(_connectionString))
+            using (SqlCommand sqlCmd = new SqlCommand())
+            using (SqlDataAdapter sda = new SqlDataAdapter(sqlCmd))
+            {
+                sqlCmd.Connection = databaseConnection;
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.CommandText = "dbo.ActionGetByRelease";
+
+                sqlCmd.Parameters.Add(new SqlParameter("@ReleaseName", SqlDbType.VarChar, 32)
+                    {
+                        Value = releaseName
+                    });
+
+                sda.Fill(output);
+            }
+
+            foreach (DataRow row in output.Rows)
+                yield return new Action()
+                {
+                    Name = row["name"].ToString()
+                };
+        }
     }
 }

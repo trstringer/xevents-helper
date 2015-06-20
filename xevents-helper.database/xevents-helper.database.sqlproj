@@ -68,6 +68,7 @@
     <Build Include="StoredProcedures\EventSearchByDescription.sql" />
     <Build Include="StoredProcedures\ReleaseGet.sql" />
     <Build Include="StoredProcedures\EventGetDescription.sql" />
+    <Build Include="StoredProcedures\ActionGetByRelease.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="xevents-helper.database.local.publish.xml" />
