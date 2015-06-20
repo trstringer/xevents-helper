@@ -7,7 +7,7 @@ namespace xevents_helper.Models
 {
     public class XeUtility
     {
-        public string GetCreateDdl(XeSession session)
+        public string GetCreateDdl(Session session)
         {
             string sessionDefinition = GetCreateEventSessionClause(session.Name);
 

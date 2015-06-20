@@ -48,7 +48,7 @@ namespace xevents_helper.Models
             return allReleases.Where(m => m.Name == releaseName).First();
         }
 
-        public IEnumerable<XeEvent> GetAllEventsForRelease(Release release)
+        public IEnumerable<Event> GetAllEventsForRelease(Release release)
         {
             DataTable output = new DataTable();
 
@@ -69,14 +69,14 @@ namespace xevents_helper.Models
             }
 
             foreach (DataRow row in output.Rows)
-                yield return new XeEvent() 
+                yield return new Event() 
                 { 
                     Name = row["name"].ToString(), 
                     Description = row["description"].ToString() 
                 };
         }
 
-        private IEnumerable<XeEvent> SearchEventsByName(Release release, string searchString)
+        private IEnumerable<Event> SearchEventsByName(Release release, string searchString)
         {
             DataTable output = new DataTable();
 
@@ -101,13 +101,13 @@ namespace xevents_helper.Models
             }
 
             foreach (DataRow row in output.Rows)
-                yield return new XeEvent()
+                yield return new Event()
                 {
                     Name = row["name"].ToString(),
                     Description = row["description"].ToString()
                 };
         }
-        private IEnumerable<XeEvent> SearchEventsByDescription(Release release, string searchString)
+        private IEnumerable<Event> SearchEventsByDescription(Release release, string searchString)
         {
             DataTable output = new DataTable();
 
@@ -132,15 +132,15 @@ namespace xevents_helper.Models
             }
 
             foreach (DataRow row in output.Rows)
-                yield return new XeEvent()
+                yield return new Event()
                 {
                     Name = row["name"].ToString(),
                     Description = row["description"].ToString()
                 };
         }
-        public IEnumerable<XeEvent> SearchEvents(Release release, string searchString, SearchOption searchOption)
+        public IEnumerable<Event> SearchEvents(Release release, string searchString, SearchOption searchOption)
         {
-            List<XeEvent> events = new List<XeEvent>();
+            List<Event> events = new List<Event>();
 
             if (searchOption == SearchOption.ByName || searchOption == SearchOption.ByNameAndDescription)
                 events.AddRange(SearchEventsByName(release, searchString));

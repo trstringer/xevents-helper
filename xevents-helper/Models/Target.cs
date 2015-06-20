@@ -5,10 +5,8 @@ using System.Web;
 
 namespace xevents_helper.Models
 {
-    public class XeSession
+    public class Target
     {
         public string Name { get; set; }
-        public IEnumerable<XeEvent> Events { get; set; }
-        public IEnumerable<XeTarget> Targets { get; set; }
     }
 }

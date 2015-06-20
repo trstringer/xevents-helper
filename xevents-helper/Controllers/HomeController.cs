@@ -18,7 +18,7 @@ namespace xevents_helper.Controllers
             IEnumerable<Release> allReleases = dataGatherer.GetAllReleases();
             viewModel.Releases = new SelectList(allReleases, "Name", "Name");
 
-            IEnumerable<XeEvent> allEventsForRelease = dataGatherer.GetAllEventsForRelease(allReleases.First());
+            IEnumerable<Event> allEventsForRelease = dataGatherer.GetAllEventsForRelease(allReleases.First());
             viewModel.Events = new SelectList(allEventsForRelease, "Name", "Name");
 
             return View(viewModel);
@@ -51,7 +51,7 @@ namespace xevents_helper.Controllers
         {
             DataGatherer dataGatherer = new DataGatherer();
 
-            IEnumerable<XeEvent> events = dataGatherer.GetAllEventsForRelease(dataGatherer.GetRelease(releaseName));
+            IEnumerable<Event> events = dataGatherer.GetAllEventsForRelease(dataGatherer.GetRelease(releaseName));
 
             return Json(events, JsonRequestBehavior.AllowGet);
         }
@@ -60,7 +60,7 @@ namespace xevents_helper.Controllers
         {
             DataGatherer dataGatherer = new DataGatherer();
             
-            IEnumerable<XeEvent> events = dataGatherer.SearchEvents(
+            IEnumerable<Event> events = dataGatherer.SearchEvents(
                 dataGatherer.GetRelease(releaseName), 
                 searchTerm, 
                 searchDescriptions ? SearchOption.ByNameAndDescription : SearchOption.ByName);
@@ -69,7 +69,7 @@ namespace xevents_helper.Controllers
         }
 
         [HttpPost]
-        public JsonResult GetCreateSessionDdl(XeSession session)
+        public JsonResult GetCreateSessionDdl(Session session)
         {
             XeUtility xeUtil = new XeUtility();
             string createSessionDdl = xeUtil.GetCreateDdl(session);
