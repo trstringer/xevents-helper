@@ -9,5 +9,7 @@ namespace xevents_helper.Models
     {
         public string Name { get; set; }
         public string Description { get; set; }
+        public IEnumerable<EventField> Fields { get; set; }
+        public IEnumerable<Action> Actions { get; set; }
     }
 }
