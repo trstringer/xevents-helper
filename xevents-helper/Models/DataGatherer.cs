@@ -206,5 +206,10 @@ namespace xevents_helper.Models
                     Name = row["name"].ToString()
                 };
         }
+
+        public IEnumerable<EventField> GetAllEventFieldsForEvent(Release release, Event targetEvent)
+        {
+
+        }
     }
 }
