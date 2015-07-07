@@ -209,7 +209,36 @@ namespace xevents_helper.Models
 
         public IEnumerable<EventField> GetAllEventFieldsForEvent(Release release, Event targetEvent)
         {
+            DataTable output = new DataTable();
 
+            using (SqlConnection databaseConnection = new SqlConnection(_connectionString))
+            using (SqlCommand sqlCmd = new SqlCommand())
+            using (SqlDataAdapter sda = new SqlDataAdapter(sqlCmd))
+            {
+                sqlCmd.Connection = databaseConnection;
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.CommandText = "dbo.EventColumnSearchByEvent";
+
+                sqlCmd.Parameters.Add(new SqlParameter("@ReleaseName", SqlDbType.VarChar, 32)
+                    {
+                        Value = release.Name
+                    });
+                sqlCmd.Parameters.Add(new SqlParameter("@EventName", SqlDbType.NVarChar, 128)
+                    {
+                        Value = targetEvent.Name
+                    });
+
+                sda.Fill(output);
+            }
+
+            foreach (DataRow row in output.Rows)
+                yield return new EventField()
+                {
+                    Name = row["name"].ToString(),
+                    TypeName = row["type_name"].ToString(),
+                    IsOptional = Convert.ToBoolean(row["is_optional"]),
+                    Description = row["description"].ToString()
+                };
         }
     }
 }
