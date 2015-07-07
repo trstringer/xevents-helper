@@ -207,7 +207,7 @@ namespace xevents_helper.Models
                 };
         }
 
-        public IEnumerable<EventField> GetAllEventFieldsForEvent(Release release, Event targetEvent)
+        public IEnumerable<EventField> GetAllEventFieldsForEvent(Release release, string eventName)
         {
             DataTable output = new DataTable();
 
@@ -225,7 +225,7 @@ namespace xevents_helper.Models
                     });
                 sqlCmd.Parameters.Add(new SqlParameter("@EventName", SqlDbType.NVarChar, 128)
                     {
-                        Value = targetEvent.Name
+                        Value = eventName
                     });
 
                 sda.Fill(output);
