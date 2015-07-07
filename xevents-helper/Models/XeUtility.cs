@@ -23,9 +23,7 @@ namespace xevents_helper.Models
 
         private string GetAddEventClause(Event xeEvent)
         {
-            string addEventClause = string.Format("ADD EVENT {0}.{1}", QuoteName(xeEvent.PackageName), QuoteName(xeEvent.Name));
-            
-            return addEventClause;
+            return string.Format("ADD EVENT {0}.{1}", QuoteName(xeEvent.PackageName), QuoteName(xeEvent.Name));
         }
 
         private string QuoteName(string name)
