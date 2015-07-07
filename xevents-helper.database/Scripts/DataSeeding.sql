@@ -135177,3 +135177,299 @@ if not exists
         0x0000000000F00000
     from dbo.Release
     where FriendlyName = 'SQL 2008 R2';
+
+
+/******************************************************************************
+        SQL 2012 package data seeding
+******************************************************************************/
+
+if not exists 
+(
+    select 1
+    from dbo.XePackages p
+    inner join dbo.Release r
+    on p.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2012'
+    and p.name = 'package0'
+    and p.guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XePackages
+    (
+        ReleaseId,
+        name,
+        guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        module_guid,
+        module_address
+    )
+    select 
+        Id, 
+        'package0',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Default package. Contains all standard types, maps, compare operators, actions and targets',
+        256,
+        'utility',
+        '5B2DA06D-898A-43C8-9309-39BBBE93EBBD',
+        0x00007FF982020000
+    from dbo.Release
+    where FriendlyName = 'SQL 2012';
+if not exists 
+(
+    select 1
+    from dbo.XePackages p
+    inner join dbo.Release r
+    on p.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2012'
+    and p.name = 'sqlos'
+    and p.guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XePackages
+    (
+        ReleaseId,
+        name,
+        guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        module_guid,
+        module_address
+    )
+    select 
+        Id, 
+        'sqlos',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Extended events for SQL Operating System',
+        NULL,
+        NULL,
+        '5B2DA06D-898A-43C8-9309-39BBBE93EBBD',
+        0x00007FF982020000
+    from dbo.Release
+    where FriendlyName = 'SQL 2012';
+if not exists 
+(
+    select 1
+    from dbo.XePackages p
+    inner join dbo.Release r
+    on p.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2012'
+    and p.name = 'XeDkPkg'
+    and p.guid = '52fc232c-03d5-4e1f-a6bf-bbc66fe20e6a'
+)
+    insert into dbo.XePackages
+    (
+        ReleaseId,
+        name,
+        guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        module_guid,
+        module_address
+    )
+    select 
+        Id, 
+        'XeDkPkg',
+        '52fc232c-03d5-4e1f-a6bf-bbc66fe20e6a',
+        'Extended events for SQLDK binary',
+        NULL,
+        NULL,
+        '5B2DA06D-898A-43C8-9309-39BBBE93EBBD',
+        0x00007FF982020000
+    from dbo.Release
+    where FriendlyName = 'SQL 2012';
+if not exists 
+(
+    select 1
+    from dbo.XePackages p
+    inner join dbo.Release r
+    on p.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2012'
+    and p.name = 'sqlserver'
+    and p.guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XePackages
+    (
+        ReleaseId,
+        name,
+        guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        module_guid,
+        module_address
+    )
+    select 
+        Id, 
+        'sqlserver',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Extended events for Microsoft SQL Server',
+        NULL,
+        NULL,
+        'CE79811F-1A80-40E1-8F5D-7445A3F375E7',
+        0x00007FF982020000
+    from dbo.Release
+    where FriendlyName = 'SQL 2012';
+if not exists 
+(
+    select 1
+    from dbo.XePackages p
+    inner join dbo.Release r
+    on p.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2012'
+    and p.name = 'SecAudit'
+    and p.guid = 'f235752a-d5c0-4c9a-a735-9c3b6f6e43b1'
+)
+    insert into dbo.XePackages
+    (
+        ReleaseId,
+        name,
+        guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        module_guid,
+        module_address
+    )
+    select 
+        Id, 
+        'SecAudit',
+        'f235752a-d5c0-4c9a-a735-9c3b6f6e43b1',
+        'Security Audit Events',
+        1,
+        'private',
+        'CE79811F-1A80-40E1-8F5D-7445A3F375E7',
+        0x00007FF982020000
+    from dbo.Release
+    where FriendlyName = 'SQL 2012';
+if not exists 
+(
+    select 1
+    from dbo.XePackages p
+    inner join dbo.Release r
+    on p.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2012'
+    and p.name = 'ucs'
+    and p.guid = 'c0ab75c5-b1ea-445b-b7df-f897686f94e7'
+)
+    insert into dbo.XePackages
+    (
+        ReleaseId,
+        name,
+        guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        module_guid,
+        module_address
+    )
+    select 
+        Id, 
+        'ucs',
+        'c0ab75c5-b1ea-445b-b7df-f897686f94e7',
+        'Extended events for Unified Communications Stack',
+        NULL,
+        NULL,
+        'CE79811F-1A80-40E1-8F5D-7445A3F375E7',
+        0x00007FF982020000
+    from dbo.Release
+    where FriendlyName = 'SQL 2012';
+if not exists 
+(
+    select 1
+    from dbo.XePackages p
+    inner join dbo.Release r
+    on p.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2012'
+    and p.name = 'sqlclr'
+    and p.guid = '1e99fe90-a4fe-45e6-9dfd-a45041f02314'
+)
+    insert into dbo.XePackages
+    (
+        ReleaseId,
+        name,
+        guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        module_guid,
+        module_address
+    )
+    select 
+        Id, 
+        'sqlclr',
+        '1e99fe90-a4fe-45e6-9dfd-a45041f02314',
+        'Extended events for SQL CLR',
+        NULL,
+        NULL,
+        'CE79811F-1A80-40E1-8F5D-7445A3F375E7',
+        0x00007FF982020000
+    from dbo.Release
+    where FriendlyName = 'SQL 2012';
+if not exists 
+(
+    select 1
+    from dbo.XePackages p
+    inner join dbo.Release r
+    on p.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2012'
+    and p.name = 'filestream'
+    and p.guid = 'b086c2f3-2738-4389-b119-d80b5362b5ca'
+)
+    insert into dbo.XePackages
+    (
+        ReleaseId,
+        name,
+        guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        module_guid,
+        module_address
+    )
+    select 
+        Id, 
+        'filestream',
+        'b086c2f3-2738-4389-b119-d80b5362b5ca',
+        'Extended events for SQL Server FILESTREAM and FileTable',
+        NULL,
+        NULL,
+        'CE79811F-1A80-40E1-8F5D-7445A3F375E7',
+        0x00007FF982020000
+    from dbo.Release
+    where FriendlyName = 'SQL 2012';
+if not exists 
+(
+    select 1
+    from dbo.XePackages p
+    inner join dbo.Release r
+    on p.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2012'
+    and p.name = 'sqlserver'
+    and p.guid = '03fda7d0-91ba-45f8-9875-8b6dd0b8e9f2'
+)
+    insert into dbo.XePackages
+    (
+        ReleaseId,
+        name,
+        guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        module_guid,
+        module_address
+    )
+    select 
+        Id, 
+        'sqlserver',
+        '03fda7d0-91ba-45f8-9875-8b6dd0b8e9f2',
+        'Extended events for Microsoft SQL Server',
+        NULL,
+        NULL,
+        'D5149520-6282-11DE-8A39-0800200C9A66',
+        0x00007FF982020000
+    from dbo.Release
+    where FriendlyName = 'SQL 2012';
+
+
