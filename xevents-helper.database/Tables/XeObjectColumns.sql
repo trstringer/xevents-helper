@@ -12,6 +12,6 @@
     [column_value] NVARCHAR(256) NULL, 
     [capabilities] INT NULL, 
     [capabilities_desc] NVARCHAR(256) NULL, 
-    [description] NVARCHAR(256) NULL,
+    [description] NVARCHAR(384) NULL,
     constraint PK_XeObjectColumns_NameReleaseIdObjectNameType primary key (name, ReleaseId, [object_name], column_type)
 );
