@@ -135473,3 +135473,391 @@ if not exists
     where FriendlyName = 'SQL 2012';
 
 
+/******************************************************************************
+        SQL 2014 package data seeding
+******************************************************************************/
+
+if not exists 
+(
+    select 1
+    from dbo.XePackages p
+    inner join dbo.Release r
+    on p.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2014'
+    and p.name = 'package0'
+    and p.guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XePackages
+    (
+        ReleaseId,
+        name,
+        guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        module_guid,
+        module_address
+    )
+    select 
+        Id, 
+        'package0',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Default package. Contains all standard types, maps, compare operators, actions and targets',
+        256,
+        'utility',
+        '5B2DA06D-898A-43C8-9309-39BBBE93EBBD',
+        0x00007FF984390000
+    from dbo.Release
+    where FriendlyName = 'SQL 2014';
+if not exists 
+(
+    select 1
+    from dbo.XePackages p
+    inner join dbo.Release r
+    on p.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2014'
+    and p.name = 'sqlos'
+    and p.guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XePackages
+    (
+        ReleaseId,
+        name,
+        guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        module_guid,
+        module_address
+    )
+    select 
+        Id, 
+        'sqlos',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Extended events for SQL Operating System',
+        NULL,
+        NULL,
+        '5B2DA06D-898A-43C8-9309-39BBBE93EBBD',
+        0x00007FF984390000
+    from dbo.Release
+    where FriendlyName = 'SQL 2014';
+if not exists 
+(
+    select 1
+    from dbo.XePackages p
+    inner join dbo.Release r
+    on p.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2014'
+    and p.name = 'sqlserver'
+    and p.guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XePackages
+    (
+        ReleaseId,
+        name,
+        guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        module_guid,
+        module_address
+    )
+    select 
+        Id, 
+        'sqlserver',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Extended events for Microsoft SQL Server',
+        NULL,
+        NULL,
+        'CE79811F-1A80-40E1-8F5D-7445A3F375E7',
+        0x00007FF984390000
+    from dbo.Release
+    where FriendlyName = 'SQL 2014';
+if not exists 
+(
+    select 1
+    from dbo.XePackages p
+    inner join dbo.Release r
+    on p.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2014'
+    and p.name = 'SecAudit'
+    and p.guid = 'f235752a-d5c0-4c9a-a735-9c3b6f6e43b1'
+)
+    insert into dbo.XePackages
+    (
+        ReleaseId,
+        name,
+        guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        module_guid,
+        module_address
+    )
+    select 
+        Id, 
+        'SecAudit',
+        'f235752a-d5c0-4c9a-a735-9c3b6f6e43b1',
+        'Security Audit Events',
+        1,
+        'private',
+        'CE79811F-1A80-40E1-8F5D-7445A3F375E7',
+        0x00007FF984390000
+    from dbo.Release
+    where FriendlyName = 'SQL 2014';
+if not exists 
+(
+    select 1
+    from dbo.XePackages p
+    inner join dbo.Release r
+    on p.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2014'
+    and p.name = 'ucs'
+    and p.guid = 'c0ab75c5-b1ea-445b-b7df-f897686f94e7'
+)
+    insert into dbo.XePackages
+    (
+        ReleaseId,
+        name,
+        guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        module_guid,
+        module_address
+    )
+    select 
+        Id, 
+        'ucs',
+        'c0ab75c5-b1ea-445b-b7df-f897686f94e7',
+        'Extended events for Unified Communications Stack',
+        NULL,
+        NULL,
+        'CE79811F-1A80-40E1-8F5D-7445A3F375E7',
+        0x00007FF984390000
+    from dbo.Release
+    where FriendlyName = 'SQL 2014';
+if not exists 
+(
+    select 1
+    from dbo.XePackages p
+    inner join dbo.Release r
+    on p.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2014'
+    and p.name = 'sqlclr'
+    and p.guid = '1e99fe90-a4fe-45e6-9dfd-a45041f02314'
+)
+    insert into dbo.XePackages
+    (
+        ReleaseId,
+        name,
+        guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        module_guid,
+        module_address
+    )
+    select 
+        Id, 
+        'sqlclr',
+        '1e99fe90-a4fe-45e6-9dfd-a45041f02314',
+        'Extended events for SQL CLR',
+        NULL,
+        NULL,
+        'CE79811F-1A80-40E1-8F5D-7445A3F375E7',
+        0x00007FF984390000
+    from dbo.Release
+    where FriendlyName = 'SQL 2014';
+if not exists 
+(
+    select 1
+    from dbo.XePackages p
+    inner join dbo.Release r
+    on p.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2014'
+    and p.name = 'filestream'
+    and p.guid = 'b086c2f3-2738-4389-b119-d80b5362b5ca'
+)
+    insert into dbo.XePackages
+    (
+        ReleaseId,
+        name,
+        guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        module_guid,
+        module_address
+    )
+    select 
+        Id, 
+        'filestream',
+        'b086c2f3-2738-4389-b119-d80b5362b5ca',
+        'Extended events for SQL Server FILESTREAM and FileTable',
+        NULL,
+        NULL,
+        'CE79811F-1A80-40E1-8F5D-7445A3F375E7',
+        0x00007FF984390000
+    from dbo.Release
+    where FriendlyName = 'SQL 2014';
+if not exists 
+(
+    select 1
+    from dbo.XePackages p
+    inner join dbo.Release r
+    on p.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2014'
+    and p.name = 'sqlserver'
+    and p.guid = '03fda7d0-91ba-45f8-9875-8b6dd0b8e9f2'
+)
+    insert into dbo.XePackages
+    (
+        ReleaseId,
+        name,
+        guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        module_guid,
+        module_address
+    )
+    select 
+        Id, 
+        'sqlserver',
+        '03fda7d0-91ba-45f8-9875-8b6dd0b8e9f2',
+        'Extended events for Microsoft SQL Server',
+        NULL,
+        NULL,
+        'D5149520-6282-11DE-8A39-0800200C9A66',
+        0x00007FF984390000
+    from dbo.Release
+    where FriendlyName = 'SQL 2014';
+if not exists 
+(
+    select 1
+    from dbo.XePackages p
+    inner join dbo.Release r
+    on p.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2014'
+    and p.name = 'XtpRuntime'
+    and p.guid = '741df03f-54b7-4826-8501-b4a4d5ae172f'
+)
+    insert into dbo.XePackages
+    (
+        ReleaseId,
+        name,
+        guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        module_guid,
+        module_address
+    )
+    select 
+        Id, 
+        'XtpRuntime',
+        '741df03f-54b7-4826-8501-b4a4d5ae172f',
+        'Extended events for the XTP Runtime',
+        NULL,
+        NULL,
+        'DE0EFEC2-B9F3-45C8-9FCA-8247CB57109C',
+        0x00007FF984390000
+    from dbo.Release
+    where FriendlyName = 'SQL 2014';
+if not exists 
+(
+    select 1
+    from dbo.XePackages p
+    inner join dbo.Release r
+    on p.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2014'
+    and p.name = 'XtpCompile'
+    and p.guid = '4f6bddd7-25e7-475c-82dd-cfb6308638f7'
+)
+    insert into dbo.XePackages
+    (
+        ReleaseId,
+        name,
+        guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        module_guid,
+        module_address
+    )
+    select 
+        Id, 
+        'XtpCompile',
+        '4f6bddd7-25e7-475c-82dd-cfb6308638f7',
+        'Extended events for the XTP Compile',
+        NULL,
+        NULL,
+        'DD554AF1-C3F5-4C5E-8F83-C31C49957F3F',
+        0x00007FF984390000
+    from dbo.Release
+    where FriendlyName = 'SQL 2014';
+if not exists 
+(
+    select 1
+    from dbo.XePackages p
+    inner join dbo.Release r
+    on p.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2014'
+    and p.name = 'XtpEngine'
+    and p.guid = 'e2fc7ccd-b0b7-45a7-8d16-312846369fd4'
+)
+    insert into dbo.XePackages
+    (
+        ReleaseId,
+        name,
+        guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        module_guid,
+        module_address
+    )
+    select 
+        Id, 
+        'XtpEngine',
+        'e2fc7ccd-b0b7-45a7-8d16-312846369fd4',
+        'Extended events for the XTP Engine',
+        NULL,
+        NULL,
+        'D0234D96-8A83-4636-A717-41459AF88D71',
+        0x00007FF984390000
+    from dbo.Release
+    where FriendlyName = 'SQL 2014';
+if not exists 
+(
+    select 1
+    from dbo.XePackages p
+    inner join dbo.Release r
+    on p.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2014'
+    and p.name = 'qds'
+    and p.guid = '8f5c6497-a271-46ff-b769-8d0f03cad585'
+)
+    insert into dbo.XePackages
+    (
+        ReleaseId,
+        name,
+        guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        module_guid,
+        module_address
+    )
+    select 
+        Id, 
+        'qds',
+        '8f5c6497-a271-46ff-b769-8d0f03cad585',
+        'Extended events for Query Store',
+        NULL,
+        NULL,
+        '30E37A45-E152-4943-9189-2B235FCC4A6F',
+        0x00007FF984390000
+    from dbo.Release
+    where FriendlyName = 'SQL 2014';
