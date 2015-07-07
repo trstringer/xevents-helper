@@ -42,7 +42,9 @@ namespace xevents_helper.Controllers
         {
             DataGatherer dataGatherer = new DataGatherer();
 
-            string eventDescription = dataGatherer.GetEventDescription(releaseName, eventName);
+            Release release = new Release() { Name = releaseName };
+
+            string eventDescription = dataGatherer.GetEventDescription(release, eventName);
 
             return Json(new { eventName = eventName, eventDescription = eventDescription }, JsonRequestBehavior.AllowGet);
         }

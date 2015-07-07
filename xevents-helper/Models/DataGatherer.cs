@@ -150,7 +150,7 @@ namespace xevents_helper.Models
             return events;
         }
 
-        public string GetEventDescription(string releaseName, string eventName)
+        public string GetEventDescription(Release release, string eventName)
         {
             DataTable output = new DataTable();
 
@@ -164,7 +164,7 @@ namespace xevents_helper.Models
 
                 sqlCmd.Parameters.Add(new SqlParameter("@ReleaseName", SqlDbType.VarChar, 32)
                     {
-                        Value = releaseName
+                        Value = release.Name
                     });
                 sqlCmd.Parameters.Add(new SqlParameter("@EventName", SqlDbType.NVarChar, 128)
                     {
@@ -180,7 +180,7 @@ namespace xevents_helper.Models
                 return string.Empty;
         }
 
-        public IEnumerable<Action> GetAllActions(string releaseName)
+        public IEnumerable<Action> GetAllActions(Release release)
         {
             DataTable output = new DataTable();
 
@@ -194,7 +194,7 @@ namespace xevents_helper.Models
 
                 sqlCmd.Parameters.Add(new SqlParameter("@ReleaseName", SqlDbType.VarChar, 32)
                     {
-                        Value = releaseName
+                        Value = release.Name
                     });
 
                 sda.Fill(output);
