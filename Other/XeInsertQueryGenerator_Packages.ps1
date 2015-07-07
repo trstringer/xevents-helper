@@ -46,7 +46,7 @@ $Queries =
     and p.name = '$($Row["name"].ToString())'
     and p.guid = '$($Row["guid"].ToString())'
 )
-    insert into dbo.XeObjects
+    insert into dbo.XePackages
     (
         ReleaseId,
         name,
@@ -65,7 +65,7 @@ $Queries =
         $Capabilities,
         $CapabilitiesDesc,
         '$($Row["module_guid"].ToString())',
-        $($Row["module_address"].ToString())
+        0x$([System.BitConverter]::ToString($Output.Rows[0]["module_address"]).Replace("-", """))
     from dbo.Release
     where FriendlyName = '$Release';"
     }
