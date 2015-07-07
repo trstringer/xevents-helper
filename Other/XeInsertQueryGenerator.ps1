@@ -1,6 +1,7 @@
 ﻿$Release = "SQL 2008 R2"
+$DataSource = "localhost\sql2008r2"
 
-$ConnectionString = "data source = localhost\sql2008r2; initial catalog = master; trusted_connection = true;"
+$ConnectionString = "data source = $DataSource; initial catalog = master; trusted_connection = true;"
 $SqlConnection = New-Object System.Data.SqlClient.SqlConnection($ConnectionString)
 
 $SqlCmd = New-Object System.Data.SqlClient.SqlCommand
