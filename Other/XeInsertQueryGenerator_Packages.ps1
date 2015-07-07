@@ -1,5 +1,5 @@
-﻿$Release = "SQL 2014"
-$DataSource = "localhost\sql2014"
+﻿$Release = "SQL 2008"
+$DataSource = "localhost\sql2008"
 
 $ConnectionString = "data source = $DataSource; initial catalog = master; trusted_connection = true;"
 $SqlConnection = New-Object System.Data.SqlClient.SqlConnection($ConnectionString)

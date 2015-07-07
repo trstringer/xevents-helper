@@ -135046,6 +135046,140 @@ if not exists
 
 
 /******************************************************************************
+        SQL 2008 package data seeding
+******************************************************************************/
+
+if not exists 
+(
+    select 1
+    from dbo.XePackages p
+    inner join dbo.Release r
+    on p.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and p.name = 'package0'
+    and p.guid = '60aa9fbf-673b-4553-b7ed-71dca7f5e972'
+)
+    insert into dbo.XePackages
+    (
+        ReleaseId,
+        name,
+        guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        module_guid,
+        module_address
+    )
+    select 
+        Id, 
+        'package0',
+        '60aa9fbf-673b-4553-b7ed-71dca7f5e972',
+        'Default package. Contains all standard types, maps, compare operators, actions and targets',
+        256,
+        'utility',
+        'ce79811f-1a80-40e1-8f5d-7445a3f375e7',
+        0x0000000000A00000
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XePackages p
+    inner join dbo.Release r
+    on p.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and p.name = 'sqlos'
+    and p.guid = 'bd97cc63-3f38-4922-aa93-607bd12e78b2'
+)
+    insert into dbo.XePackages
+    (
+        ReleaseId,
+        name,
+        guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        module_guid,
+        module_address
+    )
+    select 
+        Id, 
+        'sqlos',
+        'bd97cc63-3f38-4922-aa93-607bd12e78b2',
+        'Extended events for SQL Operating System',
+        NULL,
+        NULL,
+        'ce79811f-1a80-40e1-8f5d-7445a3f375e7',
+        0x0000000000A00000
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XePackages p
+    inner join dbo.Release r
+    on p.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and p.name = 'sqlserver'
+    and p.guid = '655fd93f-3364-40d5-b2ba-330f7ffb6491'
+)
+    insert into dbo.XePackages
+    (
+        ReleaseId,
+        name,
+        guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        module_guid,
+        module_address
+    )
+    select 
+        Id, 
+        'sqlserver',
+        '655fd93f-3364-40d5-b2ba-330f7ffb6491',
+        'Extended events for Microsoft SQL Server',
+        NULL,
+        NULL,
+        'ce79811f-1a80-40e1-8f5d-7445a3f375e7',
+        0x0000000000A00000
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+if not exists 
+(
+    select 1
+    from dbo.XePackages p
+    inner join dbo.Release r
+    on p.ReleaseId = r.Id
+    where r.FriendlyName = 'SQL 2008'
+    and p.name = 'SecAudit'
+    and p.guid = 'f235752a-d5c0-4c9a-a735-9c3b6f6e43b1'
+)
+    insert into dbo.XePackages
+    (
+        ReleaseId,
+        name,
+        guid,
+        description,
+        capabilities,
+        capabilities_desc,
+        module_guid,
+        module_address
+    )
+    select 
+        Id, 
+        'SecAudit',
+        'f235752a-d5c0-4c9a-a735-9c3b6f6e43b1',
+        'Security Audit Events',
+        1,
+        'private',
+        'ce79811f-1a80-40e1-8f5d-7445a3f375e7',
+        0x0000000000A00000
+    from dbo.Release
+    where FriendlyName = 'SQL 2008';
+
+
+/******************************************************************************
         SQL 2008 R2 package data seeding
 ******************************************************************************/
 
