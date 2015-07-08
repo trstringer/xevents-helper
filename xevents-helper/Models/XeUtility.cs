@@ -20,6 +20,21 @@ namespace xevents_helper.Models
         {
             return string.Format("CREATE EVENT SESSION {0}\r\nON SERVER", QuoteName(session.Name));
         }
+        private string GetStartEventSessionClause(Session session)
+        {
+            return
+                string.Format("ALTER EVENT SESSION {0}\r\nON SERVER\r\nSTATE = START;\r\nGO", QuoteName(session.Name));
+        }
+        private string GetStopEventSessionClause(Session session)
+        {
+            return
+                string.Format("ALTER EVENT SESSION {0}\r\nON SERVER\r\nSTATE = STOP;\r\nGO", QuoteName(session.Name));
+        }
+        private string GetDropEventSessionClause(Session session)
+        {
+            return
+                string.Format("DROP EVENT SESSION {0}\r\nON SERVER;\r\nGO", QuoteName(session.Name));
+        }
 
         private string GetAddEventClause(Event xeEvent)
         {
