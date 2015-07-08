@@ -116,8 +116,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Action.cs" />
+    <Compile Include="Models\ConditionalOperator.cs" />
     <Compile Include="Models\DataGatherer.cs" />
     <Compile Include="Models\EventField.cs" />
+    <Compile Include="Models\IAction.cs" />
+    <Compile Include="Models\IEventData.cs" />
+    <Compile Include="Models\Predicate.cs" />
     <Compile Include="Models\Release.cs" />
     <Compile Include="Models\SearchOption.cs" />
     <Compile Include="Models\Event.cs" />

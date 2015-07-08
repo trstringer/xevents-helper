@@ -5,7 +5,7 @@ using System.Web;
 
 namespace xevents_helper.Models
 {
-    public class EventField
+    public class EventField : IEventData
     {
         public string Name { get; set; }
         public string TypeName { get; set; }

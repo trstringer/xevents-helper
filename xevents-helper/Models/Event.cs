@@ -12,5 +12,6 @@ namespace xevents_helper.Models
         public string PackageName { get; set; }
         public IEnumerable<EventField> Fields { get; set; }
         public IEnumerable<Action> Actions { get; set; }
+        public IEnumerable<Predicate> Predicates { get; set; }
     }
 }
