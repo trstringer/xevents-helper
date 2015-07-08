@@ -8,5 +8,6 @@ namespace xevents_helper.Models
     public class Action
     {
         public string Name { get; set; }
+        public string PackageName { get; set; }
     }
 }

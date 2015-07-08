@@ -23,7 +23,38 @@ namespace xevents_helper.Models
 
         private string GetAddEventClause(Event xeEvent)
         {
-            return string.Format("ADD EVENT {0}.{1}", QuoteName(xeEvent.PackageName), QuoteName(xeEvent.Name));
+            string addEventClause;
+
+            addEventClause = string.Format("ADD EVENT {0}.{1}", QuoteName(xeEvent.PackageName), QuoteName(xeEvent.Name));
+            addEventClause += "\r\n(\r\n";
+            addEventClause += GetEventActionClause(xeEvent.Actions);
+            
+            return addEventClause;
+        }
+        private string GetEventActionClause(IEnumerable<Action> actions)
+        {
+            if (actions == null || actions.Count() == 0)
+                return "";
+
+            string actionClause = "ACTION\r\n(";
+            string newAction;
+
+            bool isFirst = true;
+            foreach (Action action in actions)
+            {
+                newAction = string.Format("\r\n{0}.{1}", action.PackageName, action.Name);
+
+                if (isFirst)
+                    isFirst = false;
+                else
+                    newAction = "," + newAction;
+
+                actionClause += newAction;
+            }
+
+            actionClause += "\r\n)";
+
+            return actionClause;
         }
 
         private string QuoteName(string name)
