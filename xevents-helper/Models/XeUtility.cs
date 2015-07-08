@@ -28,6 +28,7 @@ namespace xevents_helper.Models
             addEventClause = string.Format("ADD EVENT {0}.{1}", QuoteName(xeEvent.PackageName), QuoteName(xeEvent.Name));
             addEventClause += "\r\n(\r\n";
             addEventClause += GetEventActionClause(xeEvent.Actions);
+            addEventClause += GetEventWhereClause(xeEvent.Predicates);
             
             return addEventClause;
         }
@@ -55,6 +56,64 @@ namespace xevents_helper.Models
             actionClause += "\r\n)";
 
             return actionClause;
+        }
+        private string GetEventWhereClause(IEnumerable<Predicate> predicates)
+        {
+            if (predicates == null || predicates.Count() == 0)
+                return "";
+
+            string whereClause = "WHERE\r\n(";
+            string newWhere;
+
+            bool isFirst = true;
+            foreach (Predicate predicate in predicates)
+            {
+                newWhere = string.Format(
+                    "\r\n{0} = {1}",
+                    GetEventDataFullName(predicate.EventData),
+                    FormatEventDataComparisonData(predicate));
+
+                if (isFirst)
+                    isFirst = false;
+                else
+                {
+                    // append the conditional operator, as as this point 
+                    // we are no longer on the first element and we need 
+                    // to handle conditional AND or OR
+                    //
+                    string conditionalOperatorString;
+                    if (predicate.ConditionalOperator == ConditionalOperator.And)
+                        conditionalOperatorString = "AND";
+                    else if (predicate.ConditionalOperator == ConditionalOperator.Or)
+                        conditionalOperatorString = "OR";
+                    else
+                        throw new NotImplementedException("Only AND and OR have been implemented for predicates");
+
+                    newWhere = string.Format("{0} {1}", conditionalOperatorString, newWhere);
+                }
+
+                whereClause += newWhere;
+            }
+
+            return whereClause;
+        }
+        private string GetEventDataFullName(IEventData eventData)
+        {
+            // if the event data is an action then we need to show this in 
+            // the form of package_name.action_name, otherwise it must be 
+            // an event field in which case the field name is sufficient
+            //
+            if (eventData is IAction)
+                return string.Format("{0}.{1}", ((IAction)eventData).PackageName, eventData.Name);
+            else
+                return eventData.Name;
+        }
+        private string FormatEventDataComparisonData(Predicate predicate)
+        {
+            return 
+                predicate.EventData.DataType == EventDataType.Character ? 
+                string.Format("N'{0}'", predicate.ComparisonValue) :
+                predicate.ComparisonValue.ToString();
         }
 
         private string QuoteName(string name)

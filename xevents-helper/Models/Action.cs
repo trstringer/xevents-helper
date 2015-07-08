@@ -9,5 +9,6 @@ namespace xevents_helper.Models
     {
         public string Name { get; set; }
         public string PackageName { get; set; }
+        public EventDataType DataType { get; set; }
     }
 }

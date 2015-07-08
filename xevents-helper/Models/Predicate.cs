@@ -9,5 +9,6 @@ namespace xevents_helper.Models
     {
         public IEventData EventData { get; set; }
         public ConditionalOperator ConditionalOperator { get; set; }
+        public object ComparisonValue { get; set; }
     }
 }

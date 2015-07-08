@@ -9,5 +9,6 @@ namespace xevents_helper.Models
     public interface IEventData
     {
         string Name { get; set; }
+        EventDataType DataType { get; set; }
     }
 }
