@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configura
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "xevents-helper.database", "xevents-helper.database\xevents-helper.database.sqlproj", "{FD5D9F6E-071A-4098-802C-96A709F15C8F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xevents-helper.test", "xevents-helper.test\xevents-helper.test.csproj", "{775A062E-23B5-4806-9585-7A5E096B2341}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +36,10 @@ Global
 		{FD5D9F6E-071A-4098-802C-96A709F15C8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD5D9F6E-071A-4098-802C-96A709F15C8F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FD5D9F6E-071A-4098-802C-96A709F15C8F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{775A062E-23B5-4806-9585-7A5E096B2341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{775A062E-23B5-4806-9585-7A5E096B2341}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{775A062E-23B5-4806-9585-7A5E096B2341}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{775A062E-23B5-4806-9585-7A5E096B2341}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
