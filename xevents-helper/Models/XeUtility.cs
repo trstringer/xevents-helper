@@ -131,6 +131,47 @@ namespace xevents_helper.Models
                 predicate.ComparisonValue.ToString();
         }
 
+        private string GetAddTargetClause(Target target)
+        {
+            string addTargetClause;
+
+            addTargetClause = string.Format("ADD TARGET {0}.{1}", QuoteName(target.PackageName), QuoteName(target.Name));
+            addTargetClause += "\r\n(\r\n";
+            addTargetClause += GetTargetOptionsClause(target.Settings);
+            addTargetClause += "\r\n)";
+
+            return addTargetClause;
+        }
+        private string GetTargetOptionsClause(IEnumerable<TargetSetting> targetSettings)
+        {
+            string targetSettingsClause;
+
+            targetSettingsClause = "SET";
+
+            bool isFirst = true;
+            string newSettingStatement;
+            foreach (TargetSetting setting in targetSettings)
+            {
+                newSettingStatement = string.Format("\r\n{0} = {1}", setting.Parameter.Name, FormatSettingData(setting));
+
+                if (isFirst)
+                    isFirst = false;
+                else
+                    newSettingStatement = "," + newSettingStatement;
+
+                targetSettingsClause += newSettingStatement;
+            }
+
+            return targetSettingsClause;
+        }
+        private string FormatSettingData(TargetSetting targetSetting)
+        {
+            return
+                targetSetting.Parameter.DataType == XeDataType.Character ?
+                string.Format("N'{0}'", targetSetting.Setting.ToString()) :
+                targetSetting.Setting.ToString();
+        }
+
         private string QuoteName(string name)
         {
             return string.Format("[{0}]", name);
