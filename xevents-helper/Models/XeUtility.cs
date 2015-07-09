@@ -126,7 +126,7 @@ namespace xevents_helper.Models
         private string FormatEventDataComparisonData(Predicate predicate)
         {
             return 
-                predicate.EventData.DataType == EventDataType.Character ? 
+                predicate.EventData.DataType == XeDataType.Character ? 
                 string.Format("N'{0}'", predicate.ComparisonValue) :
                 predicate.ComparisonValue.ToString();
         }

@@ -150,6 +150,17 @@ namespace xevents_helper.Models
             return events;
         }
 
+        private XeDataType GetDataType(string dataType)
+        {
+            return
+                dataType == "guid" ||
+                dataType == "xml" ||
+                dataType == "ansi_string" ||
+                dataType == "unicode_string" ?
+                XeDataType.Character :
+                XeDataType.NonCharacter;
+        }
+
         public string GetEventDescription(Release release, string eventName)
         {
             DataTable output = new DataTable();
@@ -237,7 +248,8 @@ namespace xevents_helper.Models
                     Name = row["name"].ToString(),
                     TypeName = row["type_name"].ToString(),
                     IsOptional = Convert.ToBoolean(row["is_optional"]),
-                    Description = row["description"].ToString()
+                    Description = row["description"].ToString(),
+                    DataType = GetDataType(row["type_name"].ToString())
                 };
         }
 
@@ -265,7 +277,42 @@ namespace xevents_helper.Models
                 yield return new Target()
                 {
                     Name = row["name"].ToString(),
-                    PackageName = row["package_name"].ToString()
+                    PackageName = row["package_name"].ToString(),
+                    Parameters = GetTargetParameters(release, row["name"].ToString())
+                };
+        }
+        public IEnumerable<TargetParameter> GetTargetParameters(Release release, string targetName)
+        {
+            DataTable output = new DataTable();
+
+            using (SqlConnection databaseConnection = new SqlConnection(_connectionString))
+            using (SqlCommand sqlCmd = new SqlCommand())
+            using (SqlDataAdapter sda = new SqlDataAdapter(sqlCmd))
+            {
+                sqlCmd.Connection = databaseConnection;
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.CommandText = "dbo.TargetParameterGet";
+
+                sqlCmd.Parameters.Add(new SqlParameter("@ReleaseName", SqlDbType.VarChar, 32)
+                    {
+                        Value = release.Name
+                    });
+                sqlCmd.Parameters.Add(new SqlParameter("@TargetName", SqlDbType.NVarChar, 128)
+                    {
+                        Value = targetName
+                    });
+
+                sda.Fill(output);
+            }
+
+            foreach (DataRow row in output.Rows)
+                yield return new TargetParameter()
+                {
+                    Name = row["name"].ToString(),
+                    TypeName = row["type_name"].ToString(),
+                    IsMandatory = Convert.ToBoolean(row["is_mandatory"]),
+                    Description = row["description"].ToString(),
+                    DataType = GetDataType(row["type_name"].ToString())
                 };
         }
     }

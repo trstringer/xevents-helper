@@ -5,7 +5,7 @@ using System.Web;
 
 namespace xevents_helper.Models
 {
-    public enum EventDataType
+    public enum XeDataType
     {
         Character,
         NonCharacter

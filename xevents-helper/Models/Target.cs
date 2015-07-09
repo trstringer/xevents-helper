@@ -9,5 +9,7 @@ namespace xevents_helper.Models
     {
         public string Name { get; set; }
         public string PackageName { get; set; }
+        public IEnumerable<TargetParameter> Parameters { get; set; }
+        public IEnumerable<TargetSetting> Settings { get; set; }
     }
 }

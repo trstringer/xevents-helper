@@ -11,6 +11,6 @@ namespace xevents_helper.Models
         public string TypeName { get; set; }
         public bool IsOptional { get; set; }
         public string Description { get; set; }
-        public EventDataType DataType { get; set; }
+        public XeDataType DataType { get; set; }
     }
 }
