@@ -128,6 +128,8 @@
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Session.cs" />
     <Compile Include="Models\Target.cs" />
+    <Compile Include="Models\TargetParameter.cs" />
+    <Compile Include="Models\TargetSetting.cs" />
     <Compile Include="Models\XeUtility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\HelperViewModel.cs" />

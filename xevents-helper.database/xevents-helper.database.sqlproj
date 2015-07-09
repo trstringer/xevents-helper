@@ -73,6 +73,7 @@
     <Build Include="Tables\XeObjectColumns.sql" />
     <Build Include="StoredProcedures\EventColumnSearchByEvent.sql" />
     <Build Include="StoredProcedures\TargetGet.sql" />
+    <Build Include="StoredProcedures\TargetParameterGet.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="xevents-helper.database.local.publish.xml" />
