@@ -240,5 +240,33 @@ namespace xevents_helper.Models
                     Description = row["description"].ToString()
                 };
         }
+
+        public IEnumerable<Target> GetAllTargets(Release release)
+        {
+            DataTable output = new DataTable();
+
+            using (SqlConnection databaseConnection = new SqlConnection(_connectionString))
+            using (SqlCommand sqlCmd = new SqlCommand())
+            using (SqlDataAdapter sda = new SqlDataAdapter(sqlCmd))
+            {
+                sqlCmd.Connection = databaseConnection;
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.CommandText = "dbo.TargetGet";
+
+                sqlCmd.Parameters.Add(new SqlParameter("@ReleaseName", SqlDbType.VarChar, 32)
+                    {
+                        Value = release.Name
+                    });
+
+                sda.Fill(output);
+            }
+
+            foreach (DataRow row in output.Rows)
+                yield return new Target()
+                {
+                    Name = row["name"].ToString(),
+                    PackageName = row["package_name"].ToString()
+                };
+        }
     }
 }
