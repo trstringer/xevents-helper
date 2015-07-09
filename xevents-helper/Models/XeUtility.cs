@@ -18,7 +18,18 @@ namespace xevents_helper.Models
 
         private string GetCreateEventSessionClause(Session session)
         {
-            return string.Format("CREATE EVENT SESSION {0}\r\nON SERVER", QuoteName(session.Name));
+            string createEventSessionDdl;
+
+            createEventSessionDdl = string.Format("CREATE EVENT SESSION {0}\r\nON SERVER\r\n", QuoteName(session.Name));
+
+            foreach (Event xeEvent in session.Events)
+                createEventSessionDdl += GetAddEventClause(xeEvent);
+            foreach (Target target in session.Targets)
+                createEventSessionDdl += GetAddTargetClause(target);
+
+            createEventSessionDdl += ";\r\nGO";
+
+            return createEventSessionDdl;
         }
         private string GetStartEventSessionClause(Session session)
         {
