@@ -92,5 +92,17 @@ namespace xevents_helper.test
             Assert.IsNotNull(release);
             Assert.IsTrue(release.Name.ToUpper() == _testReleaseName);
         }
+
+        [TestMethod]
+        public void GetDescriptionFromEvent()
+        {
+            Event xeEvent = _dataGatherer.SearchEvents(_testRelease, _testSearchEventName, SearchOption.ByName).First();
+            Assert.IsFalse(string.IsNullOrWhiteSpace(xeEvent.Description));
+
+            string description = _dataGatherer.GetEventDescription(_testRelease, _testSearchEventName);
+            Assert.IsFalse(string.IsNullOrWhiteSpace(description));
+
+            Assert.AreEqual(description, xeEvent.Description);
+        }
     }
 }
