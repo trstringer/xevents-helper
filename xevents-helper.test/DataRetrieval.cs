@@ -14,12 +14,14 @@ namespace xevents_helper.test
         private DataGatherer _dataGatherer;
         private string _testReleaseName;
         private Release _testRelease;
+        private string _testSearchEventName;
 
         public DataRetrieval()
         {
             _dataGatherer = new DataGatherer();
             _testReleaseName = "SQL 2012";
             _testRelease = new Release() { Name = _testReleaseName };
+            _testSearchEventName = "sql_statement_completed";
         }
 
         [TestMethod]
@@ -37,6 +39,15 @@ namespace xevents_helper.test
 
             Assert.IsNotNull(events);
             Assert.IsTrue(events.ToList().Count > 0);
+        }
+
+        [TestMethod]
+        public void SearchFullEventName()
+        {
+            IEnumerable<Event> events = _dataGatherer.SearchEvents(_testRelease, _testSearchEventName, SearchOption.ByName);
+
+            Assert.IsNotNull(events);
+            Assert.IsTrue(events.Count() == 1);
         }
     }
 }
