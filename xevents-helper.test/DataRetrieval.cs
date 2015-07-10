@@ -72,5 +72,25 @@ namespace xevents_helper.test
 
             Debug.WriteLine(string.Format("{0} actions found in release {1}", actions.Count(), _testRelease.Name));
         }
+
+        [TestMethod]
+        public void GetAllReleases()
+        {
+            IEnumerable<Release> releases = _dataGatherer.GetAllReleases();
+
+            Assert.IsNotNull(releases);
+            Assert.IsTrue(releases.Count() > 0);
+
+            Debug.WriteLine(string.Format("{0} releases found", releases.Count()));
+        }
+
+        [TestMethod]
+        public void GetRelease()
+        {
+            Release release = _dataGatherer.GetRelease(_testReleaseName);
+
+            Assert.IsNotNull(release);
+            Assert.IsTrue(release.Name.ToUpper() == _testReleaseName);
+        }
     }
 }
