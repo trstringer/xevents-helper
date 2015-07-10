@@ -5,6 +5,7 @@ using xevents_helper.Models;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 
 namespace xevents_helper.test
 {
@@ -39,6 +40,8 @@ namespace xevents_helper.test
 
             Assert.IsNotNull(events);
             Assert.IsTrue(events.ToList().Count > 0);
+
+            Debug.WriteLine(string.Format("{0} events found in release {1}", events.Count(), _testRelease.Name));
         }
 
         [TestMethod]
@@ -48,6 +51,26 @@ namespace xevents_helper.test
 
             Assert.IsNotNull(events);
             Assert.IsTrue(events.Count() == 1);
+        }
+
+        [TestMethod]
+        public void SearchPartialEventName()
+        {
+            IEnumerable<Event> events = _dataGatherer.SearchEvents(_testRelease, _testSearchEventName.Substring(0, _testSearchEventName.Length - 1), SearchOption.ByName);
+
+            Assert.IsNotNull(events);
+            Assert.IsTrue(events.Count() == 1);
+        }
+
+        [TestMethod]
+        public void ActionsRetrieval()
+        {
+            IEnumerable<xevents_helper.Models.Action> actions = _dataGatherer.GetAllActions(_testRelease);
+
+            Assert.IsNotNull(actions);
+            Assert.IsTrue(actions.Count() > 0);
+
+            Debug.WriteLine(string.Format("{0} actions found in release {1}", actions.Count(), _testRelease.Name));
         }
     }
 }
