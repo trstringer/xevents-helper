@@ -16,6 +16,7 @@ namespace xevents_helper.test
         private string _testReleaseName;
         private Release _testRelease;
         private string _testSearchEventName;
+        private string _testSearchEventNameMultiple;
 
         public DataRetrieval()
         {
@@ -23,6 +24,7 @@ namespace xevents_helper.test
             _testReleaseName = "SQL 2012";
             _testRelease = new Release() { Name = _testReleaseName };
             _testSearchEventName = "sql_statement_completed";
+            _testSearchEventNameMultiple = "sql";
         }
 
         [TestMethod]
@@ -60,6 +62,17 @@ namespace xevents_helper.test
 
             Assert.IsNotNull(events);
             Assert.IsTrue(events.Count() == 1);
+        }
+
+        [TestMethod]
+        public void SearchPartialEventNameMultiple()
+        {
+            IEnumerable<Event> events = _dataGatherer.SearchEvents(_testRelease, _testSearchEventNameMultiple, SearchOption.ByName);
+
+            Assert.IsNotNull(events);
+            Assert.IsTrue(events.Count() > 1);
+
+            Debug.WriteLine(string.Format("{0} events found for \"{1}\"", events.Count(), _testSearchEventNameMultiple));
         }
 
         [TestMethod]
