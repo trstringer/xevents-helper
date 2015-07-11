@@ -17,6 +17,7 @@ namespace xevents_helper.test
         private Release _testRelease;
         private string _testSearchEventName;
         private string _testSearchEventNameMultiple;
+        private string _testTargetName;
 
         public DataRetrieval()
         {
@@ -25,6 +26,7 @@ namespace xevents_helper.test
             _testRelease = new Release() { Name = _testReleaseName };
             _testSearchEventName = "sql_statement_completed";
             _testSearchEventNameMultiple = "sql";
+            _testTargetName = "event_file";
         }
 
         [TestMethod]
@@ -116,6 +118,28 @@ namespace xevents_helper.test
             Assert.IsFalse(string.IsNullOrWhiteSpace(description));
 
             Assert.AreEqual(description, xeEvent.Description);
+        }
+
+        [TestMethod]
+        public void GetAllTargets()
+        {
+            IEnumerable<Target> targets = _dataGatherer.GetAllTargets(_testRelease);
+
+            Assert.IsNotNull(targets);
+            Assert.IsTrue(targets.Count() > 1);
+
+            Debug.WriteLine(string.Format("Found {0} targets on release {1}", targets.Count(), _testRelease.Name));
+        }
+
+        [TestMethod]
+        public void GetTargetParams()
+        {
+            IEnumerable<TargetParameter> tParams = _dataGatherer.GetTargetParameters(_testRelease, _testTargetName);
+
+            Assert.IsNotNull(tParams);
+            Assert.IsTrue(tParams.Count() > 1);
+
+            Debug.WriteLine(string.Format("{0} target params found for {1} in release {2}", tParams.Count(), _testTargetName, _testRelease.Name));
         }
     }
 }
