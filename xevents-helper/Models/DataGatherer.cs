@@ -105,7 +105,8 @@ namespace xevents_helper.Models
                 {
                     Name = row["name"].ToString(),
                     PackageName = row["package_name"].ToString(),
-                    Description = row["description"].ToString()
+                    Description = row["description"].ToString(),
+                    Fields = GetAllEventFieldsForEvent(release, row["name"].ToString())
                 };
         }
         private IEnumerable<Event> SearchEventsByDescription(Release release, string searchString)
