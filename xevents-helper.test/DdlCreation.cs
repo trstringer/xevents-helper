@@ -52,5 +52,24 @@ namespace xevents_helper.test
 
             Debug.WriteLine(sessionDefinition);
         }
+
+        [TestMethod]
+        public void GenerateEventDefinitionMultiEvent()
+        {
+            Session session = new Session();
+            session.Name = "Session2 with a space";
+            session.TargetRelease = _release;
+
+            List<Event> events = new List<Event>();
+            events.Add(_dataGatherer.SearchEvents(_release, _eventName1, SearchOption.ByName).First());
+            events.Add(_dataGatherer.SearchEvents(_release, _eventName2, SearchOption.ByName).First());
+            session.Events = events;
+
+            string sessionDefinition = _xeUtility.GetCreateDdl(session);
+
+            Assert.IsFalse(string.IsNullOrWhiteSpace(sessionDefinition));
+
+            Debug.WriteLine(sessionDefinition);
+        }
     }
 }
