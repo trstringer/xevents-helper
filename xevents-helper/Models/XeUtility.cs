@@ -139,6 +139,9 @@ namespace xevents_helper.Models
         }
         private string FormatEventDataComparisonData(Predicate predicate)
         {
+            if (predicate == null)
+                return "";
+
             return 
                 predicate.EventData.DataType == XeDataType.Character ? 
                 string.Format("N'{0}'", predicate.ComparisonValue) :
@@ -147,6 +150,9 @@ namespace xevents_helper.Models
 
         private string GetAddTargetClause(Target target)
         {
+            if (target == null)
+                return "";
+
             string addTargetClause;
 
             addTargetClause = string.Format("ADD TARGET {0}.{1}", QuoteName(target.PackageName), QuoteName(target.Name));
@@ -158,6 +164,9 @@ namespace xevents_helper.Models
         }
         private string GetTargetOptionsClause(IEnumerable<TargetSetting> targetSettings)
         {
+            if (targetSettings == null)
+                return "";
+
             string targetSettingsClause;
 
             targetSettingsClause = "SET";
@@ -180,6 +189,9 @@ namespace xevents_helper.Models
         }
         private string FormatSettingData(TargetSetting targetSetting)
         {
+            if (targetSetting == null)
+                return "";
+
             return
                 targetSetting.Parameter.DataType == XeDataType.Character ?
                 string.Format("N'{0}'", targetSetting.Setting.ToString()) :
