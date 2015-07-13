@@ -29,8 +29,6 @@ namespace xevents_helper.Models
                 foreach (Target target in session.Targets)
                     createEventSessionDdl += GetAddTargetClause(target);
 
-            createEventSessionDdl += ";\r\nGO";
-
             return createEventSessionDdl;
         }
         private string GetStartEventSessionClause(Session session)
