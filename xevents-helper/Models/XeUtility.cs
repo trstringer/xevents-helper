@@ -52,10 +52,17 @@ namespace xevents_helper.Models
             string addEventClause;
 
             addEventClause = string.Format("ADD EVENT {0}.{1}", QuoteName(xeEvent.PackageName), QuoteName(xeEvent.Name));
-            addEventClause += "\r\n(\r\n";
-            addEventClause += GetEventActionClause(xeEvent.Actions);
-            addEventClause += GetEventWhereClause(xeEvent.Predicates);
-            addEventClause += "\r\n)";
+
+            // parenthesis for the event would only be added if there are 
+            // either actions and/or predicates to specify for the event 
+            //
+            if (xeEvent.Actions != null || xeEvent.Predicates != null)
+            { 
+                addEventClause += "\r\n(\r\n";
+                addEventClause += GetEventActionClause(xeEvent.Actions);
+                addEventClause += GetEventWhereClause(xeEvent.Predicates);
+                addEventClause += "\r\n)";
+            }
             
             return addEventClause;
         }
