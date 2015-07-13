@@ -36,7 +36,7 @@ namespace xevents_helper.test
         }
 
         [TestMethod]
-        public void GenerateEventDefinition()
+        public void GenerateEventDefinitionSingleEvent()
         {
             Session session = new Session();
             session.Name = "Session1";
