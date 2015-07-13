@@ -104,6 +104,7 @@ namespace xevents_helper.Models
                 yield return new Event()
                 {
                     Name = row["name"].ToString(),
+                    PackageName = row["package_name"].ToString(),
                     Description = row["description"].ToString()
                 };
         }
