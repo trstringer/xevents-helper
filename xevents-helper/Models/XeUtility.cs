@@ -51,7 +51,7 @@ namespace xevents_helper.Models
         {
             string addEventClause;
 
-            addEventClause = string.Format("ADD EVENT {0}.{1}", QuoteName(xeEvent.PackageName), QuoteName(xeEvent.Name));
+            addEventClause = string.Format("ADD EVENT {0}.{1}", xeEvent.PackageName, xeEvent.Name);
 
             // parenthesis for the event would only be added if there are 
             // either actions and/or predicates to specify for the event 
