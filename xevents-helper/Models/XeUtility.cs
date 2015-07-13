@@ -22,10 +22,12 @@ namespace xevents_helper.Models
 
             createEventSessionDdl = string.Format("CREATE EVENT SESSION {0}\r\nON SERVER\r\n", QuoteName(session.Name));
 
-            foreach (Event xeEvent in session.Events)
-                createEventSessionDdl += GetAddEventClause(xeEvent);
-            foreach (Target target in session.Targets)
-                createEventSessionDdl += GetAddTargetClause(target);
+            if (session.Events != null)
+                foreach (Event xeEvent in session.Events)
+                    createEventSessionDdl += GetAddEventClause(xeEvent);
+            if (session.Targets != null)
+                foreach (Target target in session.Targets)
+                    createEventSessionDdl += GetAddTargetClause(target);
 
             createEventSessionDdl += ";\r\nGO";
 
