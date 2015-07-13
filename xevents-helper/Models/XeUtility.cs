@@ -23,8 +23,19 @@ namespace xevents_helper.Models
             createEventSessionDdl = string.Format("CREATE EVENT SESSION {0}\r\nON SERVER\r\n", QuoteName(session.Name));
 
             if (session.Events != null)
+            {
+                bool isFirstEvent = true;
+
                 foreach (Event xeEvent in session.Events)
+                {
+                    if (isFirstEvent)
+                        isFirstEvent = false;
+                    else
+                        createEventSessionDdl += ",\r\n";
+
                     createEventSessionDdl += GetAddEventClause(xeEvent);
+                }
+            }
             if (session.Targets != null)
                 foreach (Target target in session.Targets)
                     createEventSessionDdl += GetAddTargetClause(target);
