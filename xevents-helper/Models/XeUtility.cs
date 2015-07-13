@@ -57,6 +57,7 @@ namespace xevents_helper.Models
             addEventClause += "\r\n(\r\n";
             addEventClause += GetEventActionClause(xeEvent.Actions);
             addEventClause += GetEventWhereClause(xeEvent.Predicates);
+            addEventClause += "\r\n)";
             
             return addEventClause;
         }
