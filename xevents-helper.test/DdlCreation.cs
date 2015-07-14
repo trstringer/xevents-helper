@@ -36,7 +36,7 @@ namespace xevents_helper.test
         }
 
         [TestMethod]
-        public void GenerateEventDefinitionSingleEvent()
+        public void SingleEvent()
         {
             Session session = new Session();
             session.Name = "Session1";
@@ -54,7 +54,7 @@ namespace xevents_helper.test
         }
 
         [TestMethod]
-        public void GenerateEventDefinitionMultiEvent()
+        public void MultiEvent()
         {
             Session session = new Session();
             session.Name = "Session2 with a space";
@@ -70,6 +70,12 @@ namespace xevents_helper.test
             Assert.IsFalse(string.IsNullOrWhiteSpace(sessionDefinition));
 
             Debug.WriteLine(sessionDefinition);
+        }
+
+        [TestMethod]
+        public void SingleEventWithAction()
+        {
+
         }
     }
 }
