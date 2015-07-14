@@ -216,7 +216,9 @@ namespace xevents_helper.Models
             foreach (DataRow row in output.Rows)
                 yield return new Action()
                 {
-                    Name = row["name"].ToString()
+                    Name = row["name"].ToString(),
+                    PackageName = row["package_name"].ToString(),
+                    DataType = GetDataType(row["type_name"].ToString())
                 };
         }
         public Action GetAction(Release release, string actionName)
