@@ -7,6 +7,8 @@ namespace xevents_helper.Models
 {
     public class XeUtility
     {
+        private int _indentationSpaceCount = 4;
+
         public string GetCreateDdl(Session session)
         {
             string sessionDefinition = GetCreateEventSessionClause(session);
@@ -82,13 +84,13 @@ namespace xevents_helper.Models
             if (actions == null || actions.Count() == 0)
                 return "";
 
-            string actionClause = "ACTION\r\n(";
+            string actionClause = string.Format("{0}ACTION\r\n{1}(", GetIndentation(1), GetIndentation(1));
             string newAction;
 
             bool isFirst = true;
             foreach (Action action in actions)
             {
-                newAction = string.Format("\r\n{0}.{1}", action.PackageName, action.Name);
+                newAction = string.Format("\r\n{0}{1}.{2}", GetIndentation(2), action.PackageName, action.Name);
 
                 if (isFirst)
                     isFirst = false;
@@ -98,7 +100,7 @@ namespace xevents_helper.Models
                 actionClause += newAction;
             }
 
-            actionClause += "\r\n)";
+            actionClause += string.Format("\r\n{0})", GetIndentation(1));
 
             return actionClause;
         }
@@ -217,6 +219,10 @@ namespace xevents_helper.Models
         private string QuoteName(string name)
         {
             return string.Format("[{0}]", name);
+        }
+        private string GetIndentation(int level)
+        {
+            return new string(' ', level * _indentationSpaceCount);
         }
     }
 }
