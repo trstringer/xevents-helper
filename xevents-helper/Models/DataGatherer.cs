@@ -225,7 +225,12 @@ namespace xevents_helper.Models
             if (actions == null || actions.Count() == 0)
                 return null;
 
-            return actions.Where(m => m.Name == actionName).First();
+            actions = actions.Where(m => m.Name == actionName);
+
+            if (actions == null || actions.Count() == 0)
+                return null;
+
+            return actions.First();
         }
 
         public IEnumerable<EventField> GetAllEventFieldsForEvent(Release release, string eventName)

@@ -18,6 +18,7 @@ namespace xevents_helper.test
         private string _testSearchEventName;
         private string _testSearchEventNameMultiple;
         private string _testTargetName;
+        private string _testActionName;
 
         public DataRetrieval()
         {
@@ -27,6 +28,7 @@ namespace xevents_helper.test
             _testSearchEventName = "sql_statement_completed";
             _testSearchEventNameMultiple = "sql";
             _testTargetName = "event_file";
+            _testActionName = "sql_text";
         }
 
         [TestMethod]
@@ -140,6 +142,22 @@ namespace xevents_helper.test
             Assert.IsTrue(tParams.Count() > 1);
 
             Debug.WriteLine(string.Format("{0} target params found for {1} in release {2}", tParams.Count(), _testTargetName, _testRelease.Name));
+        }
+
+        [TestMethod]
+        public void GetActionFound()
+        {
+            xevents_helper.Models.Action action = _dataGatherer.GetAction(_testRelease, _testActionName);
+
+            Assert.IsNotNull(action);
+        }
+
+        [TestMethod]
+        public void GetActionNotFound()
+        {
+            xevents_helper.Models.Action action = _dataGatherer.GetAction(_testRelease, _testActionName + "blah");
+
+            Assert.IsNull(action);
         }
     }
 }
