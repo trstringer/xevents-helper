@@ -76,7 +76,7 @@ namespace xevents_helper.test
         }
 
         [TestMethod]
-        public void SingleEventWithAction()
+        public void SingleEventWithSingleAction()
         {
             Session session = new Session();
             session.Name = "Session2";
