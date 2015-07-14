@@ -17,6 +17,7 @@ namespace xevents_helper.test
         private string _releaseName;
         private string _eventName1;
         private string _filterData1;
+        private string _actionName1;
         private string _eventName2;
         private string _targetName1;
         private string _targetName2;
@@ -30,6 +31,8 @@ namespace xevents_helper.test
 
             _eventName1 = "sql_statement_completed";
             _eventName2 = "sql_statement_starting";
+
+            _actionName1 = "sql_text";
 
             _targetName1 = "event_file";
             _targetName2 = "";
@@ -75,7 +78,22 @@ namespace xevents_helper.test
         [TestMethod]
         public void SingleEventWithAction()
         {
+            Session session = new Session();
+            session.Name = "Session2";
+            session.TargetRelease = _release;
 
+            List<Event> events = new List<Event>();
+            Event xeEvent = _dataGatherer.SearchEvents(_release, _eventName1, SearchOption.ByName).First();
+            xeEvent.Actions = new List<xevents_helper.Models.Action>();
+            ((List<xevents_helper.Models.Action>)xeEvent.Actions).Add(_dataGatherer.GetAction(_release, _actionName1));
+            events.Add(xeEvent);
+            session.Events = events;
+
+            string sessionDefinition = _xeUtility.GetCreateDdl(session);
+
+            Assert.IsFalse(string.IsNullOrWhiteSpace(sessionDefinition));
+
+            Debug.WriteLine(sessionDefinition);
         }
     }
 }
