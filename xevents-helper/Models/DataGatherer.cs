@@ -219,6 +219,14 @@ namespace xevents_helper.Models
                     Name = row["name"].ToString()
                 };
         }
+        public Action GetAction(Release release, string actionName)
+        {
+            IEnumerable<Action> actions = GetAllActions(release);
+            if (actions == null || actions.Count() == 0)
+                return null;
+
+            return actions.Where(m => m.Name == actionName).First();
+        }
 
         public IEnumerable<EventField> GetAllEventFieldsForEvent(Release release, string eventName)
         {
