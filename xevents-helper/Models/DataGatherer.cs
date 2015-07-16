@@ -298,6 +298,15 @@ namespace xevents_helper.Models
                     Parameters = GetTargetParameters(release, row["name"].ToString())
                 };
         }
+        public Target GetTarget(Release release, string targetName)
+        {
+            IEnumerable<Target> targets = GetAllTargets(release);
+
+            if (targets == null || targets.Count() == 0)
+                return null;
+
+            return targets.First();
+        }
         public IEnumerable<TargetParameter> GetTargetParameters(Release release, string targetName)
         {
             DataTable output = new DataTable();
@@ -331,6 +340,10 @@ namespace xevents_helper.Models
                     Description = row["description"].ToString(),
                     DataType = GetDataType(row["type_name"].ToString())
                 };
+        }
+        public IEnumerable<TargetParameter> GetTargetParameters(Release release, Target target)
+        {
+            return GetTargetParameters(release, target.Name);
         }
     }
 }
