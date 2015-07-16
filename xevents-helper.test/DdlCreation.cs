@@ -177,5 +177,27 @@ namespace xevents_helper.test
 
             Debug.WriteLine(sessionDefinition);
         }
+
+        [TestMethod]
+        public void SingleEventSingleTarget()
+        {
+            Session session = new Session();
+            session.Name = "Session3";
+            session.TargetRelease = _release;
+
+            List<Event> events = new List<Event>();
+            Event xeEvent = _dataGatherer.SearchEvents(_release, _eventName1, SearchOption.ByName).First();
+            events.Add(xeEvent);
+            session.Events = events;
+
+            Target target = _dataGatherer.GetTarget(_release, _targetName1);
+            session.Targets = new List<Target>() { target };
+
+            string sessionDefinition = _xeUtility.GetCreateDdl(session);
+
+            Assert.IsFalse(string.IsNullOrWhiteSpace(sessionDefinition));
+
+            Debug.WriteLine(sessionDefinition);
+        }
     }
 }

@@ -134,6 +134,14 @@ namespace xevents_helper.test
         }
 
         [TestMethod]
+        public void GetTarget()
+        {
+            Target target = _dataGatherer.GetTarget(_testRelease, _testTargetName);
+
+            Assert.IsNotNull(target);
+        }
+
+        [TestMethod]
         public void GetTargetParams()
         {
             IEnumerable<TargetParameter> tParams = _dataGatherer.GetTargetParameters(_testRelease, _testTargetName);
