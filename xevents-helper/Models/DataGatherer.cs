@@ -305,7 +305,9 @@ namespace xevents_helper.Models
             if (targets == null || targets.Count() == 0)
                 return null;
 
-            return targets.First();
+            Target target = targets.Where(m => m.Name.ToUpper() == targetName.ToUpper()).First();
+
+            return target;
         }
         public IEnumerable<TargetParameter> GetTargetParameters(Release release, string targetName)
         {
