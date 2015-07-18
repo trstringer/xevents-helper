@@ -139,6 +139,7 @@ namespace xevents_helper.test
             Target target = _dataGatherer.GetTarget(_testRelease, _testTargetName);
 
             Assert.IsNotNull(target);
+            Assert.AreEqual(_testTargetName, target.Name);
         }
 
         [TestMethod]
