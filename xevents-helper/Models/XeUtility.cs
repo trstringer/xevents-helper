@@ -215,6 +215,52 @@ namespace xevents_helper.Models
                 string.Format("N'{0}'", targetSetting.Setting.ToString()) :
                 targetSetting.Setting.ToString();
         }
+        public bool allMandatorySettingsDefined(Target target)
+        {
+            bool paramDefined;
+
+            // if the target has no parameters then we can safely assume 
+            // that no mandatory parameters need to be specified, returning 
+            // a positive result
+            //
+            if (target.Parameters == null || target.Parameters.Count() == 0)
+                return true;
+
+            foreach (TargetParameter param in target.Parameters)
+            {
+                if (param.IsMandatory)
+                {
+                    // if we have at least one mandatory parameter yet
+                    // the settings don't specify anything, then just 
+                    // shortcircuit
+                    //
+                    if (target.Settings == null || target.Settings.Count() == 0)
+                        return false;
+
+                    paramDefined = false;
+                    foreach (TargetSetting setting in target.Settings)
+                    {
+                        if (setting.Parameter.Name == param.Name)
+                        { 
+                            paramDefined = true;
+                            break;
+                        }
+                    }
+
+                    // at this point if we haven't found a setting specifying 
+                    // this mandatory parameter then shortcircuit and return 
+                    // false, as this is an eager failure
+                    //
+                    if (!paramDefined)
+                        return false;
+                }
+            }
+
+            // if we have looped through all mandatory parameters and if
+            // they have been defined, then return success
+            //
+            return true; 
+        }
 
         private string QuoteName(string name)
         {
