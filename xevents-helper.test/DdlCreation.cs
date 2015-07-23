@@ -21,6 +21,7 @@ namespace xevents_helper.test
         private string _actionName2;
         private string _eventName2;
         private string _targetName1;
+        private string _targetMandatoryParamName1;
         private string _targetName2;
 
         public DdlCreation()
@@ -37,6 +38,7 @@ namespace xevents_helper.test
             _actionName2 = "database_id";
 
             _targetName1 = "event_file";
+            _targetMandatoryParamName1 = "filename";
             _targetName2 = "";
         }
 
@@ -192,6 +194,14 @@ namespace xevents_helper.test
 
             Target target = _dataGatherer.GetTarget(_release, _targetName1);
             session.Targets = new List<Target>() { target };
+
+            TargetParameter param = target.Parameters.Where(m => m.Name == _targetMandatoryParamName1).First();
+
+            TargetSetting setting = new TargetSetting();
+            setting.Parameter = param;
+            setting.Setting = @"C:\SomeDirectory\SomeFile.xel";
+
+            target.Settings = new List<TargetSetting>() { setting };
 
             string sessionDefinition = _xeUtility.GetCreateDdl(session);
 
