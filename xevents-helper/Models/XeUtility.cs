@@ -190,13 +190,13 @@ namespace xevents_helper.Models
 
             string targetSettingsClause;
 
-            targetSettingsClause = "SET";
+            targetSettingsClause = string.Format("{0}SET", GetIndentation(1));
 
             bool isFirst = true;
             string newSettingStatement;
             foreach (TargetSetting setting in targetSettings)
             {
-                newSettingStatement = string.Format("\r\n{0} = {1}", setting.Parameter.Name, FormatSettingData(setting));
+                newSettingStatement = string.Format("\r\n{0}{1} = {2}", GetIndentation(2), setting.Parameter.Name, FormatSettingData(setting));
 
                 if (isFirst)
                     isFirst = false;

@@ -158,7 +158,8 @@ namespace xevents_helper.Models
                 dataType == "guid" ||
                 dataType == "xml" ||
                 dataType == "ansi_string" ||
-                dataType == "unicode_string" ?
+                dataType == "unicode_string" ||
+                dataType == "unicode_string_ptr" ?
                 XeDataType.Character :
                 XeDataType.NonCharacter;
         }
