@@ -13,21 +13,25 @@ namespace xevents_helper.test
     public class DataRetrieval
     {
         private DataGatherer _dataGatherer;
+        private XeUtility _xeUtility;
         private string _testReleaseName;
         private Release _testRelease;
         private string _testSearchEventName;
         private string _testSearchEventNameMultiple;
         private string _testTargetName;
+        private string _testTargetMandatoryParamName;
         private string _testActionName;
 
         public DataRetrieval()
         {
             _dataGatherer = new DataGatherer();
+            _xeUtility = new XeUtility();
             _testReleaseName = "SQL 2012";
             _testRelease = new Release() { Name = _testReleaseName };
             _testSearchEventName = "sql_statement_completed";
             _testSearchEventNameMultiple = "sql";
             _testTargetName = "event_file";
+            _testTargetMandatoryParamName = "filename";
             _testActionName = "sql_text";
         }
 
@@ -167,6 +171,34 @@ namespace xevents_helper.test
             xevents_helper.Models.Action action = _dataGatherer.GetAction(_testRelease, _testActionName + "blah");
 
             Assert.IsNull(action);
+        }
+
+        [TestMethod]
+        public void TargetMandatoryParamFailure()
+        {
+            Target target = _dataGatherer.GetTarget(_testRelease, _testTargetName);
+
+            Assert.IsNotNull(target);
+
+            Assert.IsFalse(_xeUtility.AllMandatorySettingsDefined(target));
+        }
+
+        [TestMethod]
+        public void TargetMandatoryParamSuccess()
+        {
+            Target target = _dataGatherer.GetTarget(_testRelease, _testTargetName);
+
+            Assert.IsNotNull(target);
+
+            TargetParameter param = target.Parameters.Where(m => m.Name == _testTargetMandatoryParamName).First();
+
+            TargetSetting setting = new TargetSetting();
+            setting.Parameter = param;
+            setting.Setting = @"C:\SomeDirectory\SomeFile.xel";
+
+            target.Settings = new List<TargetSetting>() { setting };
+
+            Assert.IsTrue(_xeUtility.AllMandatorySettingsDefined(target));
         }
     }
 }
