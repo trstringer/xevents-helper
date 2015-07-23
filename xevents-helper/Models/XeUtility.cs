@@ -215,7 +215,7 @@ namespace xevents_helper.Models
                 string.Format("N'{0}'", targetSetting.Setting.ToString()) :
                 targetSetting.Setting.ToString();
         }
-        public bool allMandatorySettingsDefined(Target target)
+        public bool AllMandatorySettingsDefined(Target target)
         {
             bool paramDefined;
 
