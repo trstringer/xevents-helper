@@ -171,6 +171,9 @@ namespace xevents_helper.Models
             if (target == null)
                 return "";
 
+            if (!AllMandatorySettingsDefined(target))
+                throw new ArgumentException("The target has mandatory parameters that aren't specified");
+
             string addTargetClause;
 
             addTargetClause = string.Format("\r\nADD TARGET {0}.{1}", QuoteName(target.PackageName), QuoteName(target.Name));
