@@ -176,7 +176,7 @@ namespace xevents_helper.Models
 
             string addTargetClause;
 
-            addTargetClause = string.Format("\r\nADD TARGET {0}.{1}", QuoteName(target.PackageName), QuoteName(target.Name));
+            addTargetClause = string.Format("\r\nADD TARGET {0}.{1}", target.PackageName, target.Name);
             addTargetClause += "\r\n(\r\n";
             addTargetClause += GetTargetOptionsClause(target.Settings);
             addTargetClause += "\r\n)";
