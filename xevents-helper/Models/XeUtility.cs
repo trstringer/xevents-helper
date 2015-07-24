@@ -39,8 +39,19 @@ namespace xevents_helper.Models
                 }
             }
             if (session.Targets != null)
+            {
+                bool isFirstTarget = true;
+
                 foreach (Target target in session.Targets)
+                {
+                    if (isFirstTarget)
+                        isFirstTarget = false;
+                    else
+                        createEventSessionDdl += ",";
+                     
                     createEventSessionDdl += GetAddTargetClause(target);
+                }
+            }
 
             return createEventSessionDdl;
         }
@@ -177,9 +188,13 @@ namespace xevents_helper.Models
             string addTargetClause;
 
             addTargetClause = string.Format("\r\nADD TARGET {0}.{1}", target.PackageName, target.Name);
-            addTargetClause += "\r\n(\r\n";
-            addTargetClause += GetTargetOptionsClause(target.Settings);
-            addTargetClause += "\r\n)";
+
+            if (target.Settings != null && target.Settings.Count() > 0)
+            { 
+                addTargetClause += "\r\n(\r\n";
+                addTargetClause += GetTargetOptionsClause(target.Settings);
+                addTargetClause += "\r\n)";
+            }
 
             return addTargetClause;
         }
