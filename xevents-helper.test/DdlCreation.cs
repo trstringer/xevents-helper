@@ -39,7 +39,7 @@ namespace xevents_helper.test
 
             _targetName1 = "event_file";
             _targetMandatoryParamName1 = "filename";
-            _targetName2 = "";
+            _targetName2 = "histogram";
         }
 
         [TestMethod]
@@ -194,6 +194,37 @@ namespace xevents_helper.test
 
             Target target = _dataGatherer.GetTarget(_release, _targetName1);
             session.Targets = new List<Target>() { target };
+
+            TargetParameter param = target.Parameters.Where(m => m.Name == _targetMandatoryParamName1).First();
+
+            TargetSetting setting = new TargetSetting();
+            setting.Parameter = param;
+            setting.Setting = @"C:\SomeDirectory\SomeFile.xel";
+
+            target.Settings = new List<TargetSetting>() { setting };
+
+            string sessionDefinition = _xeUtility.GetCreateDdl(session);
+
+            Assert.IsFalse(string.IsNullOrWhiteSpace(sessionDefinition));
+
+            Debug.WriteLine(sessionDefinition);
+        }
+
+        [TestMethod]
+        public void SingleEventMultiTarget()
+        {
+            Session session = new Session();
+            session.Name = "Session3";
+            session.TargetRelease = _release;
+
+            List<Event> events = new List<Event>();
+            Event xeEvent = _dataGatherer.SearchEvents(_release, _eventName1, SearchOption.ByName).First();
+            events.Add(xeEvent);
+            session.Events = events;
+
+            Target target = _dataGatherer.GetTarget(_release, _targetName1);
+            Target target2 = _dataGatherer.GetTarget(_release, _targetName2);
+            session.Targets = new List<Target>() { target, target2 };
 
             TargetParameter param = target.Parameters.Where(m => m.Name == _targetMandatoryParamName1).First();
 
