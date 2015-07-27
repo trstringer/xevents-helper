@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -120,13 +121,16 @@
     <Compile Include="Models\DataGatherer.cs" />
     <Compile Include="Models\EventDataType.cs" />
     <Compile Include="Models\EventField.cs" />
+    <Compile Include="Models\EventRetentionMode.cs" />
     <Compile Include="Models\IAction.cs" />
     <Compile Include="Models\IEventData.cs" />
+    <Compile Include="Models\MemoryPartitionMode.cs" />
     <Compile Include="Models\Predicate.cs" />
     <Compile Include="Models\Release.cs" />
     <Compile Include="Models\SearchOption.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Session.cs" />
+    <Compile Include="Models\SessionOptions.cs" />
     <Compile Include="Models\Target.cs" />
     <Compile Include="Models\TargetParameter.cs" />
     <Compile Include="Models\TargetSetting.cs" />
