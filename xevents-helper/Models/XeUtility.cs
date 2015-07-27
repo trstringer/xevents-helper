@@ -52,6 +52,8 @@ namespace xevents_helper.Models
                     createEventSessionDdl += GetAddTargetClause(target);
                 }
             }
+            if (session.Options != null)
+                createEventSessionDdl += GetSessionOptionsClause(session.Options);
 
             return createEventSessionDdl;
         }
