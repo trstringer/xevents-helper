@@ -280,6 +280,108 @@ namespace xevents_helper.Models
             return true; 
         }
 
+        private string GetSessionOptionsClause(SessionOptions sessionOptions)
+        {
+            if (!AreAnySessionOptionsSet(sessionOptions))
+                return "";
+
+            string sessionOptionsDdl = "WITH\r\n(";
+
+            sessionOptionsDdl += ")";
+
+            return sessionOptionsDdl;
+        }
+        private bool AreAnySessionOptionsSet(SessionOptions sessionOptions)
+        {
+            if (sessionOptions == null)
+                return false;
+
+            return
+                sessionOptions.MaxMemory != null ||
+                sessionOptions.EventRetentionMode != EventRetentionMode.NotSpecified ||
+                sessionOptions.MaxDispatchLatency != null ||
+                sessionOptions.MaxEventSize != null ||
+                sessionOptions.MemoryPartitionMode != MemoryPartitionMode.NotSpecified ||
+                sessionOptions.TrackCausality != null ||
+                sessionOptions.StartWithInstance != null;
+        }
+        private string OptionStatements(SessionOptions sessionOptions)
+        {
+            bool isFirst = true;
+            string optionsStatements = "";
+
+            if (sessionOptions.MaxMemory != null)
+            {
+                if (isFirst)
+                    isFirst = false;
+                
+                optionsStatements += "\r\n";
+                optionsStatements += string.Format("{0}MAX_MEMORY = {1}", GetIndentation(1), sessionOptions.MaxMemory.Value);
+            }
+            if (sessionOptions.EventRetentionMode != EventRetentionMode.NotSpecified)
+            {
+                if (isFirst)
+                    isFirst = false;
+                else
+                    optionsStatements += ",";
+
+                optionsStatements += "\r\n";
+                optionsStatements += string.Format("{0}EVENT_RETENTION_MODE = {1}", GetIndentation(1), sessionOptions.EventRetentionMode.ToString());
+            }
+            if (sessionOptions.MaxDispatchLatency != null)
+            {
+                if (isFirst)
+                    isFirst = false;
+                else
+                    optionsStatements += ",";
+
+                optionsStatements += "\r\n";
+                optionsStatements += string.Format("{0}MAX_DISPATCH_LATENCY = {1}", GetIndentation(1), sessionOptions.MaxDispatchLatency.Value);
+            }
+            if (sessionOptions.MaxEventSize != null)
+            {
+                if (isFirst)
+                    isFirst = false;
+                else
+                    optionsStatements += ",";
+
+                optionsStatements += "\r\n";
+                optionsStatements += string.Format("{0}MAX_EVENT_SIZE = {1} KB", GetIndentation(1), sessionOptions.MaxEventSize.Value);
+            }
+            if (sessionOptions.MemoryPartitionMode != MemoryPartitionMode.NotSpecified)
+            {
+                if (isFirst)
+                    isFirst = false;
+                else
+                    optionsStatements += ",";
+
+                optionsStatements += "\r\n";
+                optionsStatements += string.Format("{0}MEMORY_PARTITION_MODE = {1}", GetIndentation(1), sessionOptions.MemoryPartitionMode.ToString());
+            }
+            if (sessionOptions.TrackCausality != null)
+            {
+                if (isFirst)
+                    isFirst = false;
+                else
+                    optionsStatements += ",";
+
+                optionsStatements += "\r\n";
+                optionsStatements += string.Format("{0}TRACK_CAUSALITY = {1}", GetIndentation(1), sessionOptions.TrackCausality.ToString());
+            }
+            if (sessionOptions.StartWithInstance != null)
+            {
+                if (isFirst)
+                    isFirst = false;
+                else
+                    optionsStatements += ",";
+
+                optionsStatements += "\r\n";
+                optionsStatements += string.Format("{0}STARTUP_STATE = {1}", GetIndentation(1), sessionOptions.StartWithInstance.ToString());
+            }
+
+            return optionsStatements;
+        }
+
         private string QuoteName(string name)
         {
             return string.Format("[{0}]", name);
