@@ -11,5 +11,6 @@ namespace xevents_helper.Models
         public IEnumerable<Event> Events { get; set; }
         public IEnumerable<Target> Targets { get; set; }
         public Release TargetRelease { get; set; }
+        public SessionOptions Options { get; set; }
     }
 }
