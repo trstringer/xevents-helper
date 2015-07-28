@@ -368,7 +368,7 @@ namespace xevents_helper.Models
                     optionsStatements += ",";
 
                 optionsStatements += "\r\n";
-                optionsStatements += string.Format("{0}TRACK_CAUSALITY = {1}", GetIndentation(1), sessionOptions.TrackCausality.ToString());
+                optionsStatements += string.Format("{0}TRACK_CAUSALITY = {1}", GetIndentation(1), sessionOptions.TrackCausality.Value ? "ON" : "OFF");
             }
             if (sessionOptions.StartWithInstance != null)
             {
@@ -378,7 +378,7 @@ namespace xevents_helper.Models
                     optionsStatements += ",";
 
                 optionsStatements += "\r\n";
-                optionsStatements += string.Format("{0}STARTUP_STATE = {1}", GetIndentation(1), sessionOptions.StartWithInstance.ToString());
+                optionsStatements += string.Format("{0}STARTUP_STATE = {1}", GetIndentation(1), sessionOptions.StartWithInstance.Value ? "ON" : "OFF");
             }
 
             return optionsStatements;

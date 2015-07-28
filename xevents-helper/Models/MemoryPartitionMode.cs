@@ -8,8 +8,8 @@ namespace xevents_helper.Models
     public enum MemoryPartitionMode
     {
         NotSpecified,
-        None,
-        PerNode,
-        PerCpu
+        NONE,
+        PER_NODE,
+        PER_CPU
     }
 }

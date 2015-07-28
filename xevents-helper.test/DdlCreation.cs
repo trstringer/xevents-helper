@@ -258,7 +258,7 @@ namespace xevents_helper.test
             session.Options = new SessionOptions();
             session.Options.TrackCausality = true;
             session.Options.StartWithInstance = true;
-            session.Options.MemoryPartitionMode = MemoryPartitionMode.PerNode;
+            session.Options.MemoryPartitionMode = MemoryPartitionMode.PER_NODE;
 
             string sessionDefinition = _xeUtility.GetCreateDdl(session);
 
