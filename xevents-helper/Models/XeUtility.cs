@@ -287,9 +287,9 @@ namespace xevents_helper.Models
             if (!AreAnySessionOptionsSet(sessionOptions))
                 return "";
 
-            string sessionOptionsDdl = "WITH\r\n(";
-
-            sessionOptionsDdl += ")";
+            string sessionOptionsDdl = "\r\nWITH\r\n(";
+            sessionOptionsDdl += OptionStatements(sessionOptions);
+            sessionOptionsDdl += "\r\n)";
 
             return sessionOptionsDdl;
         }
