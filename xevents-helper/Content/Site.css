@@ -48,10 +48,6 @@ textarea {
     border: none;
 }
 
-.event-search table {
-    width: 50%;
-}
-
 .event-search td {
     cursor: pointer;
 }
