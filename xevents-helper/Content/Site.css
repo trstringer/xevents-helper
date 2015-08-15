@@ -47,3 +47,7 @@ textarea {
 .borderless tbody tr td, .borderless tbody tr th, .borderless thead tr th {
     border: none;
 }
+
+.event-search table {
+    width: 50%;
+}
