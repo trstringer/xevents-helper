@@ -1,7 +1,19 @@
 ﻿function setEvents () {
     $("#eventSearchResults td").click(function () {
         setSelectedEventSearchItem($(this));
+
+        // pull back the event description for the selected 
+        // event
+        //
+        updateEventDescription("You selected the event " + $(this).text().trim());
     });
+}
+
+function updateEventDescription(eventDescription) {
+    $("#eventDescription").text(eventDescription);
+}
+function clearEventDescription() {
+    $("#eventDescription").text();
 }
 
 function setSelectedEventSearchItem(item) {
