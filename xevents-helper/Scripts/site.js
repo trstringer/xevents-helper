@@ -1,4 +1,18 @@
-﻿function setEvents () {
+﻿function setEvents() {
+    $("#eventSearchInput").keyup(function () {
+        var searchString = $(this).val();
+
+        if (isReleaseSpecified() && searchString.length >= 3) {
+            // search for the event(s)
+            //
+            searchEvents(getReleaseName(), searchString);
+        }
+        else {
+            // clear any search results
+            //
+        }
+    });
+
     $("#eventSearchResults td").click(function () {
         setSelectedEventSearchItem($(this));
 
@@ -9,11 +23,41 @@
     });
 }
 
+function getReleaseName() {
+    var selectedIndex = $("#releaseList option:selected").index();
+    
+    if (selectedIndex === 0)
+        return null;
+    else
+        return $("#releaseList option:selected").text();
+}
+function isReleaseSpecified() {
+    return (getReleaseName() != null);
+}
+
 function searchEvents(releaseName, searchString) {
     $.ajax({
-        url: "../searchevents/" + releaseName + "/" + searchString,
-        datatype: "json"
+        url: "../searchevents/" + releaseName + "/" + searchString + "/false",
+        datatype: "json",
+        success: function (data) {
+            populateEventSearchResults(data);
+        }
     });
+}
+function populateEventSearchResults(events) {
+    clearEventSearchResults();
+
+    var i;
+    for (i = 0; i < events.length; i++) {
+        addEventSearchResult(events[i].Name);
+    }
+}
+function clearEventSearchResults() {
+    $("#eventSearchResults tr").remove();
+}
+function addEventSearchResult(eventName) {
+    $("#eventSearchResults").append(
+        "<tr><td>" + eventName + "</td></tr>");
 }
 
 function updateEventDescription(eventDescription) {
