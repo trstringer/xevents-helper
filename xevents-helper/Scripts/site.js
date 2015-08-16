@@ -9,6 +9,13 @@
     });
 }
 
+function searchEvents(releaseName, searchString) {
+    $.ajax({
+        url: "../searchevents/" + releaseName + "/" + searchString,
+        datatype: "json"
+    });
+}
+
 function updateEventDescription(eventDescription) {
     $("#eventDescription").text(eventDescription);
 }
