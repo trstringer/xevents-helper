@@ -19,7 +19,7 @@
         // pull back the event description for the selected 
         // event
         //
-        updateEventDescription("You selected the event " + $(this).text().trim());
+        retrieveEventDescription($(this).text().trim());
     });
 }
 
@@ -50,6 +50,18 @@ function clearEventSearchResults() {
 function addEventSearchResult(eventName) {
     $("#eventSearchResults").append(
         "<tr><td>" + eventName + "</td></tr>");
+}
+function retrieveEventDescription(eventName) {
+    $.ajax({
+        url: "../descsearch/" + getReleaseName() + "/" + eventName,
+        datatype: "json",
+        success: function (data) {
+            populateEventDescription(data.eventDescription);
+        }
+    });
+}
+function populateEventDescription(eventDescription) {
+    $("#eventDescription").text(eventDescription);
 }
 
 function updateEventDescription(eventDescription) {
