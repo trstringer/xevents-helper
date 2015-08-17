@@ -18,8 +18,7 @@
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
-select,
-textarea {
+select {
     max-width: 280px;
 }
 
@@ -42,4 +41,16 @@ textarea {
     border-color: lightgrey;
     border-radius: 10px;
     padding: 10px;
+}
+
+.borderless tbody tr td, .borderless tbody tr th, .borderless thead tr th {
+    border: none;
+}
+
+.event-search table {
+    margin-top: 10px;
+}
+
+.event-search td {
+    cursor: pointer;
 }

@@ -1,128 +1,105 @@
-﻿function fillEventsListBox(data) {
-    $("#EventNameList").find("option").remove();
-    $("#EventSessionDescription").text("");
-
-    var i;
-    for (i = 0; i < data.length; i++) {
-        $("#EventNameList")
-            .append($("<option></option>")
-            .attr("value", data[i].Name)
-            .text(data[i].Name));
-    }
+﻿function setInitialState() {
+    $("#addEvent").hide();
 }
+function setEvents() {
+    $("#eventSearchInput").keyup(function () {
+        var searchString = $(this).val();
 
-function resetEventSearch() {
-    $("#SearchInput").val("");
-    $("#EventNameList").scrollTop(0);
-    clearAddEventButton();
-    $(".event-tile-container").remove();
-}
-
-function getAllEventsForRelease(releaseName) {
-    var releaseEnc = encodeURIComponent(releaseName);
-
-    var events = [];
-
-    $.ajax({
-        url: "../relevents/" + releaseEnc,
-        async: false,
-        datatype: "json",
-        success: function (data) {
-            events = data;
-        }
-    });
-
-    return events;
-}
-
-function getSessionDefinition(sessionName) {
-    var createSessionDefinition = "";
-
-    var session = {
-        Name: sessionName
-    };
-
-    $.ajax({
-        url: "../getcreatesession",
-        async: false,
-        datatype: "json",
-        contentType: "application/json",
-        type: "POST",
-        data: JSON.stringify({session: session}),
-        success: function (data) {
-            createSessionDefinition = data;
-        }
-    });
-
-    return createSessionDefinition;
-}
-
-function setAddEventButtonText(eventName) {
-    $("#AddEvent").text("Add " + eventName);
-    $("#AddEvent").show();
-}
-function clearAddEventButton() {
-    $("#AddEvent").text("");
-    $("#AddEvent").hide();
-}
-
-function getSelectedEvent() {
-    return $("#EventNameList").val();
-}
-
-function addEvent(eventName) {
-    $("#SelectedEvents").append(generateEventTile(eventName));
-}
-function generateEventTile(eventName) {
-    var tileMarkup =
-        "<div class='col-md-4 center-block col-centered event-tile-container'>" +
-            "<div class='event-tile'>" +
-                "<p>" + eventName + "</p>" +
-            "</div>" +
-        "</div>";
-
-    return tileMarkup;
-}
-
-$(document).ready(function () {
-
-    $("#ReleaseNameList").change(function () {
-        fillEventsListBox(getAllEventsForRelease($(this).val()));
-        resetEventSearch();
-    });
-
-    $("#EventNameList").change(function () {
-        var releaseEnc = encodeURIComponent($("#ReleaseNameList").val());
-        var eventName = $("#EventNameList").val();
-        var eventNameEnc = encodeURIComponent(eventName);
-
-        $.getJSON("../descsearch/" + releaseEnc + "/" + eventNameEnc, function (data) {
-            $("#EventSessionDescription").text(data.eventDescription);
-            setAddEventButtonText(eventName);
-        });
-    });
-
-    $("#SearchInput").keyup(function () {
-        var searchStringEnc = encodeURIComponent($(this).val().trim());
-        var release = $("#ReleaseNameList").val();
-        var releaseEnc = encodeURIComponent(release);
-
-        if ($(this).val().trim().length == 0) {
-            fillEventsListBox(getAllEventsForRelease(release));
+        if (searchString.length >= 3) {
+            // search for the event(s)
+            //
+            searchEvents(getReleaseName(), searchString);
         }
         else {
-            $.getJSON("../searchevents/" + releaseEnc + "/" + searchStringEnc + "/false", function (data) {
-                fillEventsListBox(data);
-            });
+            // clear any search results
+            //
+            resetEventSearch(false);
         }
     });
 
-    $("#SessionName").keyup(function () {
-        $("#CreateSessionDdl").val(getSessionDefinition($(this).val()));
-    });
+    $("#eventSearchResults").on("click", "td", function () {
+        setSelectedEventSearchItem($(this));
 
-    $("#AddEvent").click(function () {
-        addEvent(getSelectedEvent());
+        // pull back the event description for the selected 
+        // event
+        //
+        retrieveEventDescription($(this).text().trim());
     });
+}
 
+function getReleaseName() {
+    return $("#releaseList option:selected").text();
+}
+
+function searchEvents(releaseName, searchString) {
+    $.ajax({
+        url: "../searchevents/" + releaseName + "/" + searchString + "/false",
+        datatype: "json",
+        success: function (data) {
+            populateEventSearchResults(data);
+        }
+    });
+}
+function populateEventSearchResults(events) {
+    clearEventSearchResults();
+    hideAddEventButton();
+    clearEventDescription();
+
+    var i;
+    for (i = 0; i < events.length; i++) {
+        addEventSearchResult(events[i].Name);
+    }
+}
+function clearEventSearchResults() {
+    $("#eventSearchResults tr").remove();
+}
+function clearEventSearchInput() {
+    $("#eventSearchInput").val("");
+}
+function addEventSearchResult(eventName) {
+    $("#eventSearchResults").append(
+        "<tr><td>" + eventName + "</td></tr>");
+}
+function showAddEventButton() {
+    $("#addEvent").show();
+}
+function hideAddEventButton() {
+    $("#addEvent").hide();
+}
+function resetEventSearch(removeSearchString) {
+    if (removeSearchString === true)
+        clearEventSearchInput();
+    clearEventSearchResults();
+    clearEventDescription();
+    hideAddEventButton();
+}
+
+function retrieveEventDescription(eventName) {
+    $.ajax({
+        url: "../descsearch/" + getReleaseName() + "/" + eventName,
+        datatype: "json",
+        success: function (data) {
+            populateEventDescription(data.eventDescription);
+        }
+    });
+}
+function populateEventDescription(eventDescription) {
+    $("#eventDescription").text(eventDescription);
+    showAddEventButton();
+}
+function clearEventDescription() {
+    $("#eventDescription").text("");
+}
+
+function setSelectedEventSearchItem(item) {
+    $("#eventSearchResults td").removeClass("active success");
+    item.addClass("success");
+}
+function clearEventSearchSelection() {
+    $("#eventSearchResults td").removeClass("active success");
+}
+
+$(function () {
+    setInitialState();
+    setEvents();
 });
