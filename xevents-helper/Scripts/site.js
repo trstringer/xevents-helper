@@ -13,7 +13,7 @@
         }
     });
 
-    $("#eventSearchResults td").click(function () {
+    $("#eventSearchResults").on("click", "td", function () {
         setSelectedEventSearchItem($(this));
 
         // pull back the event description for the selected 
