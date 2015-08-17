@@ -11,10 +11,7 @@
             <input type="text" class="form-control" placeholder="Session Name" />
         </div>
         <div class="form-group">
-            <select class="form-control" id="releaseList">
-                <option>Select your SQL version...</option>
-                <option>SQL 2012</option>
-            </select>
+            @Html.DropDownListFor(m => m.SelectedRelease, Model.Releases, new { @class="form-control", id = "releaseList" })
         </div>
         <div class="form-group">
             <input id="eventSearchInput" type="text" class="form-control" placeholder="Event search" />

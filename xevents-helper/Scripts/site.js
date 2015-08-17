@@ -2,7 +2,7 @@
     $("#eventSearchInput").keyup(function () {
         var searchString = $(this).val();
 
-        if (isReleaseSpecified() && searchString.length >= 3) {
+        if (searchString.length >= 3) {
             // search for the event(s)
             //
             searchEvents(getReleaseName(), searchString);
@@ -24,15 +24,7 @@
 }
 
 function getReleaseName() {
-    var selectedIndex = $("#releaseList option:selected").index();
-    
-    if (selectedIndex === 0)
-        return null;
-    else
-        return $("#releaseList option:selected").text();
-}
-function isReleaseSpecified() {
-    return (getReleaseName() != null);
+    return $("#releaseList option:selected").text();
 }
 
 function searchEvents(releaseName, searchString) {
