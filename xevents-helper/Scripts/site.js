@@ -1,4 +1,7 @@
-﻿function setEvents() {
+﻿function setInitialState() {
+    $("#addEvent").hide();
+}
+function setEvents() {
     $("#eventSearchInput").keyup(function () {
         var searchString = $(this).val();
 
@@ -10,6 +13,7 @@
         else {
             // clear any search results
             //
+            resetEventSearch(false);
         }
     });
 
@@ -38,6 +42,8 @@ function searchEvents(releaseName, searchString) {
 }
 function populateEventSearchResults(events) {
     clearEventSearchResults();
+    hideAddEventButton();
+    clearEventDescription();
 
     var i;
     for (i = 0; i < events.length; i++) {
@@ -47,10 +53,27 @@ function populateEventSearchResults(events) {
 function clearEventSearchResults() {
     $("#eventSearchResults tr").remove();
 }
+function clearEventSearchInput() {
+    $("#eventSearchInput").val("");
+}
 function addEventSearchResult(eventName) {
     $("#eventSearchResults").append(
         "<tr><td>" + eventName + "</td></tr>");
 }
+function showAddEventButton() {
+    $("#addEvent").show();
+}
+function hideAddEventButton() {
+    $("#addEvent").hide();
+}
+function resetEventSearch(removeSearchString) {
+    if (removeSearchString === true)
+        clearEventSearchInput();
+    clearEventSearchResults();
+    clearEventDescription();
+    hideAddEventButton();
+}
+
 function retrieveEventDescription(eventName) {
     $.ajax({
         url: "../descsearch/" + getReleaseName() + "/" + eventName,
@@ -62,13 +85,10 @@ function retrieveEventDescription(eventName) {
 }
 function populateEventDescription(eventDescription) {
     $("#eventDescription").text(eventDescription);
-}
-
-function updateEventDescription(eventDescription) {
-    $("#eventDescription").text(eventDescription);
+    showAddEventButton();
 }
 function clearEventDescription() {
-    $("#eventDescription").text();
+    $("#eventDescription").text("");
 }
 
 function setSelectedEventSearchItem(item) {
@@ -79,6 +99,7 @@ function clearEventSearchSelection() {
     $("#eventSearchResults td").removeClass("active success");
 }
 
-$(function() {
+$(function () {
+    setInitialState();
     setEvents();
 });
