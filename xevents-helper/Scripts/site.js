@@ -17,7 +17,7 @@ function setEvents() {
         }
     });
 
-    $("#eventSearchResults").on("click", "td", function () {
+    $("#eventSearchResults").on("click", "tr", function () {
         setSelectedEventSearchItem($(this));
 
         // pull back the event description for the selected 
@@ -59,6 +59,8 @@ function clearEventSearchInput() {
 function addEventSearchResult(eventName) {
     $("#eventSearchResults").append(
         '<tr><td>' + eventName + '</td><td><span class="glyphicon glyphicon-plus"</td></tr>');
+
+    $("#eventSearchResults span").hide();
 }
 function showAddEventButton() {
     $("#addEvent").show();
@@ -92,8 +94,10 @@ function clearEventDescription() {
 }
 
 function setSelectedEventSearchItem(item) {
-    $("#eventSearchResults td").removeClass("active success");
+    $("#eventSearchResults tr").removeClass("active success");
+    $("#eventSearchResults span").hide();
     item.addClass("success");
+    item.find("span").show();
 }
 function clearEventSearchSelection() {
     $("#eventSearchResults td").removeClass("active success");
