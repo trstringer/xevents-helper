@@ -1,5 +1,5 @@
 ﻿function setInitialState() {
-    $("#addEvent").hide();
+
 }
 function setEvents() {
     $("#eventSearchInput").keyup(function () {
@@ -42,7 +42,6 @@ function searchEvents(releaseName, searchString) {
 }
 function populateEventSearchResults(events) {
     clearEventSearchResults();
-    hideAddEventButton();
     clearEventDescription();
 
     var i;
@@ -62,18 +61,11 @@ function addEventSearchResult(eventName) {
 
     $("#eventSearchResults span").hide();
 }
-function showAddEventButton() {
-    $("#addEvent").show();
-}
-function hideAddEventButton() {
-    $("#addEvent").hide();
-}
 function resetEventSearch(removeSearchString) {
     if (removeSearchString === true)
         clearEventSearchInput();
     clearEventSearchResults();
     clearEventDescription();
-    hideAddEventButton();
 }
 
 function retrieveEventDescription(eventName) {
@@ -87,7 +79,6 @@ function retrieveEventDescription(eventName) {
 }
 function populateEventDescription(eventDescription) {
     $("#eventDescription").text(eventDescription);
-    showAddEventButton();
 }
 function clearEventDescription() {
     $("#eventDescription").text("");
