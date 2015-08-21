@@ -101,6 +101,15 @@ function clearEventSearchSelection() {
 function addEventSelection(eventName) {
     $("#eventSelections").append(
         '<div><p>' + eventName + '</p></div>');
+
+    addActionSelectionToEventSelection(eventName);
+}
+function addActionSelectionToEventSelection(eventName) {
+    var $eventSelection = $("#eventSelections").has("p:contains('" + eventName + "')");
+    if ($eventSelection.length === 0)
+        return;
+
+
 }
 
 $(function () {
