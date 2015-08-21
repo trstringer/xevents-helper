@@ -57,7 +57,7 @@ function clearEventSearchInput() {
 }
 function addEventSearchResult(eventName) {
     $("#eventSearchResults").append(
-        '<tr><td>' + eventName + '</td><td><span class="glyphicon glyphicon-plus"</td></tr>');
+        '<tr><td>' + eventName + '</td><td><span data-eventname="' + eventName + '" class="glyphicon glyphicon-plus"></span></td></tr>');
 
     $("#eventSearchResults span").hide();
 }
