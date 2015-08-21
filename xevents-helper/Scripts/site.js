@@ -27,7 +27,7 @@ function setEvents() {
     });
 
     $("#eventSearchResults").on("click", "span", function () {
-        alert($(this).attr("data-eventname"));
+        addEventSelection($(this).attr("data-eventname"));
     });
 }
 
@@ -96,6 +96,11 @@ function setSelectedEventSearchItem(item) {
 }
 function clearEventSearchSelection() {
     $("#eventSearchResults td").removeClass("active success");
+}
+
+function addEventSelection(eventName) {
+    $("#eventSelections").append(
+        '<div><p>' + eventName + '</p></div>');
 }
 
 $(function () {
