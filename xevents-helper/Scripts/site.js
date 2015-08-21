@@ -26,7 +26,7 @@ function setEvents() {
         retrieveEventDescription($(this).text().trim());
     });
 
-    $(".event-add-clicker").on("click", function () {
+    $("#eventSearchResults").on("click", "span", function () {
         alert($(this).attr("data-eventname"));
     });
 }
@@ -61,7 +61,7 @@ function clearEventSearchInput() {
 }
 function addEventSearchResult(eventName) {
     $("#eventSearchResults").append(
-        '<tr><td>' + eventName + '</td><td data-eventname="' + eventName + '" class="event-add-clicker"><span class="glyphicon glyphicon-plus"></span></td></tr>');
+        '<tr><td>' + eventName + '</td><td><span data-eventname="' + eventName + '" class="event-add-clicker glyphicon glyphicon-plus"></span></td></tr>');
 
     $("#eventSearchResults span").hide();
 }
