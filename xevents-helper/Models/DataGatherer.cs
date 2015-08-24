@@ -222,6 +222,10 @@ namespace xevents_helper.Models
                     DataType = GetDataType(row["type_name"].ToString())
                 };
         }
+        public IEnumerable<Action> GetAllActions(string releaseName)
+        {
+            return GetAllActions(new Release() { Name = releaseName });
+        }
         public Action GetAction(Release release, string actionName)
         {
             IEnumerable<Action> actions = GetAllActions(release);

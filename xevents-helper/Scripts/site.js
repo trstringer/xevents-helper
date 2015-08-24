@@ -113,7 +113,18 @@ function addActionSelectionToEventSelection(eventName) {
     if ($eventSelection.length === 0)
         return;
 
-
+    retrieveAllActions(getReleaseName(), $eventSelection);
+}
+function retrieveAllActions(releaseName, $eventSearchResultContainer) {
+    $.ajax({
+        url: "../actions/" + releaseName,
+        datatype: "json",
+        success: function (data) {
+            $.each(data, function (index, value) { 
+                $eventSearchResultContainer.append("<p>" + value.Name + "</p>");
+            });
+        }
+    });
 }
 
 $(function () {

@@ -70,6 +70,13 @@ namespace xevents_helper.Controllers
             return Json(events, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult GetAllActionsForRelease(string releaseName)
+        {
+            DataGatherer dataGatherer = new DataGatherer();
+            IEnumerable<xevents_helper.Models.Action> actions = dataGatherer.GetAllActions(releaseName);
+            return Json(actions, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpPost]
         public JsonResult GetCreateSessionDdl(Session session)
         {
