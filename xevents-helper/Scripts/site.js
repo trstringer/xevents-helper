@@ -41,7 +41,7 @@ function getReleaseName() {
 
 function searchEvents(releaseName, searchString) {
     $.ajax({
-        url: "../searchevents/" + releaseName + "/" + searchString + "/false",
+        url: "searchevents/" + releaseName + "/" + searchString + "/false",
         datatype: "json",
         success: function (data) {
             populateEventSearchResults(data);

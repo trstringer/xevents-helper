@@ -1,4 +1,6 @@
-﻿using System;
+﻿#define LOCAL
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,7 +16,7 @@ namespace xevents_helper.Models
 
         public DataGatherer()
         {
-#if DEBUG
+#if LOCAL
             _connectionString = ConfigurationManager.ConnectionStrings["local_db"].ConnectionString;
 #else
             _connectionString = ConfigurationManager.ConnectionStrings["cloud_db"].ConnectionString;
