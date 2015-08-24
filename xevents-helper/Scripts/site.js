@@ -17,6 +17,10 @@ function setEvents() {
         }
     });
 
+    $("#releaseList").change(function () {
+        resetEventSearch(true);
+    });
+
     $("#eventSearchResults").on("click", "tr", function () {
         setSelectedEventSearchItem($(this));
 
