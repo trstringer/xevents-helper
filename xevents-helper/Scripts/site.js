@@ -121,6 +121,7 @@ function retrieveAllActions(releaseName, $eventSearchResultContainer) {
         datatype: "json",
         success: function (data) {
             $eventSearchResultContainer.append('<select class="form-control"></select>');
+            $eventSearchResultContainer.find("select").append("<option>select actions to add</option>");
             $.each(data, function (index, value) { 
                 $eventSearchResultContainer.find("select").append("<option>" + value.Name + "</option>");
             });
