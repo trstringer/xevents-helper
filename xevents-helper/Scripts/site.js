@@ -120,7 +120,7 @@ function retrieveAllActions(releaseName, $eventSearchResultContainer) {
         url: "../actions/" + releaseName,
         datatype: "json",
         success: function (data) {
-            $eventSearchResultContainer.append('<select class="form-control"></select><span class="glyphicon glyphicon-plus"></span>');
+            $eventSearchResultContainer.append('<select class="form-control"></select>');
             $.each(data, function (index, value) { 
                 $eventSearchResultContainer.find("select").append("<option>" + value.Name + "</option>");
             });
