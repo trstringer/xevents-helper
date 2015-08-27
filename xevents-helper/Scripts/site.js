@@ -33,6 +33,18 @@ function setEvents() {
     $("#eventSearchResults").on("click", "span", function () {
         addEventSelection($(this).attr("data-eventname"));
     });
+
+    $("#eventSelections").on("change", "div select.action-selector", function () {
+        var selectedIndex = $(this).find("option:selected").index();
+
+        // no need to take action if the user selects the first option
+        //
+        if (selectedIndex === 0)
+            return;
+
+        var selectedOption = $(this).find("option:selected").text();
+        alert(selectedOption);
+    });
 }
 
 function getReleaseName() {
@@ -120,7 +132,7 @@ function retrieveAllActions(releaseName, $eventSearchResultContainer) {
         url: "../actions/" + releaseName,
         datatype: "json",
         success: function (data) {
-            $eventSearchResultContainer.append('<select class="form-control"></select>');
+            $eventSearchResultContainer.append('<select class="form-control action-selector"></select>');
             $eventSearchResultContainer.find("select").append("<option>select actions to add</option>");
             $.each(data, function (index, value) { 
                 $eventSearchResultContainer.find("select").append("<option>" + value.Name + "</option>");
