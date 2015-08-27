@@ -37,6 +37,10 @@ function setEvents() {
     $("#eventSelections").on("change", "div select.action-selector", function () {
         handleActionSelection($(this).find("option:selected"));
     });
+
+    $("#eventSelections").on("click", "tr.action-selection", function () {
+        setSelectedAction($(this));
+    });
 }
 
 function getReleaseName() {
@@ -143,7 +147,11 @@ function handleActionSelection($selectedOption) {
     if ($selectedOption.index() === 0)
         return;
         
-    $selectedOption.parents("div.eventSelection").find("table").append("<tr><td>" + $selectedOption.text() + '</td><td><span class="glyphicon glyphicon-remove"></span></td></tr>');
+    $selectedOption.parents("div.eventSelection").find("table").append('<tr class="action-selection"><td>' + $selectedOption.text() + '</td><td><span class="glyphicon glyphicon-remove"></span></td></tr>');
+}
+function setSelectedAction($selectedRow) {
+    $("#eventSelections tr.action-selection").removeClass("active danger");
+    $selectedRow.addClass("danger");
 }
 
 $(function () {

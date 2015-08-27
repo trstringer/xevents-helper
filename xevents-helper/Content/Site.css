@@ -51,6 +51,6 @@ select {
     margin-top: 10px;
 }
 
-.event-search td {
+.event-search td, .action-selection {
     cursor: pointer;
 }
