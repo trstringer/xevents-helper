@@ -35,15 +35,7 @@ function setEvents() {
     });
 
     $("#eventSelections").on("change", "div select.action-selector", function () {
-        var selectedIndex = $(this).find("option:selected").index();
-
-        // no need to take action if the user selects the first option
-        //
-        if (selectedIndex === 0)
-            return;
-
-        var selectedOption = $(this).find("option:selected").text();
-        alert(selectedOption);
+        handleActionSelection($(this).find("option:selected"));
     });
 }
 
@@ -116,7 +108,7 @@ function clearEventSearchSelection() {
 
 function addEventSelection(eventName) {
     $("#eventSelections").append(
-        '<div id="' + eventName + '"><p>' + eventName + '</p></div>');
+        '<div id="' + eventName + '" class="eventSelection"><p>' + eventName + '</p></div>');
 
     addActionSelectionToEventSelection(eventName);
 }
@@ -137,8 +129,21 @@ function retrieveAllActions(releaseName, $eventSearchResultContainer) {
             $.each(data, function (index, value) { 
                 $eventSearchResultContainer.find("select").append("<option>" + value.Name + "</option>");
             });
+
+            // append the action view table to the containing div
+            //
+            $eventSearchResultContainer.append("<table></table>");
         }
     });
+}
+function handleActionSelection($selectedOption) {
+    // no need to handle the action selection if the user selected
+    // the first default selection
+    //
+    if ($selectedOption.index() === 0)
+        return;
+        
+    $selectedOption.parents("div.eventSelection").find("table").append("<tr><td>" + $selectedOption.text() + "</td></tr>");
 }
 
 $(function () {
