@@ -132,7 +132,7 @@ function retrieveAllActions(releaseName, $eventSearchResultContainer) {
 
             // append the action view table to the containing div
             //
-            $eventSearchResultContainer.append("<table></table>");
+            $eventSearchResultContainer.append('<div class="col-md-6"><table class="table table-hover table-condensed borderless"></table></div>');
         }
     });
 }
@@ -143,7 +143,7 @@ function handleActionSelection($selectedOption) {
     if ($selectedOption.index() === 0)
         return;
         
-    $selectedOption.parents("div.eventSelection").find("table").append("<tr><td>" + $selectedOption.text() + "</td></tr>");
+    $selectedOption.parents("div.eventSelection").find("table").append("<tr><td>" + $selectedOption.text() + '</td><td><span class="glyphicon glyphicon-remove"></span></td></tr>');
 }
 
 $(function () {
