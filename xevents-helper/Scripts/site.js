@@ -147,7 +147,14 @@ function handleActionSelection($selectedOption) {
     if ($selectedOption.index() === 0)
         return;
         
-    $selectedOption.parents("div.eventSelection").find("table").append('<tr class="action-selection"><td>' + $selectedOption.text() + '</td><td><span class="glyphicon glyphicon-remove"></span></td></tr>');
+    $selectedOption
+        .parents("div.eventSelection")
+        .find("table")
+        .append('<tr class="action-selection"><td>'
+            + $selectedOption.text()
+            + '</td><td><span class="glyphicon glyphicon-remove"></span></td></tr>');
+
+    $selectedOption.parent().find('option:contains(' + $selectedOption.text() + ')').remove();
 }
 function setSelectedAction($selectedRow) {
     $("#eventSelections tr.action-selection").removeClass("active danger");
